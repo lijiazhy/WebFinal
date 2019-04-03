@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Staem</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href = "./home.component.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <link href="../../assets/images/logo.ico" rel="icon" type="image/x-icon">
+
+    <style>
+      #log {
+        display: none; 
+        width: 400px; 
+        height: 400px; 
+        padding: 30px 40px; 
+        background-color: #F3F5F6; 
+        position: fixed; top: 70px;; 
+        right: 30px;
+        }
+    </style>
+
+    <script>
+      // var count = 0;
+    function showPic1(pic){
+    var r = document.getElementById("1");
+    // if(count > 0){
+    //   r.removeChild(r.lastChild);
+    //   count--;
+    // }
+    // var cell = document.createElement("td");
+    // cell.setAttribute("colspan","2");
+    // cell.setAttribute("rowspan","3");
+    r.innerHTML='<p>Enjoy the power to create and control people in a virtual world where there are no rules.Express your creativity as you customize your Sims’ appearances and personalities, and build them the perfect homes. Develop your Sims’ relationships, pursue careers, and explore vibrant new worlds.</p><img src="thesims4.png" height="200px" width="350px">';
+    // r.appendChild(cell);
+    // count++;
+    r.style.background = "black";
+  }
+  function showPic2(pic){
+    var r = document.getElementById("1");
+    r.innerHTML='<p>The Monster Hunter (モンスターハンター Monsutā Hantā) franchise is a series of fantasy-themed action role-playing video games that started with the game Monster Hunter for PlayStation 2, released in 2004. Titles have been released across a variety of platforms, including personal computer, home console, portable consoles, and mobile devices. The series is developed and published by Capcom.</p><img src="monsterhunter1.jpg" height="200px" width="350px">';
+  }
+  function showPic3(pic){
+    var r = document.getElementById("1");
+    r.innerHTML='<p>For the first time in the series, there are two main protagonists: Kratos, the former Greek God of War who remains as the only playable character, and his young son Atreus; at times, the player may passively control him. Following the death of Kratos" second wife and Atreus" mother, they journey to fulfill her promise to spread her ashes at the highest peak of the nine realms. Kratos keeps his troubled past a secret from Atreus, who is unaware of his divine nature. Along their journey, they encounter monsters and gods of the Norse world.</p><img src="godofwar1.png" height="200px" width="350px">';
+  }
+  function showPic4(pic){
+    var r = document.getElementById("1");
+    r.innerHTML='<p>The player controls Leon S Kennedy and Claire Redfield, who must escape Raccoon City after its citizens are transformed into zombies by a biological weapon two months after the events of the original Resident Evil. The gameplay focuses on exploration, puzzles, and combat; the main difference from its predecessor are the branching paths, with each player character having unique storylines and obstacles.</p><img src="resident1.png" height="200px" width="350px">';
+  }
+  function showPic5(pic){
+    var r = document.getElementById("1");
+    r.innerHTML='<p>The gameplay will feature the return of Dante and Nero as playable characters, along with a new character,named "V".The gameplay is similar to the other titles in the Devil May Cry series, focusing on fast-paced "stylish action". The player fights off hordes of demons with a variety of attacks and weapons and receives a style-rating in combat based on a number of factors, such as move variety, the length of a combo and dodging attacks. The music in the game will change based on the player"s performance in combat."</p><img src="devil1.jpg" height="200px" width="350px">';
+  }
+  function showPic6(pic){
+    var r = document.getElementById("1");
+    r.innerHTML="<p>Dota 2 is played in matches between two teams of five players, with each team occupying and defending their own separate base on the map. Each of the ten players independently controls a powerful character, known as a 'hero', who all have unique abilities and differing styles of play. During a match, players collect experience points and items for their heroes to successfully defeat the opposing team's heroes in player versus player combat. A team wins by being the first to destroy a large structure located in the opposing team's base, called the 'Ancient'.</p><img src='dota1.jpg' height='200px' width='350px'>";
+  }
+  var isLogin = false;
+  function login(obj) {
+    if (isLogin) {
+      alert("loged");
+    }
+    else
+      document.getElementById('log').style.display='block';
+  }
+  </script>
+  </head>
+  <body data-spy = "scroll" data-target = ".navbar" data-offset = "50"  >
+    <div class="mycontainer">
+      <nav class = "navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
+        <span class="badge badge-secondary"><a class = "navbar-brand" href = "#" style="margin-left:15px; "><img src="../../assets/images/logo1.jpg" height="30px" width="30px">&nbsp;Staem</a></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="nav navbar-nav">
+            <li class="nav-item" style="padding:0 15px;">
+              <a class="nav-link" href="#carousel-example">Home</a>
+            </li>
+            <li class="nav-item" style="padding:0 15px;">
+              <a class="nav-link" href="#bestsell">Best Seller</a>
+            </li>
+            <li class="nav-item" style="padding:0 15px;">
+              <a class="nav-link" href="#gametable">New & Trending</a>
+            </li>       
+          </ul>
+        </div>
+
+        
+        <div id="log">
+        <form action="../control/logincheck.php" method="post">
+          <h3 >请登录</h3>
+          <div class="form-group">
+            <label for="username">用户名*</label>
+            <span id="user" class="error"> </span>
+            <input type="text" class="form-control" name="username"
+                id="username" placeholder="用户名" onblur='checkName()' required />
+          </div>
+          <div class="form-group">
+            <label for="password">密码*</label>
+            <span id="psword" class="error"> </span>
+            <input type="password" class="form-control"
+                name="password"
+                id="password" placeholder="密码" onblur='checkPassword()' required />
+          </div>
+          <div class="checkbox">
+            <label>
+              <span><input type="checkbox" value='true' style="width:15px;height:15px;" > 记住我</span>
+            </label>
+          </div>
+          <input type="submit" class="btn btn-primary login-button" value="登录" style="width:70px;height:40px;" />
+          <p class="text-success" ><a href="register.html">>>还没账号？去注册</a></p>
+        </form>
+        <div id="close" >
+          <span onclick="document.getElementById('log').style.display='none'">关闭</span>
+        </div>
+        </div>
+
+        <form class="form-inline nav-right"  id = "search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        &nbsp; &nbsp; &nbsp; 
+        <img src="../../assets/images/notblackandwhite.jpeg" width="40px" height="40px" onmousemove="login(this)" id = "login">
+      </nav>
+
+      <div id="carousel-example" class="carousel slide carousel-fade" data-ride="carousel" >
+            <!--Indicators-->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example" data-slide-to="1"></li>
+          <li data-target="#carousel-example" data-slide-to="2"></li>
+        </ol>
+            <!--/.Indicators-->
+            <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+              <!--First slide-->
+          <div class="carousel-item active" >
+            <img class="d-block w-100" src="fifa.jpg" alt="First slide" >
+          </div>
+              <!--/First slide-->
+              <!--Second slide-->
+          <div class="carousel-item" >
+            <img class="d-block w-100" src="Assassin's creed.jpg" alt="Second slide">
+          </div>
+              <!--/Second slide-->
+              <!--Third slide-->
+          <div class="carousel-item" >
+            <img class="d-block w-100" src="reddead.jpg" alt="Third slide">
+          </div>
+              <!--/Third slide-->
+        </div>
+            <!--/.Slides-->
+            <!--Controls-->
+          <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+            <!--/.Controls-->
+      </div>
+
+      <div id="bestsell" class="container-fluid" style="padding-top:25px;">
+        <div class = "subtitle">
+          <h1>BEST SELLER</h1>
+        </div>
+
+        <div class="row" style="padding-bottom: 20px; padding-left: 20px; padding-right:25px">
+          <div class="col-lg-3 col-md-4 col-sm-6 col-12 ">
+            <div class="card" style = "background-color:#2c2b2b; color:white">
+              <img class="card-img-top cardimg" src="../../assets/images/overcook.jpg" alt="Card image" >
+                <div class="card-body">
+                  <h4 class="card-title">Overcooked2</h4>
+                    <div style = "height: 150px; overflow: auto;" >
+                      <p class="card-text">
+                            Overcooked returns with a brand-new helping of chaotic cooking action! Journey back to the Onion Kingdom 
+                            and assemble your team of chefs in classic couch co-op or online play for up to four players. Hold onto 
+                            your aprons… it’s time to save the world again!
+                      </p>
+                    </div>
+                    <br>
+                    <a href="#" class="btn btn-primary" data-toggle="tooltip" title="Come to join us!">See Profile</a>
+                    <div class="tooltip bs-tooltip-top" role="tooltip">
+                      <div class="arrow"></div>
+                        <div class="tooltip-inner">
+                          Come to join us!
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 col-12" >
+                <div class="card" style = "background-color:#2c2b2b; color:white">
+                  <img class="card-img-top cardimg" src="../../assets/images/pubg.jpeg" alt="Card image" >
+                    <div class="card-body">
+                    <h4 class="card-title">PUBG</h4>
+                    <div style = "height: 150px; overflow: auto">
+                            <p class="card-text">
+                                PlayerUnknown's Battlegrounds (PUBG) is an online multiplayer battle royale game developed and published 
+                                by PUBG Corporation, a subsidiary of South Korean video game company Bluehole. In the game, up to one hundred 
+                                players parachute onto an island and scavenge for weapons and equipment to kill others while avoiding getting 
+                                killed themselves. The available safe area of the game's map decreases in size over time, directing surviving 
+                                players into tighter areas to force encounters. The last player or team standing wins the round.
+                            </p>
+                        </div>
+                        <br>
+                    <a href="#" class="btn btn-primary" data-toggle="tooltip" title="Come to join us!">See Profile</a>
+                    <div class="tooltip bs-tooltip-top" role="tooltip">
+                      <div class="arrow"></div>
+                        <div class="tooltip-inner">
+                          Come to join us!
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          
+              <div class="col-lg-3 col-md-4 col-sm-6 col-12 " >
+                  <div class="card" style = "background-color:#2c2b2b; color:white">
+                    <img class="card-img-top cardimg" src="../../assets/images/dontstarve.png" alt="Card image" style="width:100%">
+                    <div class="card-body">
+                    <h4 class="card-title" style = "height : 30px;overflow: hidden;">Don't Starve Together</h4>
+                    <div style = "height: 150px; overflow: auto">
+                            <p class="card-text">
+                                Don't Starve is an open world survival video game developed by the Canadian 
+                                indie company Klei Entertainment.The game follows a scientist named Wilson who 
+                                finds himself in a dark, dreary world and must survive as long as possible. 
+                                To this end, the player must keep Wilson healthy, fed, and mentally stable as 
+                                he avoids a variety of surreal and supernatural enemies that will try to 
+                                kill and devour him. The game's Adventure mode adds depth to the sparse plot 
+                                and pits Wilson against the game's antagonist, Maxwell.
+                            </p>
+                        </div>
+                        <br>
+                    <a href="#" class="btn btn-primary" data-toggle="tooltip" title="Come to join us!">See Profile</a>
+                    <div class="tooltip bs-tooltip-top" role="tooltip">
+                      <div class="arrow"></div>
+                        <div class="tooltip-inner">
+                          Come to join us!
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                  <div class="card" style = "background-color:#2c2b2b; color:white">
+                    <img class="card-img-top cardimg" src="../../assets/images/chinesep.jpeg" alt="Card image" style="width:100%">
+                    <div class="card-body">
+                    <h4 class="card-title" style = "height : 30px;overflow: hidden;">Chinese Parents</h4>
+                    <div style = "height: 150px; overflow: auto">
+                            <p class="card-text">
+                                    "Chinese Parents" is a simulation game developed by the squid play studio and released
+                                     by Coconut Island. The player plays a child born in an ordinary Chinese family in the game.
+                            </p>
+                        </div>
+                        <br>
+                    <a href="#" class="btn btn-primary" data-toggle="tooltip" title="Come to join us!">See Profile</a>
+                    <div class="tooltip bs-tooltip-top" role="tooltip">
+                      <div class="arrow"></div>
+                        <div class="tooltip-inner">
+                          Come to join us!
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+              </div>
+            </div>
+    </div>
+    <br>
+    <div class = "table-responsive container-fluid" id = "gametable" style="padding-top:25px;">
+        <div class = "subtitle" id="newtrend" >
+            <h1>NEW & TRENDING</h1>
+        </div>
+        
+        <table class="table">
+            <thead>
+
+              <tr>
+                <th></th>
+                <th></th>
+                <th>Game Name</th>
+                <th>Company</th>
+                <th>Price</th>
+                <th>Detaile</th>
+                <!-- <th>head 6</th> -->
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td width = "200px"><img src="../../assets/images/thesims4.jpg" alt="Table image" width="200px" height="110px" onmouseover="showPic1(this)"></td>
+                    <td onmouseover="showPic1(this)">The Sims 4</td>
+                    <td onmouseover="showPic1(this)">EA</td>
+                    <td onmouseover="showPic1(this)">$49.99</td>
+                    <td rowspan="4" id = "1" width="200px">
+                      <p>Enjoy the power to create and control people in a virtual world where there are no rules.Express your creativity as you customize your Sims’ appearances and personalities, and build them the perfect homes. Develop your Sims’ relationships, pursue careers, and explore vibrant new worlds.</p>
+                      <img src="../../assets/images/thesims4.png" height="200px" width="350px"></td>
+                
+                </tr>
+                <tr onmouseover="showPic2(this)">
+                  <td></td>
+                  <td width = "200px"><img src="../../assets/images/monster.jpg" alt="Table image" width="200px" height="110px"></td>
+                  <td>Monster Hunter</td>
+                  <td>Capcom</td>
+                  <td>$49.99</td>
+                </tr>
+                <tr onmouseover="showPic3(this)">
+                    <td></td>
+                    <td width = "200px"><img src="../../assets/images/godofwar.jpg" alt="Table image" width="200px" height="110px"></td>
+                    <td>God of War</td>
+                    <td>Santa Monica Studio</td>
+                    <td>$49.99</td>
+                </tr>
+                <tr onmouseover="showPic4(this)">
+                    <td></td>
+                    <td width = "200px"><img src="../../assets/images/residentevil2.jpg" alt="Table image" width="200px" height="110px"></td>
+                    <td>Resident Evil 2</td>
+                    <td>Capcom</td>
+                    <td>$49.99</td>
+                </tr>
+                <tr onmouseover="showPic5(this)">
+                    <td></td>
+                    <td width = "200px"><img src="../../assets/images/devilmaycry5.png" alt="Table image" width="200px" height="110px"></td>
+                    <td>Devil May Cry 5</td>
+                    <td>Capcom</td>
+                    <td>$49.99</td>
+                </tr>
+                <tr onmouseover="showPic6(this)">
+                    <td></td>
+                    <td width = "200px"><img src="../../assets/images/dota2.jpg" alt="Table image" width="200px" height="110px"></td>
+                    <td>Dota2</td>
+                    <td>Valve Corporation</td>
+                    <td>$49.99</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="margin:0 auto;width:180px;">
+    <nav  >
+      <ul class="pagination" >
+        <li class="page-item"  >
+          <a class="page-link pagenav" href="" aria-label="Previous " >
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item"><a class="page-link pagenav" href="">1</a></li>
+        <li class="page-item"><a class="page-link pagenav" href="">2</a></li>
+        <li class="page-item"><a class="page-link pagenav" href="">3</a></li>
+        <li class="page-item">
+          <a class="page-link pagenav" href="" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    </div>
+    </div>
+    
+    <footer>
+
+    <i><small><p>Copyright &copy; 2019 single dogs</p>
+    <div class="footer">
+      <a href="">Copyright Information</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="">Terms and Conditions</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="mailto:webmaster@starbucks.com">contact us by Email</a>
+    </div></small></i>
+  </footer>
+  </body>
+</html>
