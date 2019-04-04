@@ -8,14 +8,7 @@ body {
     background-color: black ;
     box-shadow: 3px 3px 3px #312e2e2a;
 }
-footer {
-    text-align: center;
-    background-color: #222222;
-    padding: 15px;
-    font-style: italic;
-    font-family: Georgia, "Times New Roman", serif;
-    
-}
+
 .cardimg {
     height: 250px;
     width: 100%;
@@ -27,16 +20,7 @@ h1{
     font-family: Arial, Helvetica, sans-serif;
     /* text-shadow: 1px 1px 1px #BBB; */
 }
-footer a {
-    color: #999;
-}
-footer a:hover{
-    color:#fff;
-}
-footer p {
-    text-align: center;
-	color:#fff;
-}
+
  table {
      color : white;
  }

@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <!-- <script src="script.js"></script> -->
-    <link href="../../assets/images/logo.ico" rel="icon" type="image/x-icon">
+   <script src="script.js"></script>
+    <link href="../../assets/images/logo.ico" rel="icon" type="image/x-icon"> -->
 
-    <style>
+
+<style>
       #log {
         display: none; 
         width: 400px; 
@@ -19,22 +20,14 @@
         position: fixed; top: 70px;; 
         right: 30px;
         }
+      
     </style>
 
     <script>
-      // var count = 0;
     function showPic1(pic){
     var r = document.getElementById("1");
-    // if(count > 0){
-    //   r.removeChild(r.lastChild);
-    //   count--;
-    // }
-    // var cell = document.createElement("td");
-    // cell.setAttribute("colspan","2");
-    // cell.setAttribute("rowspan","3");
     r.innerHTML='<p>Enjoy the power to create and control people in a virtual world where there are no rules.Express your creativity as you customize your Sims’ appearances and personalities, and build them the perfect homes. Develop your Sims’ relationships, pursue careers, and explore vibrant new worlds.</p><img src="thesims4.png" height="200px" width="350px">';
-    // r.appendChild(cell);
-    // count++;
+
     r.style.background = "black";
   }
   function showPic2(pic){
@@ -59,85 +52,29 @@
   }
 
   </script>
+
   </head>
-  <body data-spy = "scroll" data-target = ".navbar" data-offset = "50">
+  <body data-spy = "scroll" data-target = ".navbar" data-offset = "50"  >
     <div class="mycontainer">
-      <nav class = "navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
-        <span class="badge badge-secondary"><a class = "navbar-brand" href = "#" style="margin-left:15px; "><img src="../../assets/images/logo1.jpg" height="30px" width="30px">&nbsp;Staem</a></span>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="nav navbar-nav">
-            <li class="nav-item" style="padding:0 15px;">
-              <a class="nav-link" href="/home">Home</a>
-            </li>
-            <li class="nav-item" style="padding:0 15px;">
-              <a class="nav-link" href="/home/#bestsell">Best Seller</a>
-            </li>
-            <li class="nav-item" style="padding:0 15px;">
-              <a class="nav-link" href="/home/#gametable">New & Trending</a>
-            </li>       
-          </ul>
-        </div>
-
-        
-        <div id="log">
-        <form action="../control/logincheck.php" method="post">
-          <h3 >请登录</h3>
-          <div class="form-group">
-            <label for="username">用户名*</label>
-            <span id="user" class="error"> </span>
-            <input type="text" class="form-control" name="username"
-                id="username" placeholder="用户名" onblur='checkName()' required />
-          </div>
-          <div class="form-group">
-            <label for="password">密码*</label>
-            <span id="psword" class="error"> </span>
-            <input type="password" class="form-control"
-                name="password"
-                id="password" placeholder="密码" onblur='checkPassword()' required />
-          </div>
-          <div class="checkbox">
-            <label>
-              <span><input type="checkbox" value='true' style="width:15px;height:15px;" > 记住我</span>
-            </label>
-          </div>
-          <input type="submit" class="btn btn-primary login-button" value="登录" style="width:70px;height:40px;" />
-          <p class="text-success" ><a href="register.html">>>还没账号？去注册</a></p>
-        </form>
-        <div id="close" >
-          <span onclick="document.getElementById('log').style.display='none'">关闭</span>
-        </div>
-        </div>
-
-        <form class="form-inline nav-right"  id = "search">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        &nbsp; &nbsp; &nbsp; 
-        <img src="../../assets/images/notblackandwhite.jpeg" width="40px" height="40px" (click)="userlogin()" id = "login">
-      </nav>
+      <app-header></app-header>
 
       <ngb-carousel #carousel>
           <ng-template ngbSlide>
-              <img src="../../assets/images/fifa.jpg" alt="Random first slide" style = "width:100%">
-              <div class="carousel-caption">
-              </div>
-            </ng-template>
-            <ng-template ngbSlide>
-              <img src="../../assets/images/Assassin's creed.jpg"  alt="Random second slide" style = "width:100%">
-              <div class="carousel-caption">
-              </div>
-            </ng-template>
-            <ng-template ngbSlide>
-              <img src="../../assets/images/reddead.jpg" alt="Random third slide" style = "width:100%">
-              <div class="carousel-caption">
-              </div>
-            </ng-template>
-      </ngb-carousel>
-
+            <img class="w-100" src="../../assets/images/fifa.jpg" alt="Random first slide">
+            <div class="carousel-caption">
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <img class="w-100" src="../../assets/images/Assassin's creed.jpg"  alt="Random second slide">
+            <div class="carousel-caption">
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <img class="w-100" src="../../assets/images/reddead.jpg" alt="Random third slide">
+            <div class="carousel-caption">
+            </div>
+          </ng-template>
+        </ngb-carousel>
       <div id="bestsell" class="container-fluid" style="padding-top:25px;">
         <div class = "subtitle">
           <h1>BEST SELLER</h1>
@@ -267,44 +204,44 @@
             <tbody>
                 <tr>
                     <td></td>
-                    <td width = "200px"><img src="../../assets/images/thesims4.jpg" alt="Table image" width="200px" height="110px" onmouseover="showPic1(this)"></td>
-                    <td onmouseover="showPic1(this)">The Sims 4</td>
-                    <td onmouseover="showPic1(this)">EA</td>
-                    <td onmouseover="showPic1(this)">$49.99</td>
+                    <td width = "200px"><img src="../../assets/images/thesims4.jpg" alt="Table image" width="200px" height="110px" (mouseenter)="showPic1('any pic')" (mouseleave)="showPic1('any pic')"></td>
+                    <td (mouseenter)="showPic1('any pic')" (mouseleave)="showPic1('any pic')">The Sims 4</td>
+                    <td (mouseenter)="showPic1('any pic')" (mouseleave)="showPic1('any pic')">EA</td>
+                    <td (mouseenter)="showPic1('any pic')" (mouseleave)="showPic1('any pic')">$49.99</td>
                     <td rowspan="4" id = "1" width="200px">
                       <p>Enjoy the power to create and control people in a virtual world where there are no rules.Express your creativity as you customize your Sims’ appearances and personalities, and build them the perfect homes. Develop your Sims’ relationships, pursue careers, and explore vibrant new worlds.</p>
                       <img src="../../assets/images/thesims4.png" height="200px" width="350px"></td>
                 
                 </tr>
-                <tr onmouseover="showPic2(this)">
+                <tr (mouseenter)="showPic2('any pic')" (mouseleave)="showPic2('any pic')">
                   <td></td>
                   <td width = "200px"><img src="../../assets/images/monster.jpg" alt="Table image" width="200px" height="110px"></td>
                   <td>Monster Hunter</td>
                   <td>Capcom</td>
                   <td>$49.99</td>
                 </tr>
-                <tr onmouseover="showPic3(this)">
+                <tr (mouseenter)="showPic3('any pic')" (mouseleave)="showPic3('any pic')">
                     <td></td>
                     <td width = "200px"><img src="../../assets/images/godofwar.jpg" alt="Table image" width="200px" height="110px"></td>
                     <td>God of War</td>
                     <td>Santa Monica Studio</td>
                     <td>$49.99</td>
                 </tr>
-                <tr onmouseover="showPic4(this)">
+                <tr (mouseenter)="showPic4('any pic')" (mouseleave)="showPic4('any pic')">
                     <td></td>
                     <td width = "200px"><img src="../../assets/images/residentevil2.jpg" alt="Table image" width="200px" height="110px"></td>
                     <td>Resident Evil 2</td>
                     <td>Capcom</td>
                     <td>$49.99</td>
                 </tr>
-                <tr onmouseover="showPic5(this)">
+                <tr (mouseenter)="showPic5('any pic')" (mouseleave)="showPic5('any pic')">
                     <td></td>
                     <td width = "200px"><img src="../../assets/images/devilmaycry5.png" alt="Table image" width="200px" height="110px"></td>
                     <td>Devil May Cry 5</td>
                     <td>Capcom</td>
                     <td>$49.99</td>
                 </tr>
-                <tr onmouseover="showPic6(this)">
+                <tr (mouseenter)="showPic6('any pic')" (mouseleave)="showPic6('any pic')">
                     <td></td>
                     <td width = "200px"><img src="../../assets/images/dota2.jpg" alt="Table image" width="200px" height="110px"></td>
                     <td>Dota2</td>
@@ -315,7 +252,7 @@
         </table>
     </div>
     <div style="margin:0 auto;width:180px;">
-    <nav  >
+    <nav>
       <ul class="pagination" >
         <li class="page-item"  >
           <a class="page-link pagenav" href="" aria-label="Previous " >
@@ -334,15 +271,6 @@
     </nav>
     </div>
     </div>
-    
-    <footer>
-
-    <i><small><p>Copyright &copy; 2019 single dogs</p>
-    <div class="footer">
-      <a href="">Copyright Information</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="">Terms and Conditions</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="mailto:webmaster@starbucks.com">contact us by Email</a>
-    </div></small></i>
-  </footer>
+    <app-footer></app-footer>
   </body>
-</html>
+<!-- </html> -->
