@@ -12,4 +12,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  userlogin() {
+    document.getElementById("log").style.display = "block";
+  }
 }
