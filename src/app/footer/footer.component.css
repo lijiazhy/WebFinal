@@ -1,17 +1,17 @@
-footer{
+.footer{
     text-align: center;
     background-color: #222222;
     padding: 15px;
     font-style: italic;
     font-family: Georgia, "Times New Roman", serif;
 }   
-footer a {
+.footer a {
     color: #999;
 }
-footer a:hover{
+.footer a:hover{
     color:#fff;
 }
-footer p {
+.footer p {
     text-align: center;
     color:#fff;
     background-color: #222222;
