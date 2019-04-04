@@ -7,9 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms'; //??
-import { HttpClientModule } from '@angular/common/http';  //??
-// import { SignupComponent } from './signup/signup.component';  //to enable bootstrap
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
+import { HttpClientModule } from '@angular/common/http'; 
 
 @NgModule({
   declarations: [
@@ -22,10 +21,10 @@ import { HttpClientModule } from '@angular/common/http';  //??
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
-    // FormsModule,
-    // ReactiveFormsModule,
-    // HttpClientModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
