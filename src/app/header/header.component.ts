@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { Router } from '@angular/router';
+import { User } from '../model/user.model' 
+// import { userInfo } from 'os';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +10,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  model: any = {};
-
-  constructor(private userService: UserService, private router: Router) { }
+  model: any;
+  user: User;
+  constructor(private userService: UserService, private router: Router) { 
+    
+    console.log("user: "+ this.user);
+  }
 
   ngOnInit() {
   }
@@ -19,9 +24,12 @@ export class HeaderComponent implements OnInit {
   }
 
   createUser() {
+    if(this.user.userName != null){
+
+    }
     this.userService.create(this.model)
     .subscribe(
-      data => this.router.navigate(['/'])
+      data => this.router.navigate(['/'])  //when successfully created redirect to home
     );
   }
 }

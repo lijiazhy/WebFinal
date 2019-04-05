@@ -5,7 +5,7 @@
     margin-left: auto;	   
     margin-right: auto;	
     width : 97%;
-    background-color: black ;
+    /* background-color: black ; */
     box-shadow: 3px 3px 3px #312e2e2a;
 }
 
@@ -16,7 +16,6 @@
 h1{
     color:whitesmoke;
     margin-top: 60px;
-    margin-bottom: 0;
     font-family: Arial, Helvetica, sans-serif;
     /* text-shadow: 1px 1px 1px #BBB; */
 }
@@ -26,13 +25,13 @@ h1{
  }
 
  .pagenav{
-    background-color: black; 
+    background-color: #222222; 
     border:none;
     color:white;
 
  }
  .pagenav:hover {
-     background-color : black;
+     background-color : #222222;
  }
 
  .subtitle {
