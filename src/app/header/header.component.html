@@ -30,13 +30,10 @@
           <input class="form-control" type="passWord" name="passWord" id="passWord" [(ngModel)]="passWord"/>
         </div>
         <div>
-          <button class="btn btn-primary">Login</button><br>
-          <a [routerLink]="['/signup']" >Do not have a username?Sign up now!</a>
+          <button class="btn btn-primary">Login</button><br><br>
+          <a [routerLink]="['/signup']" >Do not have a username?  Sign up now!</a>
       </div>
   </form>
-  <span>
-    <p> the create result: '{{response}}'</p>
-  </span>
    <div id="close" >
     <span onclick="document.getElementById('log').style.display='none'">关闭</span>
   </div>

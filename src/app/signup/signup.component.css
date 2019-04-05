@@ -1,0 +1,27 @@
+.container{
+    margin-left: 400px;
+    margin-right: auto; 
+    /* padding: 50px; */
+}
+/* .form-group{
+    text-align: center;
+   
+} */
+input{
+    width: 500px;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+label{
+    color: white;
+    float: left;
+    width: 150px;
+    margin-left: auto;
+    /* margin-left: 300px;
+   
+    /* margin-right: auto;  */
+}
+h1,h4{
+    color: whitesmoke;
+    font-family: "Tranbuchet MS", Helvetica, sans-serif; 
+}
