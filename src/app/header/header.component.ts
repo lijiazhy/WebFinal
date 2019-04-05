@@ -10,12 +10,11 @@ import { User } from '../model/user.model'
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  model: any;
-  user: User;
-  constructor(private userService: UserService, private router: Router) { 
-    
-    console.log("user: "+ this.user);
-  }
+  model: any = {};
+  response: any;
+
+  constructor(private userService: UserService, private router: Router) { }
+
 
   ngOnInit() {
   }
@@ -24,12 +23,23 @@ export class HeaderComponent implements OnInit {
   }
 
   createUser() {
-    if(this.user.userName != null){
+    // if(this.user.userName != null){
 
-    }
+    // }
     this.userService.create(this.model)
     .subscribe(
-      data => this.router.navigate(['/'])  //when successfully created redirect to home
-    );
+
+    //   data => this.router.navigate(['/'])  //when successfully created redirect to home
+    // );
+
+      data => {
+        console.log(data);
+        this.response = data['message'];
+        alert(this.response);
+      },
+      error => {
+        console.log('oops', error);
+        this.response = error.error.message;
+      });
   }
 }
