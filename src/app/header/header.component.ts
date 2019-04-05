@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   model: any = {};
+  response: any;
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -21,7 +22,14 @@ export class HeaderComponent implements OnInit {
   createUser() {
     this.userService.create(this.model)
     .subscribe(
-      data => this.router.navigate(['/'])
-    );
+      data => {
+        console.log(data);
+        this.response = data['message'];
+        alert(this.response);
+      },
+      error => {
+        console.log('oops', error);
+        this.response = error.error.message;
+      });
   }
 }
