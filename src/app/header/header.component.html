@@ -19,7 +19,7 @@
   </div>
 
   
- <div id="log">
+ <div id="log" *ngIf="show" style="display: block;height: 350px;">
   <form (ngSubmit) = "createUser()">
         <div class="form-group">
           <label for="userName">Email</label>
@@ -31,12 +31,13 @@
         </div>
         <div>
           <button class="btn btn-primary">Login</button><br><br>
-          <a [routerLink]="['/signup']" >Do not have a username?  Sign up now!</a>
+          <p>>>>Do not have a username?</p>
+          <a [routerLink]="['/signup']" (click)="showForm()">Sign up now!</a>
       </div>
   </form>
-   <div id="close" >
+   <!-- <div id="close" >
     <span onclick="document.getElementById('log').style.display='none'">关闭</span>
-  </div>
+  </div> -->
 </div>
 
   <form class="form-inline nav-right"  id = "search">
@@ -44,6 +45,6 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
   &nbsp; &nbsp; &nbsp; 
-  <img src="../../assets/images/notblackandwhite.jpeg" width="40px" height="40px" (click)="userlogin()" id = "login">
+  <img src="../../assets/images/notblackandwhite.jpeg" width="40px" height="40px" (click)="showForm()" id = "login">
 </nav>
 

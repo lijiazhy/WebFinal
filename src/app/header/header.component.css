@@ -10,3 +10,12 @@
  #login {
     border-radius: 50%;
 }
+a :link{
+    color: black;
+}
+a :visited{
+    color: black;
+}
+a :hover{
+    color: aqua;
+}
