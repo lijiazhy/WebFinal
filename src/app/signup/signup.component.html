@@ -1,15 +1,24 @@
 <br>
 <br>
 <form (ngSubmit) = "createUser()">
-  <div class="form-group">
-    <label for="userName">Email</label>
-    <input class="form-control" type="text" name="userName" id="userName" [(ngModel)]="model.userName"/>
+  <br><br><br><br><br>
+  <div class="container">
+      <h1>Welcome to Staem!</h1>
+      <br><br>
+      <h4>- - Enjoy playing the games? You are already one of us!</h4>
+      <br><br>
+      <div class="form-group">
+          <label for="userName">Email</label>
+          <input class="form-control" type="text" name="userName" id="userName" [(ngModel)]="model.userName"/>
+        </div><br>
+        <div class="form-group">
+          <label for="passWord">Password</label>
+          <input class="form-control" type="passWord" name="passWord" id="passWord" [(ngModel)]="model.passWord"/>
+        </div>
+        <br><br><br>
+        <div>
+          <button class="btn btn-primary" (click) = "createUser">Sign Up</button>
+      </div>
+      <br><br><br>
   </div>
-  <div class="form-group">
-    <label for="passWord">Password</label>
-    <input class="form-control" type="passWord" name="passWord" id="passWord" [(ngModel)]="model.passWord"/>
-  </div>
-  <div>
-    <button class="btn btn-primary">Sign Up</button>
-</div>
 </form>
