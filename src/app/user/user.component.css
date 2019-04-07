@@ -1,8 +1,8 @@
 #profile{
     /* width: 80%; */
-    color: white;
     margin-left: 270px;
     margin-right: 150px;
+    color : #C0C0C0;
     /* border: 100px;
     border-color: antiquewhite;
     box-shadow: 3px 3px 3px white; */
@@ -22,7 +22,7 @@
 hr{
     clear: both;
     height: 2px;
-    width: 1000px;
+    width: 70%;
     background: -webkit-linear-gradient(left,rgba(255, 255, 255, 0),whitesmoke,rgba(255,255,255,0));
     background: linear-gradient(to right, rgba(255, 255, 255, 0),whitesmoke,rgba(255,255,255,0));
 }
@@ -42,9 +42,4 @@ table{
      /* color : #666; */
     /* font-family: "Tranbuchet MS", Helvetica, sans-serif; */
     margin-left: 20px;
- }
-
- #username {
-     color: #C0C0C0;
-     font-size: 52px;
  }
