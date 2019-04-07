@@ -1,6 +1,7 @@
 #container {
 	margin:auto;
 	width: 70%;
+	min-height: 600px;
 }
 
 h1,p {
