@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Inject, Optional } from '@angular/core';
 import { UserService } from '../service/user.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +12,7 @@ export class SignupComponent implements OnInit {
   model: any = {};
   response: any;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private route : Router) { }
 
   ngOnInit() {
   }
@@ -20,14 +21,12 @@ export class SignupComponent implements OnInit {
     this.userService.create(this.model)
     .subscribe(
       data => {
-        console.log(data);
-        this.response = data['message'];
-        alert(this.response);
+        console.log(this.response);
+        this.route.navigate(['/']);
       },
       error => {
-        console.log('oops', error);
         this.response = error.error.message;
-        alert(this.response);
+        console.log('oops', this.response);
       });
   }
 }
