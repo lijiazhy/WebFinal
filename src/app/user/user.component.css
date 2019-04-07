@@ -1,28 +1,21 @@
 #profile{
-    /* width: 80%; */
-    color: white;
     margin-left: 270px;
     margin-right: 150px;
-    /* border: 100px;
-    border-color: antiquewhite;
-    box-shadow: 3px 3px 3px white; */
+    color : #C0C0C0;
 }
 #profileimg{
     float: left;
     border-radius: 20px;
-    /* border: 10px;
-    border-color: #E10914; */
 }
 #username{
     font-size: 80px;
     margin-left: 150px;
-    /* margin-right: auto; */
     float: left;
 }
 hr{
     clear: both;
     height: 2px;
-    width: 1000px;
+    width: 70%;
     background: -webkit-linear-gradient(left,rgba(255, 255, 255, 0),whitesmoke,rgba(255,255,255,0));
     background: linear-gradient(to right, rgba(255, 255, 255, 0),whitesmoke,rgba(255,255,255,0));
 }
@@ -34,12 +27,9 @@ table{
 }
 .subtitle{
     color:white;
-    /* background-image :linear-gradient(to left, black, #CCC); */
     height:80px;
     
  }
  .subtitle h1{
-     /* color : #666; */
-    /* font-family: "Tranbuchet MS", Helvetica, sans-serif; */
     margin-left: 20px;
  }
