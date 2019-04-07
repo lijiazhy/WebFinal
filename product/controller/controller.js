@@ -37,6 +37,18 @@ exports.userCreate = (req, res) => {
     }); 
 }
 
+exports.userGet = (req, res) => {
+    console.log(req.params.email);
+    User.findOne({"userName": req.params.email})
+    .then( user => {
+        if(!user) {
+            return res.status(401).send({
+                message: "The user is not exist!"
+            });
+        }
+        return res.status(200).send(user);
+    })
+}
 
 exports.productCreate = (req, res) => {
     if (req.body.productName == undefined || req.body.productPrice == undefined) {

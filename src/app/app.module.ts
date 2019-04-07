@@ -10,7 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
-import { UserComponent } from './user/user.component';
+import { UserComponent } from './user/user.component'; 
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { CopyrightComponent } from './copyright/copyright.component'; 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { CopyrightComponent } from './copyright/copyright.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
