@@ -1,21 +1,30 @@
 #profile{
     /* width: 80%; */
     color: white;
-    margin-left: 150px;
+    margin-left: 270px;
     margin-right: 150px;
-    border: 10px;
+    /* border: 100px;
     border-color: antiquewhite;
-    box-shadow: 3px 3px 3px white;
+    box-shadow: 3px 3px 3px white; */
 }
 #profileimg{
     float: left;
+    border-radius: 20px;
+    /* border: 10px;
+    border-color: #E10914; */
 }
 #username{
-    /* text-align: left; */
     font-size: 80px;
-    margin-left: 60px;
+    margin-left: 150px;
     /* margin-right: auto; */
     float: left;
+}
+hr{
+    clear: both;
+    height: 2px;
+    width: 1000px;
+    background: -webkit-linear-gradient(left,rgba(255, 255, 255, 0),whitesmoke,rgba(255,255,255,0));
+    background: linear-gradient(to right, rgba(255, 255, 255, 0),whitesmoke,rgba(255,255,255,0));
 }
 #boughtgames, #favouritegames{
     width: 97%;
