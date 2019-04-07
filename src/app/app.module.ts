@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { UserComponent } from './user/user.component'; 
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { CopyrightComponent } from './copyright/copyright.component'; 
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
     FooterComponent,
     HomeComponent,
     SignupComponent,
-    UserComponent
+    UserComponent,
+    CopyrightComponent
     // SignupComponent
   ],
   imports: [
