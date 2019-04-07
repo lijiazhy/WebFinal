@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Optional } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { Router } from '@angular/router';
 
@@ -21,7 +21,6 @@ export class SignupComponent implements OnInit {
     this.userService.create(this.model)
     .subscribe(
       data => {
-        console.log(this.response);
         this.route.navigate(['/']);
       },
       error => {
