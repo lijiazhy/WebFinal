@@ -1,6 +1,6 @@
 <br>
 <br>
-<form (ngSubmit) = "createUser()">
+<form (ngSubmit) = "createUser(SignUpSucc, SignUpFail)">
   <br><br><br><br><br>
   <div class="container">
       <h1>Welcome to Pandada!</h1>
@@ -17,8 +17,32 @@
         </div>
         <br><br><br>
         <div>
-          <button class="btn btn-primary" (click) = "createUser">Sign Up</button>
+          <button class="btn btn-primary" >Sign Up</button>
       </div>
       <br><br><br>
   </div>
 </form>
+
+<ng-template #SignUpSucc let-c = "close">
+    <div class = "modal-content">
+      <div class = "modal-body">
+        <h1>Congratulation!</h1>
+        Sign Up Successfully!
+      </div>
+      <div class = "modal-footer">
+        <button type = "button" (click) = "c()"> Yes </button>
+      </div>
+    </div>
+  </ng-template>
+
+<ng-template #SignUpFail let-c = "close">
+    <div class = "modal-content">
+      <div class = "modal-body">
+        <h1>Oops!</h1>
+        {{errorMessage}}
+      </div>
+      <div class = "modal-footer">
+        <button type = "button" (click) = "c()"> Yes </button>
+      </div>
+    </div>
+  </ng-template>

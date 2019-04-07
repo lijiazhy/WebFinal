@@ -1,0 +1,36 @@
+#profile{
+    /* width: 80%; */
+    color: white;
+    margin-left: 150px;
+    margin-right: 150px;
+    border: 10px;
+    border-color: antiquewhite;
+    box-shadow: 3px 3px 3px white;
+}
+#profileimg{
+    float: left;
+}
+#username{
+    /* text-align: left; */
+    font-size: 80px;
+    margin-left: 60px;
+    /* margin-right: auto; */
+    float: left;
+}
+#boughtgames, #favouritegames{
+    width: 97%;
+}
+table{
+    color : white;
+}
+.subtitle{
+    color:white;
+    /* background-image :linear-gradient(to left, black, #CCC); */
+    height:80px;
+    
+ }
+ .subtitle h1{
+     /* color : #666; */
+    /* font-family: "Tranbuchet MS", Helvetica, sans-serif; */
+    margin-left: 20px;
+ }

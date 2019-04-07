@@ -3,4 +3,8 @@
 export class User {
     userName: string;
     passWord: string;
+    products: [{
+        productName: String,
+        productPrice: String
+    }]
 }

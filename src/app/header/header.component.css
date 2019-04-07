@@ -7,8 +7,17 @@
         position: fixed; top: 70px;
         right: 30px;
  }
- #login {
+ #logged h2 {
+	 text-align:center;
+ }
+ #login, #photo1 {
     border-radius: 50%;
+}
+#photodiv {
+	padding-left:100px;
+}
+#logged a, #logged button {
+	margin-left:120px;
 }
 a :link{
     color: black;

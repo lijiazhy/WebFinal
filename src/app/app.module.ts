@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { UserComponent } from './user/user.component';
 import { TermsComponent } from './terms/terms.component'; 
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { CopyrightComponent } from './copyright/copyright.component'; 
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { TermsComponent } from './terms/terms.component';
     HomeComponent,
     SignupComponent,
     UserComponent,
-    TermsComponent
+    TermsComponent,
+    CopyrightComponent
     // SignupComponent
   ],
   imports: [
@@ -30,7 +33,8 @@ import { TermsComponent } from './terms/terms.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

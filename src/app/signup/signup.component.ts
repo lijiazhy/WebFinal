@@ -1,6 +1,7 @@
-import { Component, OnInit, Inject, Optional } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -11,22 +12,23 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
   model: any = {};
   response: any;
+  errorMessage: string;
 
-  constructor(private userService: UserService, private route : Router) { }
+  constructor(private userService: UserService, private route : Router, private modalService: NgbModal) { }
 
   ngOnInit() {
   }
 
-  createUser() {
+  createUser(SignUpSucc, SignUpFail) {
     this.userService.create(this.model)
     .subscribe(
       data => {
-        console.log(this.response);
+        this.modalService.open(SignUpSucc, {});
         this.route.navigate(['/']);
       },
       error => {
-        this.response = error.error.message;
-        console.log('oops', this.response);
+        this.errorMessage = error.error.message;
+        this.modalService.open(SignUpFail, {});
       });
   }
 }
