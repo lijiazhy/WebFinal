@@ -16,10 +16,18 @@ export class HeaderComponent implements OnInit {
   islogged: boolean = false;
   show: boolean = false;
   errorMessage : string;
+  userName : string = "";
   
-
-  constructor(private userService: UserService, private router: Router, private modalService: NgbModal) { }
-
+  constructor(private userService: UserService, private router: Router, private modalService: NgbModal) {
+    this.model.userName = "";
+    this.model.passWord = "";
+    this.userName = localStorage.getItem("userName");
+    if (this.userName != "") {
+      this.islogged = true;
+    }
+    console.log(this.userName);
+    console.log(this.islogged);
+   }
 
   ngOnInit() {
 
@@ -34,6 +42,12 @@ export class HeaderComponent implements OnInit {
   }
 
   login(LoginSucc,LoginFail) {
+    if (this.model.userName == "") {
+      this.errorMessage = "Please input userName first! ";
+      console.log("empty");
+      this.modalService.open(LoginFail,{});
+      return;
+    }
     this.userService.getUser(this.model.userName)
     .subscribe(
       (data:User) => {
@@ -43,6 +57,7 @@ export class HeaderComponent implements OnInit {
           products: data['products']
         };
         if (this.user.passWord == this.model.passWord) {
+          localStorage.userName = this.user.userName;
           this.islogged = true;
           console.log( "successful ");
           this.modalService.open(LoginSucc,{});
@@ -55,7 +70,6 @@ export class HeaderComponent implements OnInit {
           this.errorMessage = "Wrong password";
           this.modalService.open(LoginFail, {})
           .result.then( () => {this.errorMessage = ""});
-          console.log( "Wrong password" );
         }
 
         console.log(this.user);
@@ -63,11 +77,15 @@ export class HeaderComponent implements OnInit {
       error => {
         this.errorMessage = error.error.message;
         this.modalService.open(LoginFail, {});
+        this.model.userName = "";
+        this.model.passWord = "";
       });
     }
 
   logOut() {
     this.islogged = false;
     this.router.navigate(['']);
+    this.show = false;
+    localStorage.userName = "";
   }
 }
