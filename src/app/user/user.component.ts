@@ -6,9 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  userName = "user";
+  userName: string ;
 
-  constructor() { }
+  constructor() {
+    let email =  localStorage.getItem("userName");
+    let es = email.split('@');
+    this.userName =es[0];
+  }
 
   ngOnInit() {
   }

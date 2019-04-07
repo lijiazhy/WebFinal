@@ -34,3 +34,8 @@ table{
     /* font-family: "Tranbuchet MS", Helvetica, sans-serif; */
     margin-left: 20px;
  }
+
+ #username {
+     color: #C0C0C0;
+     font-size: 52px;
+ }
