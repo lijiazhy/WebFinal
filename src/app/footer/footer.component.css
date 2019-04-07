@@ -1,5 +1,4 @@
 .footer{
-    text-align: center;
     background-color: #222222;
     padding: 15px;
     font-style: italic;
@@ -11,8 +10,9 @@
 .footer a:hover{
     color:#fff;
 }
-.footer p {
-    text-align: center;
-    color:#fff;
+.footer label {
+	margin-left:40px;
+	margin-right: 150px;
+    color:#C0C0C0;
     background-color: #222222;
 }
