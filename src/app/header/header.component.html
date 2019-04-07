@@ -18,23 +18,30 @@
     </ul>
   </div>
 
-  
- <div id="log" *ngIf="show" style="display: block;height: 350px;">
-  <form (ngSubmit) = "login()">
-        <div class="form-group">
-          <label for="userName">Email</label>
-          <input class="form-control" type="text" name="userName" id="userName" [(ngModel)]="model.userName"/>
+<div *ngIf = "show"> 
+  <div id="logged" *ngIf="islogged" style="display:block;height: 350px;">
+      <a [routerLink]="['user']">View Profile</a ><br><br>
+      <button class="btn btn-primary" (click)="logOut()">Log out</button>
+  </div>
+
+
+  <div id="log" *ngIf="!islogged" style="display: block;height: 350px;">
+    <form (ngSubmit) = "login()">
+          <div class="form-group">
+            <label for="userName">Email</label>
+            <input class="form-control" type="text" name="userName" id="userName" [(ngModel)]="model.userName"/>
+          </div>
+          <div class="form-group">
+            <label for="passWord">Password</label>
+            <input class="form-control" type="passWord" name="passWord" id="passWord" [(ngModel)]="model.passWord"/>
+          </div>
+          <div>
+            <button class="btn btn-primary">Login</button><br><br>
+            <p>>>>Do not have a username?</p>
+            <a [routerLink]="['/signup']" >Sign up now!</a>
         </div>
-        <div class="form-group">
-          <label for="passWord">Password</label>
-          <input class="form-control" type="passWord" name="passWord" id="passWord" [(ngModel)]="model.passWord"/>
-        </div>
-        <div>
-          <button class="btn btn-primary">Login</button><br><br>
-          <p>>>>Do not have a username?</p>
-          <a [routerLink]="['/signup']" (click)="showForm()">Sign up now!</a>
-      </div>
-  </form>
+    </form>
+  </div>
 </div>
 
   <form class="form-inline nav-right"  id = "search">

@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   show: boolean = false;
   model: any ={};
   user: User;
+  islogged: boolean = false;
 
 
   constructor(private userService: UserService, private router: Router) { }
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
+
   showForm() {
     if(this.show == true){
       this.show = false;
@@ -37,7 +39,9 @@ export class HeaderComponent implements OnInit {
           products: data['products']
         };
         if (this.user.passWord == this.model.passWord) {
+          this.islogged = true;
           console.log( "successful ");
+          this.show = false;
         }
         else {
           console.log( " fail " );
@@ -48,5 +52,10 @@ export class HeaderComponent implements OnInit {
       error => {
         console.log(error.error.message);
       });
+    }
+
+  logOut() {
+    this.islogged = false;
+    this.router.navigate(['']);
   }
 }
