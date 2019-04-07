@@ -1,5 +1,8 @@
 <nav class = "navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
-  <span class="badge badge-secondary"><a class = "navbar-brand" href = "#" style="margin-left:15px; "><img src="../../assets/images/logo1.jpg" height="30px" width="30px">&nbsp;Staem</a></span>
+  <span class="badge badge-secondary">
+    <a class = "navbar-brand" href = "#" style="margin-left:15px; "><img src="../../assets/images/logo1.jpg" height="30px" width="30px">
+    &nbsp;Pandada</a>
+  </span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -45,7 +48,7 @@
         <div id="photodiv">
           <img src="../../assets/images/loginphoto.jpg" width="120px" height="120px" id = "photo1">
         </div><br />
-        <a [routerLink]="['user']">View Profile</a><br><br>
+        <a [routerLink]="['user']" (click)="showForm()">View Profile</a><br><br>
         <button class="btn btn-primary" (click)="logOut()">Log out</button>
         
       </div>
