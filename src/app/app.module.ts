@@ -9,7 +9,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { HttpClientModule } from '@angular/common/http';
-import { SignupComponent } from './signup/signup.component'; 
+import { SignupComponent } from './signup/signup.component';
+import { UserComponent } from './user/user.component'; 
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SignupComponent } from './signup/signup.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    SignupComponent
+    SignupComponent,
+    UserComponent
     // SignupComponent
   ],
   imports: [

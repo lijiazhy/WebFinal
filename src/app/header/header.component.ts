@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   show: boolean = false;
+  islogged: boolean = false;
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -22,5 +23,14 @@ export class HeaderComponent implements OnInit {
     }else{
       this.show = true;
     }  
+  }
+  logIn() {
+    // this.show = false;
+    this.islogged = true;
+  }
+  logOut() {
+    // this.show = true;
+    this.islogged = false;
+    this.router.navigate(['']);
   }
 }
