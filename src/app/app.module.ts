@@ -10,7 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
-import { UserComponent } from './user/user.component'; 
+import { UserComponent } from './user/user.component';
+import { CopyrightComponent } from './copyright/copyright.component'; 
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UserComponent } from './user/user.component';
     FooterComponent,
     HomeComponent,
     SignupComponent,
-    UserComponent
+    UserComponent,
+    CopyrightComponent
     // SignupComponent
   ],
   imports: [
