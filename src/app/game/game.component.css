@@ -2,33 +2,48 @@
 	background-color: #222222;
 	margin-left:auto;
 	margin-right:auto;
-	width:80%;
+	width:93%;
 }
-#header h2{
+#header{
+	color: aliceblue;
+}
+table{
+	color: aliceblue;
+	border: aliceblue;
+	margin-left: auto;
+	margin-right: auto;
+}
+#paragraph{
+	padding: 20px;
+	overflow: auto;
+}
+/* #header h2{
 	text-align:left;
 	color:#FFF;
 	margin-left:50px;
 }
 #item {
 	background-color: black;
-	margin: 20px auto;
+	/* margin: 20px auto; */
+	/* display:inline-block; */
+/* }  */
+/* #video {
 	display:inline-block;
-}
-#video {
-	display:inline;
-	padding-left: 5px;
-}
-#description {
+	padding-left: 10px;
+	float: left;
+} */
+/* #description {
+	clear: both;
 	display:inline-block;
 	width:390px;
 	margin-left: 20px;
-}
-#description p {
+} */
+/* #description p {
 	color:#FFF;
 	text-align:left;
 	height:240px;
 	overflow:auto;
-}
+} */
 h1 {
 	color:#FFF;
 	text-align:left;
