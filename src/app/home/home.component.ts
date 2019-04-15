@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,13 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  showTable1: boolean = true;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
 
+  
+  toGame(){
+    this.router.navigate(['game']);
+  }
   
   showPic1(pic: any){
     const el: HTMLElement = document.getElementById('1');
@@ -44,5 +50,21 @@ export class HomeComponent implements OnInit {
     el.innerHTML="<p>Dota 2 is played in matches between two teams of five players, with each team occupying and defending their own separate base on the map. Each of the ten players independently controls a powerful character, known as a 'hero', who all have unique abilities and differing styles of play. During a match, players collect experience points and items for their heroes to successfully defeat the opposing team's heroes in player versus player combat. A team wins by being the first to destroy a large structure located in the opposing team's base, called the 'Ancient'.</p><img src='../../assets/images/dota1.jpg' height='200px' width='350px'>";
     el.style.background = "black";
   }
-  
+  toggleTable(){
+    if(this.showTable1 == true){
+      this.showTable1 = false;
+    }else{
+      this.showTable1 = true;
+    }
+  }
+  toTable1(){
+    if(this.showTable1 == false){
+      this.showTable1 = true;
+    }
+  }
+  toTable2(){
+    if(this.showTable1 == true){
+      this.showTable1 = false;
+    }
+  }
 }

@@ -6,6 +6,7 @@ import { UserComponent } from './user/user.component';
 import { TermsComponent } from './terms/terms.component';
 import { CopyrightComponent } from './copyright/copyright.component';
 import { AddGameComponent } from './add-game/add-game.component';
+import { GameComponent } from './game/game.component';
   
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'user', component: UserComponent},
   { path: 'terms', component: TermsComponent},
   { path: 'copyright', component: CopyrightComponent},
-  { path: 'addGame', component: AddGameComponent}
+  { path: 'addGame', component: AddGameComponent},
+  { path: 'game', component: GameComponent }
 ];
 
 @NgModule({
