@@ -7,4 +7,6 @@ module.exports = (app) => {
     app.put('/user/:email/product/:productid', controller.productUpdate);
     app.delete('/user/:email/product/:productid', controller.productDelete);
     app.get('/user/:email/product', controller.productGet);
+
+    app.post('/game', controller.gameCreate);
 }

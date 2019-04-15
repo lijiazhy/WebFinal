@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   user: User;
   islogged: boolean = false;
   show: boolean = false;
+  manager: boolean = false;
   errorMessage : string;
   userName : string = "";
   
@@ -23,6 +24,7 @@ export class HeaderComponent implements OnInit {
     this.model.passWord = "";
     this.userName = localStorage.getItem("userName");
     if (this.userName != "") {
+      if (this.userName == "manager@pandada.com") this.manager = true;
       this.islogged = true;
     }
     console.log(this.userName);
@@ -58,6 +60,9 @@ export class HeaderComponent implements OnInit {
         };
         if (this.user.passWord == this.model.passWord) {
           localStorage.userName = this.user.userName;
+          if (this.user.userName == "manager@pandada.com") {
+            this.manager = true;
+          }
           this.islogged = true;
           console.log( "successful ");
           this.modalService.open(LoginSucc,{});
@@ -87,5 +92,6 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['']);
     this.show = false;
     localStorage.userName = "";
+    this.manager = false;
   }
 }

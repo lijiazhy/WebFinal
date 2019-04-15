@@ -1,0 +1,18 @@
+.container{
+	width:50%;
+    margin-left: autos;
+    margin-right: auto; 
+}
+input{
+    width: 590px;
+}
+label{
+    color: white;
+    float: left;
+    width: 150px;
+    margin-left: auto;
+}
+h1,h4{
+    color: whitesmoke;
+    font-family: "Tranbuchet MS", Helvetica, sans-serif; 
+}

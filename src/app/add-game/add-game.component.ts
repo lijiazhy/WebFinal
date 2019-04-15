@@ -1,29 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../service/user.service';
+import { GameService } from '../service/game.service';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: 'app-add-game',
+  templateUrl: './add-game.component.html',
+  styleUrls: ['./add-game.component.css']
 })
-export class SignupComponent implements OnInit {
-  model: any = {};
-  errorMessage: string;
+export class AddGameComponent implements OnInit {
 
-  constructor(private userService: UserService, private route : Router, private modalService: NgbModal) { }
+  model: any = {};
+  errorMessage : string;
+
+  constructor(private gameService: GameService, private route: Router, private modalService: NgbModal) { }
 
   ngOnInit() {
   }
-
   createUser(SignUpSucc, SignUpFail) {
-    this.userService.create(this.model)
+    this.gameService.create(this.model)
     .subscribe(
       data => {
         this.modalService.open(SignUpSucc, {});
-        this.route.navigate(['/']);
+        this.route.navigate(['/addGame']);
       },
       error => {
         this.errorMessage = error.error.message;

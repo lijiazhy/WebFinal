@@ -1,4 +1,5 @@
 const User = require('../model/user');
+const Game = require('../model/game');
 
 exports.userCreate = (req, res) => {
 
@@ -35,6 +36,31 @@ exports.userCreate = (req, res) => {
             res.send({'message':'User created successfully'});
         });
     }); 
+}
+
+exports.gameCreate = (req, res) => {
+    Game.find( {"gameName": req.body.gameName})
+    .then( games => {
+        if (games.length != 0) {
+            return res.status(500).send({
+                message: "the Game has existed!"
+            })
+        }
+
+        const game = new Game({
+            gameName: req.body.gameName,
+            description: req.body.description,
+            gamePrice: req.body.gamePrice,
+            company: req.body.company,
+            pictuer1: req.body.pictuer1,
+            picture2: req.body.picture2
+        });
+    
+        game.save().then(() => {
+            res.send({'message': 'Game create successfully'});
+        });
+    });
+    
 }
 
 exports.userGet = (req, res) => {

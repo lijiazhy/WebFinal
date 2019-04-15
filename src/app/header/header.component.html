@@ -43,12 +43,15 @@
         </form>
       </div>
       
-      <div id="logged" *ngIf="islogged" style="display:block;height: 350px;">
+      <div id="logged" *ngIf="islogged" style="display:block;height: 400px;">
         <h2>Welcome!</h2>
         <div id="photodiv">
           <img src="../../assets/images/loginphoto.jpg" width="120px" height="120px" id = "photo1">
         </div><br />
         <a [routerLink]="['user']" (click)="showForm()">View Profile</a><br><br>
+        <div *ngIf = "manager">
+          <a [routerLink] = "['addGame']" (click) = "showForm()">Add Games</a> 
+        </div><br>
         <button class="btn btn-primary" (click)="logOut()">Log out</button>
         
       </div>

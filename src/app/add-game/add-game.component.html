@@ -1,0 +1,61 @@
+<br>
+<br>
+<form (ngSubmit) = "createUser(SignUpSucc, SignUpFail)">
+  <br><br><br><br><br>
+  <div class="container">
+      <h1>Manage Games.</h1>
+      <br><br>
+      <div class="form-group">
+        <label for="gameName">Game Name: </label>
+        <input class="form-control" type="text" name="gameName" id="gameName" [(ngModel)]="model.gameName"/>
+      </div><br>
+      <div class="form-group">
+        <label for="gamePrice">gamePrice: </label>
+        <input class="form-control" type="text" name="gamePrice" id="gamePrice" [(ngModel)]="model.gamePrice"/>
+      </div><br>
+      <div class = "form-group">
+        <label for="company">company: </label>
+        <input class = "form-control" type="text" name= "company" id = "company" [(ngModel)] = "model.company"/>
+      </div><br>
+      <div class = "form-group">
+        <label for="description"> Description: </label>
+        <input class = "form-control" type = "text" name = "description" id = "description" [(ngModel)] = "model.description"/>
+      </div><br>
+      <div class = "form-group">
+        <label for="image1"> Image1: </label>
+        <input class = "form-control" type = "text" name = "picture1" id = "picture1" [(ngModel)] = "model.picture1"/>
+      </div><br>
+      <div class = "form-group">
+        <label for="image2"> Image2: </label>
+        <input class = "form-control" type = "text" name = "picture2" id = "picture2" [(ngModel)] = "model.picture2"/>
+      </div>
+        <br><br><br>
+        <div>
+          <button class="btn btn-primary" >ADD</button>
+      </div>
+      <br><br><br>
+  </div>
+</form>
+
+
+<ng-template #SignUpSucc let-c = "close">
+  <div class = "modal-content">
+    <div class = "modal-body">
+      Add New Game Successfully!
+    </div>
+    <div class = "modal-footer">
+      <button type = "button" (click) = "c()"> Yes </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #SignUpFail let-c = "close">
+  <div class = "modal-content">
+    <div class = "modal-body">
+      {{errorMessage}}
+    </div>
+    <div class = "modal-footer">
+      <button type = "button" (click) = "c()"> Yes </button>
+    </div>
+  </div>
+</ng-template>
