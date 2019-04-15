@@ -13,7 +13,8 @@ import { SignupComponent } from './signup/signup.component';
 import { UserComponent } from './user/user.component';
 import { TermsComponent } from './terms/terms.component'; 
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
-import { CopyrightComponent } from './copyright/copyright.component'; 
+import { CopyrightComponent } from './copyright/copyright.component';
+import { AddGameComponent } from './add-game/add-game.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CopyrightComponent } from './copyright/copyright.component';
     SignupComponent,
     UserComponent,
     TermsComponent,
-    CopyrightComponent
+    CopyrightComponent,
+    AddGameComponent
     // SignupComponent
   ],
   imports: [

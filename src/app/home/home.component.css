@@ -70,9 +70,3 @@ h1{
     border-radius: 50%;
 }
 
-
-@media screen and (max-width: 1000px) {
-    #search{
-        display: none;
-    }
-}

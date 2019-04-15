@@ -28,3 +28,10 @@ a :visited{
 a :hover{
     color: aqua;
 }
+
+
+@media screen and (max-width: 1000px) {
+    #search{
+        display: none;
+    }
+}
