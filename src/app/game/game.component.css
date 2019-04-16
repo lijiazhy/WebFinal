@@ -38,6 +38,8 @@ table{
 textarea{
 	background-color: #222222;
 	color: aliceblue;
+	width: 350px;
+	border: none;
 }
 #addcomment{
 	float: right;

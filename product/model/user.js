@@ -5,7 +5,10 @@ const user = mongoose.Schema({
     passWord: String,
     products: [{
         productName: String,
-        productPrice: String
+        //-1: unowened  favorate
+        //0: own unfavorate
+        //1: own favorate
+        state: Number
     }]
 });
 

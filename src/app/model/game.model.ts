@@ -1,4 +1,5 @@
 export class Game {
+    searchID: string;
     gameName: string;
     description: string;
     gamePrice: number;
