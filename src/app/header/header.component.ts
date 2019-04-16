@@ -115,7 +115,8 @@ export class HeaderComponent implements OnInit {
           gamePrice: data['gamePrice'],
           company: data['company'],
           pictuer1: data['picture1'],
-          picture2: data['picture2']
+          picture2: data['picture2'],
+		  url: data['url']
         };
 		if (this.game.gameName==this.model.search) {
 		  this.router.navigate(['game']);
