@@ -19,9 +19,14 @@ export class GameComponent implements OnInit {
   searchID: string;
   username: string="user";
   errorMessage: string;
+  loggeduser: string;
 
   constructor(private activatedRoute: ActivatedRoute, private gameService: GameService, private modalService: NgbModal) { 
-    this.username = localStorage.userName;
+    if(localStorage.userName == ""){
+      this.loggeduser = "Log in to comment"
+    }else{
+      this.loggeduser = localStorage.userName;
+    }
   }
 
 
