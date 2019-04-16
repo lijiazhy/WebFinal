@@ -12,7 +12,7 @@
           <textarea rows = "10"  spellcheck = "false" >PlayerUnknown's Battlegrounds (PUBG) is an online multiplayer battle royale game developed and published by PUBG Corporation, a subsidiary of South Korean video game company Bluehole. In the game, up to one hundred players parachute onto an island and scavenge for weapons and equipment to kill others while avoiding getting killed themselves. The available safe area of the game's map decreases in size over time, directing surviving players into tighter areas to force encounters. The last player or team standing wins the round.
           </textarea>
           <div class="btn-group">
-            <button class="btn btn-outline-primary" style="display: inline">Purchase at ${{price}}</button>
+            <button class="btn btn-outline-primary" style="display: inline" (click)="purchase(PurSucc, PurFail)">Purchase at ${{price}}</button>
             <button class="btn btn-outline-primary" style="display: inline">⭐ Add to Favourite</button>
           </div>
           </td>
@@ -54,6 +54,27 @@
       </div>
   </div>
   
+  <ng-template #PurSucc let-c = "close">
+  <div class = "modal-content">
+    <div class = "modal-body">
+      Purchase Game Successfully!
+    </div>
+    <div class = "modal-footer">
+      <button type = "button" (click) = "c()"> Yes </button>
+    </div>
+  </div>
+  </ng-template>
+  
+  <ng-template #PurFail let-c = "close">
+  <div class = "modal-content">
+    <div class = "modal-body">
+      {{errorMessage}}
+    </div>
+    <div class = "modal-footer">
+      <button type = "button" (click) = "c()"> Yes </button>
+    </div>
+  </div>
+  </ng-template>
   
   <!-- <h1>Comments</h1>
   <div id="comments">

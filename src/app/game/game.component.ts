@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Game } from '../model/game.model';
 import { GameService } from '../service/game.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-game',
@@ -17,8 +18,9 @@ export class GameComponent implements OnInit {
   imgageURL: string;
   searchID: string;
   username: string="user";
+  errorMessage: string;
 
-  constructor(private activatedRoute: ActivatedRoute, private gameService: GameService) { 
+  constructor(private activatedRoute: ActivatedRoute, private gameService: GameService, private modalService: NgbModal) { 
     this.username = localStorage.userName;
   }
 
@@ -54,9 +56,15 @@ export class GameComponent implements OnInit {
       console.log(html);
     })
 
-    
   }
 
-
+  purchase(PurSucc, PurFail) {
+	  if(localStorage.userName==""){
+	    this.errorMessage = "Please login first!";
+        this.modalService.open(PurFail, {});
+		return;
+	  }
+	  this.modalService.open(PurSucc, {});
+  }
 
 }
