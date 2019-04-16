@@ -5,4 +5,5 @@ export class Game {
     company: string;
     pictuer1: string;
     picture2: string;
+    url: string;
 }

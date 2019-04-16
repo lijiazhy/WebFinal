@@ -3,8 +3,8 @@ const Game = require('../model/game');
 
 exports.userCreate = (req, res) => {
 
-    console.log(req.body.userName);
-    console.log(req.body.passWord);
+    console.log("new user name: " + req.body.userName);
+    // console.log(req.body.passWord);
     User.find({"userName": req.body.userName})
     .then( users => {
 
@@ -39,6 +39,7 @@ exports.userCreate = (req, res) => {
 }
 
 exports.gameCreate = (req, res) => {
+    console.log("new Game name: " + req.body.gameName);
     Game.find( {"gameName": req.body.gameName})
     .then( games => {
         if (games.length != 0) {
@@ -53,7 +54,8 @@ exports.gameCreate = (req, res) => {
             gamePrice: req.body.gamePrice,
             company: req.body.company,
             pictuer1: req.body.pictuer1,
-            picture2: req.body.picture2
+            picture2: req.body.picture2,
+            url: req.body.url
         });
     
         game.save().then(() => {
@@ -61,6 +63,19 @@ exports.gameCreate = (req, res) => {
         });
     });
     
+}
+
+exports.gameGet = (req,res) => {
+	console.log(req.params.name);
+    Game.findOne({"gameName": req.params.name})
+	.then( game => {
+        if(!game) {
+            return res.status(401).send({
+                message: "No such game!"
+            });
+        }
+		return res.status(200).send(game);
+    })
 }
 
 exports.userGet = (req, res) => {
