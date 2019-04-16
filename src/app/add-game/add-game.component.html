@@ -3,7 +3,7 @@
 <form (ngSubmit) = "createUser(SignUpSucc, SignUpFail)">
   <br><br><br><br><br>
   <div class="container">
-      <h1>Manage Games.</h1>
+      <h1>Manage Games</h1>
       <br><br>
       <div class="form-group">
         <label for="gameName">Game Name: </label>
@@ -35,17 +35,15 @@
       </div><br />
       <div class = "form-group">
         <label for="videoUrl"> Video Url: </label>
-        <input class = "form-control" type = "text" name = "url" id = "url" [(ngModel)] = "model.url" (keyup)="showDemo(demo)" required="required"/>
+        <input class = "form-control" type = "text" name = "url" id = "videoUrl" [(ngModel)] = "model.url" (keyup)="showDemo(demo)" required="required"/>
       </div><br />
-      <div class="form-group" #demo>
-        <label for="videoDemo"> Video Demo: </label>
-        <embed src="http://url" height="250" width="300" />
-        
+      <div class="form-group">
+        <label for="videoDemo"> Video Demo: </label><br>
+        <div #demo>
+          <embed src="http://url" height="315" width="590" id="videoDemo" />
+        </div>
       </div><br>
-        <br><br>
-        <div>
-          <button class="btn btn-primary">ADD</button>
-      </div>
+          <button class="btn btn-outline-primary" style="width:200px;text-align: center;">ADD</button>
       <br><br><br>
   </div>
 </form>
