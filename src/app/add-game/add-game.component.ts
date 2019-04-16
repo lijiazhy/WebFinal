@@ -37,9 +37,9 @@ export class AddGameComponent implements OnInit {
   showDemo(demo){
     this.he = this.model.url.split(':');
 	if(this.he[0]=="https" || this.he[0]=="http")
-	  demo.innerHTML="<label for='videoDemo'> Video Demo: </label><embed src='"+this.model.url+"' height='250' width='300' />";
+	  demo.innerHTML="<embed src='"+this.model.url+"' height='315' width='590' id='videoDemo'/>";
 	else
-	  demo.innerHTML="<label for='videoDemo'> Video Demo: </label><embed src='https://url' height='250' width='300' />";
+	  demo.innerHTML="<embed src='https://url' height='315' width='590' id='videoDemo'/>";
   }
   
 }
