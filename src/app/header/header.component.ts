@@ -110,24 +110,20 @@ export class HeaderComponent implements OnInit {
     .subscribe(
       (data:Game) => {
         this.game = {
+          searchID: data['searchID'],
           gameName: data['gameName'],
           description: data['description'],
           gamePrice: data['gamePrice'],
           company: data['company'],
           pictuer1: data['picture1'],
           picture2: data['picture2'],
-		  url: data['url']
+		      url: data['url']
         };
-		if (this.game.gameName==this.model.search) {
-		  this.router.navigate(['game']);
-          console.log( "search successful");
-          this.model.search = "";
-        }
-        else {
-          this.errorMessage = "No such game";
-          this.modalService.open(SearchFail, {})
-          .result.then( () => {this.errorMessage = ""});
-        }
+      let newURL = `/game?game=` + this.game.searchID;
+      console.log(newURL);
+		  this.router.navigate(['/game?game=PUBG']);
+      this.model.search = "";
+        
 		console.log(this.user);
       },
       error => {

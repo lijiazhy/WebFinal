@@ -2,26 +2,60 @@
 <div id="game">
   <div class = "table-responsive container-fluid" id = "gametable" style="padding-top:25px;">
     <div class="subtitle" id="header">
-      <h1>{{game}}</h1>
+      <h1>{{gameName}}</h1>
     </div>
     <table class="description">
       <tr>
-        <td width="850px" id="video"><embed src="https://www.youtube.com/embed/mrDUcpMg9-w" height="500" width="850"/></td>
+        <td width="850px" id="video"><div id ="gameVideo"></div></td>
         <td width="250px" height="500px" id="paragraph"> 
-          <img src="../../assets/images/pubg.jpeg" alt="image" height="200px" width="350px"/>
+          <img src="{{imgageURL}}" alt="image" height="200px" width="350px"/>
           <textarea rows = "10"  spellcheck = "false" >PlayerUnknown's Battlegrounds (PUBG) is an online multiplayer battle royale game developed and published by PUBG Corporation, a subsidiary of South Korean video game company Bluehole. In the game, up to one hundred players parachute onto an island and scavenge for weapons and equipment to kill others while avoiding getting killed themselves. The available safe area of the game's map decreases in size over time, directing surviving players into tighter areas to force encounters. The last player or team standing wins the round.
           </textarea>
           <div class="btn-group">
-            <button class="btn btn-outline-primary" style="display: inline">Purchase at {{price}}</button>
+            <button class="btn btn-outline-primary" style="display: inline">Purchase at ${{price}}</button>
             <button class="btn btn-outline-primary" style="display: inline">⭐ Add to Favourite</button>
           </div>
           </td>
       </tr>
     </table>
   </div>
-  <br /><br /><br />
+  <br/><br/><br/>
   
-  <h1>Comments</h1>
+  <div id="header">
+    <h1>Comments</h1>
+  </div><br>
+  <div id="commentarea">
+    <div id="addcomment">
+      <img src="../../assets/images/notblackandwhite.jpeg" width="50px" height="50px" id="profileimg">
+      <h2 style="display:inline;padding:15px;">{{loggeduser}}</h2><br>
+      <textarea rows="12" cols="35" placeholder="Please add your comment here" style="border: 2px ridge #a1afc9;"></textarea><br>
+      <button class="btn btn-secondary">Add Comment</button>
+    </div>
+    <div id="comment">
+      <div id="user">
+          <h2>{{username}}</h2>
+          <span>Owns the game</span>
+      </div>
+      <textarea rows="5" cols="90" id="usercomment">{{comment}}</textarea>
+    </div>
+    <div id="comment">
+      <div id="user">
+        <h2>{{username}}</h2>
+        <span>Owns the game</span>
+      </div>
+      <textarea rows="5" cols="90" id="usercomment">{{comment}}</textarea>
+    </div>
+    <div id="comment">
+        <div id="user">
+          <h2>{{username}}</h2>
+          <span>Owns the game</span>
+        </div>
+        <textarea rows="5" cols="90" id="usercomment">{{comment}}</textarea>
+      </div>
+  </div>
+  
+  
+  <!-- <h1>Comments</h1>
   <div id="comments">
     <div class="cuser">
       <br />
@@ -46,4 +80,4 @@
   </div>
   <br /><br />
 
-</div>
+</div> -->

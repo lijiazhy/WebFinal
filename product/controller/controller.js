@@ -1,5 +1,6 @@
 const User = require('../model/user');
 const Game = require('../model/game');
+const Comment = require('../model/comment');
 
 exports.userCreate = (req, res) => {
 
@@ -54,6 +55,7 @@ exports.gameCreate = (req, res) => {
         }
 
         const game = new Game({
+            searchID: req.body.searchID,
             gameName: req.body.gameName,
             description: req.body.description,
             gamePrice: req.body.gamePrice,
@@ -70,18 +72,6 @@ exports.gameCreate = (req, res) => {
     
 }
 
-exports.gameGet = (req,res) => {
-	console.log(req.params.name);
-    Game.findOne({"gameName": req.params.name})
-	.then( game => {
-        if(!game) {
-            return res.status(401).send({
-                message: "No such game!"
-            });
-        }
-		return res.status(200).send(game);
-    })
-}
 
 exports.userGet = (req, res) => {
     console.log(req.params.email);
@@ -96,8 +86,21 @@ exports.userGet = (req, res) => {
     })
 }
 
+exports.gameGet = (req, res) => {
+    console.log(req.params.searchID);
+    Game.findOne({'searchID': req.params.searchID})
+    .then( game => {
+        if (!game) {
+            return res.status(401).send({
+                message: "can not find this game"
+            });
+        }
+        return res.status(200).send(game);
+    })
+}
+
 exports.productCreate = (req, res) => {
-    if (req.body.productName == undefined || req.body.productPrice == undefined) {
+    if (req.body.productName == undefined || req.body.state == undefined) {
             return res.status(400).send({
                 message: "Empty name or price is not accepted!"
             });
@@ -110,7 +113,7 @@ exports.productCreate = (req, res) => {
             });
         }
     
-        User.updateOne({"userName": req.params.email},{$push:{products:{productName: req.body.productName, productPrice: req.body.productPrice}}})
+        User.updateOne({"userName": req.params.email},{$push:{products:{productName: req.body.productName, state: req.body.state}}})
         .then(() => {
             //res.send(user);
             return res.status(200).send({
@@ -122,7 +125,7 @@ exports.productCreate = (req, res) => {
 
 
 exports.productUpdate = (req, res) => {
-    if (req.body.productName == undefined || req.body.productPrice == undefined) {
+    if (req.body.productName == undefined || req.body.state == undefined) {
         return res.status(400).send({
             message: "Empty name or price is not accepted!"
         });
@@ -148,7 +151,7 @@ exports.productUpdate = (req, res) => {
             });
         }
         User.updateOne({"userName": req.params.email,'products._id':req.params.productid}
-        ,{$set:{'products.$.productName':req.body.productName, 'products.$.productPrice':req.body.productPrice}})
+        ,{$set:{'products.$.productName':req.body.productName, 'products.$.productPrice':req.body.state}})
         .then(() => {
             return res.status(204).send();
         });
@@ -199,4 +202,24 @@ exports.productGet = (req, res) => {
 
         res.status(200).send(user.products);
     });
+}
+
+exports.commentCreate = (req, res) => {
+    console.log( "user: " + req.body.userName + " add comment to " + req.body.gameName);
+    if (req.body.content == undefined) {
+        return res.status(400).send({
+            message: 'The comment can\'t be empty' 
+        });
+    }
+
+    const comment = new Comment({
+        content: req.body.content,
+        userName: req.body.userName,
+        gameName: req.body.gameName
+    });
+    comment.save().then( () => {
+        return res.status(200).end({
+            message: 'comment successfully'
+        });
+    })
 }

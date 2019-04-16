@@ -30,12 +30,16 @@
         <input class = "form-control" type = "text" name = "picture2" id = "picture2" [(ngModel)] = "model.picture2" required="required"/>
       </div><br>
       <div class = "form-group">
-        <label for="videoUrl"> Video Url: </label>
         <input class = "form-control" type = "text" name = "url" id = "url" [(ngModel)] = "model.url" (keyup)="showDemo(demo)" required="required"/>
       </div><br />
       <div class="form-group" #demo>
         <label for="videoDemo"> Video Demo: </label>
         <embed src="http://url" height="250" width="300" />
+        <input class = "form-control" type = "text" name = "url" id = "url" [(ngModel)] = "model.url"/>
+      </div><br>
+      <div class = "form-group">
+        <label for="searchID"> searchID: </label>
+        <input class = "form-control" type = "text" name = "searchID" id = "searchID" [(ngModel)] = "model.searchID"/>
       </div>
         <br><br><br>
         <div>

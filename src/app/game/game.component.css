@@ -6,6 +6,7 @@
 }
 #header{
 	color: aliceblue;
+	margin-left: 20px;
 }
 table{
 	color: aliceblue;
@@ -17,51 +18,50 @@ table{
 	padding: 20px;
 	overflow: auto;
 }
-
-textarea {
+#commentarea{
+	margin-left: 100px;
+	margin-right: 120px;
+}
+#comment{
+	background-color: #222222;
+	color: aliceblue;
+	margin-bottom: 10px; 
+}
+#user{
+	float: left;
+}
+#usercomment{
+	clear: both;
+	margin-left: 20px;
+	border: 4px groove #a1afc9;
+}
+textarea{
+	background-color: #222222;
+	color: aliceblue;
 	width: 350px;
-	background-color: #222222 ; 
-	color: white;
 	border: none;
 }
-/* #header h2{
-	text-align:left;
-	color:#FFF;
-	margin-left:50px;
+#addcomment{
+	float: right;
+	color: aliceblue;
 }
-#item {
-	background-color: black;
-	/* margin: 20px auto; */
-	/* display:inline-block; */
-/* }  */
-/* #video {
-	display:inline-block;
-	padding-left: 10px;
-	float: left;
-} */
-/* #description {
-	clear: both;
-	display:inline-block;
-	width:390px;
-	margin-left: 20px;
-} */
-/* #description p {
-	color:#FFF;
-	text-align:left;
-	height:240px;
-	overflow:auto;
-} */
-h1 {
+#profileimg{
+	border-radius: 50%;
+	border: 4px inset #a1afc9;
+	margin-bottom: 10px;
+	/* display: inline-block; */
+}
+/* h1 {
 	color:#FFF;
 	text-align:left;
 	
-}
+} */
 #comments{
 	color:#FFF;
 	background-color: black;
 	margin: 20px auto;
 }
-.cuser {
+/* .cuser {
 	text-align:left;
 	margin-left:50px;
 }
@@ -74,4 +74,4 @@ h1 {
 	margin-right:40px;
 	margin-top:30px;
 	margin-bottom:30px;
-}
+} */
