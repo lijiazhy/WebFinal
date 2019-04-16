@@ -8,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class GameComponent implements OnInit {
   price: string="$59.99"
   game: string="PlayerUnknown's Battlegrounds"
+  username: string="user"
+  comment: string="comment"
+  loggeduser: string="Log in to comment"
 
-  constructor() { }
+  constructor() {
+    this.loggeduser = localStorage.getItem("userName");
+   }
 
   ngOnInit() {
   }
