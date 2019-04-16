@@ -9,4 +9,6 @@ module.exports = (app) => {
     app.get('/user/:email/product', controller.productGet);
 
     app.post('/game', controller.gameCreate);
+    app.get('/game/:searchID', controller.gameGet);
+    app.post('/comment', controller.commentCreate);
 }

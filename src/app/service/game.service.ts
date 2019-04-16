@@ -12,4 +12,9 @@ export class GameService {
   create ( game: Game ) {
     return this.http.post('http://localhost:3000/game', game);
   }
+
+  getGame (searchID: string)  {
+    return this.http.get ( 'http://localhost:3000/game/' + searchID);
+
+  }
 }
