@@ -50,6 +50,36 @@ export class HomeComponent implements OnInit {
     el.innerHTML="<p>Dota 2 is played in matches between two teams of five players, with each team occupying and defending their own separate base on the map. Each of the ten players independently controls a powerful character, known as a 'hero', who all have unique abilities and differing styles of play. During a match, players collect experience points and items for their heroes to successfully defeat the opposing team's heroes in player versus player combat. A team wins by being the first to destroy a large structure located in the opposing team's base, called the 'Ancient'.</p><img src='../../assets/images/dota1.jpg' height='200px' width='350px'>";
     el.style.background = "black";
   }
+  showPic21(pic: any){
+    const el: HTMLElement = document.getElementById('1');
+    el.innerHTML='<p>Human: Fall Flat is a quirky open-ended physics-based puzzle platformer set in floating dreamscapes. Your goal is to find the exit of these surreal levels by solving puzzles with nothing but your wits. Local co-op for 2 players and up to 8 online for even more mayhem!</p><img src="../../assets/images/humanfallflat2.jpg" height="200px" width="350px">';
+    el.style.background = "black";
+  }
+  showPic22(pic: any){
+    const el: HTMLElement = document.getElementById('1');
+    el.innerHTML='<p>Together with old pals and new comrades alike, Jesse embarks on a brand new journey filled with tough choices, good times, and at least one temperamental llama.</p><img src="../../assets/images/minecraft2.jpg" height="200px" width="350px">';
+    el.style.background = "black";
+  }
+  showPic23(pic: any){
+    const el: HTMLElement = document.getElementById('1');
+    el.innerHTML='<p>"Gu Jian Qi Tan San: Meng Fu Qian Qiu Xing Ye" is a large 3D stand-alone role-playing game independently developed by Shanghai Chanlong, a subsidiary of Net Tang. This generation of works further expands the ancient sword world view, depicting the vast mountains and rivers in a realistic and beautiful style, and bringing the long-term humanity to the world with a new picture, bringing players closer to the real game world experience!</p><img src="../../assets/images/gujian32.jpg" height="200px" width="350px">';
+    el.style.background = "black";
+  }
+  showPic24(pic: any){
+    const el: HTMLElement = document.getElementById('1');
+    el.innerHTML='<p>"The Elder Scrolls V: Skyrim is an action role-playing game, playable from either a first or third-person perspective. The player may freely roam over the land of Skyrim which is an open world environment consisting of wilderness expanses, dungeons, cities, towns, fortresses, and villages.</p><img src="../../assets/images/theelderscrolls2.jpg" height="200px" width="350px">';
+    el.style.background = "black";
+  }
+  showPic25(pic: any){
+    const el: HTMLElement = document.getElementById('1');
+    el.innerHTML='<p>"The Binding of Isaac: Rebirth is a randomly generated action RPG shooter with heavy Rogue-like elements. Following Isaac on his journey players will find bizarre treasures that change Isaac’s form giving him super human abilities and enabling him to fight off droves of mysterious creatures, discover secrets and fight his way to safety.</p><img src="../../assets/images/bindingsaac2.jpg" height="200px" width="350px">';
+    el.style.background = "black";
+  }
+  showPic26(pic: any){
+    const el: HTMLElement = document.getElementById('1');
+    el.innerHTML='<p>"NBA 2K celebrates 20 years of redefining what sports gaming can be. NBA 2K19 continues to push limits as it brings gaming one step closer to real-life basketball excitement and culture</p><img src="../../assets/images/NBA2K192.jpg" height="200px" width="350px">';
+    el.style.background = "black";
+  }
   toggleTable(){
     if(this.showTable1 == true){
       this.showTable1 = false;

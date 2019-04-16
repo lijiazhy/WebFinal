@@ -7,39 +7,44 @@
       <br><br>
       <div class="form-group">
         <label for="gameName">Game Name: </label>
-        <input class="form-control" type="text" name="gameName" id="gameName" [(ngModel)]="model.gameName"/>
+        <input class="form-control" type="text" name="gameName" id="gameName" [(ngModel)]="model.gameName" required="required"/>
       </div><br>
       <div class="form-group">
         <label for="gamePrice">gamePrice: </label>
-        <input class="form-control" type="text" name="gamePrice" id="gamePrice" [(ngModel)]="model.gamePrice"/>
+        <input class="form-control" type="text" name="gamePrice" id="gamePrice" [(ngModel)]="model.gamePrice" required="required"/>
       </div><br>
       <div class = "form-group">
         <label for="company">company: </label>
-        <input class = "form-control" type="text" name= "company" id = "company" [(ngModel)] = "model.company"/>
+        <input class = "form-control" type="text" name= "company" id = "company" [(ngModel)] = "model.company" required="required"/>
       </div><br>
       <div class = "form-group">
         <label for="description"> Description: </label>
-        <input class = "form-control" type = "text" name = "description" id = "description" [(ngModel)] = "model.description"/>
+        <input class = "form-control" type = "text" name = "description" id = "description" [(ngModel)] = "model.description" required="required"/>
       </div><br>
       <div class = "form-group">
         <label for="image1"> Image1: </label>
-        <input class = "form-control" type = "text" name = "picture1" id = "picture1" [(ngModel)] = "model.picture1"/>
+        <input class = "form-control" type = "text" name = "picture1" id = "picture1" [(ngModel)] = "model.pictuer1" required="required"/>
       </div><br>
       <div class = "form-group">
         <label for="image2"> Image2: </label>
-        <input class = "form-control" type = "text" name = "picture2" id = "picture2" [(ngModel)] = "model.picture2"/>
-      </div><br>
-      <div class = "form-group">
-        <label for="videoUrl"> Video Url: </label>
-        <input class = "form-control" type = "text" name = "url" id = "url" [(ngModel)] = "model.url"/>
+        <input class = "form-control" type = "text" name = "picture2" id = "picture2" [(ngModel)] = "model.picture2" required="required"/>
       </div><br>
       <div class = "form-group">
         <label for="searchID"> searchID: </label>
         <input class = "form-control" type = "text" name = "searchID" id = "searchID" [(ngModel)] = "model.searchID"/>
-      </div>
-        <br><br><br>
+      </div><br />
+      <div class = "form-group">
+        <label for="videoUrl"> Video Url: </label>
+        <input class = "form-control" type = "text" name = "url" id = "url" [(ngModel)] = "model.url" (keyup)="showDemo(demo)" required="required"/>
+      </div><br />
+      <div class="form-group" #demo>
+        <label for="videoDemo"> Video Demo: </label>
+        <embed src="http://url" height="250" width="300" />
+        
+      </div><br>
+        <br><br>
         <div>
-          <button class="btn btn-primary" >ADD</button>
+          <button class="btn btn-primary">ADD</button>
       </div>
       <br><br><br>
   </div>
