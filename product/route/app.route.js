@@ -4,7 +4,7 @@ module.exports = (app) => {
     app.post('/user/create', controller.userCreate);
     app.get('/user/:email', controller.userGet);
     app.post('/user/:email/product', controller.productCreate);
-    app.put('/user/:email/product/:productid', controller.productUpdate);
+    app.post('/user/:email/product/add', controller.productUpdate);
     app.delete('/user/:email/product/:productid', controller.productDelete);
     app.get('/user/:email/product', controller.productGet);
 

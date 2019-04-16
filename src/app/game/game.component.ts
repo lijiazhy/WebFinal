@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Game } from '../model/game.model';
 import { GameService } from '../service/game.service';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-game',
@@ -17,9 +18,11 @@ export class GameComponent implements OnInit {
   imgageURL: string;
   searchID: string;
   username: string="user";
+  loggeduser: string;
 
-  constructor(private activatedRoute: ActivatedRoute, private gameService: GameService) { 
-    this.username = localStorage.userName;
+
+  constructor(private activatedRoute: ActivatedRoute, private gameService: GameService, private userService: UserService) { 
+    this.loggeduser = localStorage.userName == ""? "log in to comment" : localStorage.userName;
   }
 
 
@@ -57,6 +60,23 @@ export class GameComponent implements OnInit {
     
   }
 
+  buyGame() {
 
+    if(localStorage.userName == "" ) {
+      alert("please log in to buy this game.");
+      return ;
+    }
+    let product = {
+      productName: this.game.searchID
+    };
+    this.userService.addProduct(this.loggeduser, product)
+    .subscribe(
+      data => {
+        alert("successfully");
+      }
+    )
+
+    
+  }
 
 }

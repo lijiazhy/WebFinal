@@ -28,5 +28,6 @@ export class AddGameComponent implements OnInit {
         this.errorMessage = error.error.message;
         this.modalService.open(SignUpFail, {});
       });
+      this.model = {};
   }
 }
