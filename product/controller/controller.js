@@ -63,6 +63,19 @@ exports.gameCreate = (req, res) => {
     
 }
 
+exports.gameGet = (req,res) => {
+	console.log(req.params.name);
+    Game.findOne({"gameName": req.params.name})
+	.then( game => {
+        if(!game) {
+            return res.status(401).send({
+                message: "No such game!"
+            });
+        }
+		return res.status(200).send(game);
+    })
+}
+
 exports.userGet = (req, res) => {
     console.log(req.params.email);
     User.findOne({"userName": req.params.email})

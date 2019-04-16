@@ -57,9 +57,9 @@
       </div>
 </div>
 
-  <form class="form-inline nav-right"  id = "search">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  <form class="form-inline nav-right"  id = "search" (ngSubmit) = "search(SearchFail)">
+      <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search" aria-label="Search" [(ngModel)]="model.search"/>
+      <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
   </form>
   &nbsp; &nbsp; &nbsp; 
   <img src="../../assets/images/notblackandwhite.jpeg" width="40px" height="40px" (click)="showForm()" id = "login">
@@ -88,3 +88,15 @@
         </div>
       </div>
     </ng-template>
+    
+  <ng-template #SearchFail let-c = "close">
+      <div class = "modal-content">
+        <div class = "modal-body">
+          <h1>Oops!</h1>
+          {{errorMessage}}
+        </div>
+        <div class = "modal-footer">
+          <button type = "button" (click) = "c()"> Yes </button>
+        </div>
+      </div>
+  </ng-template>

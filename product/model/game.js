@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 const game = mongoose.Schema({
     gameName: String,
     description: String,
-    gamePrice: String,
-    company: Number,
-    pictuer1: String,
+    gamePrice: Number,
+    company: String,
+    picture1: String,
     picture2: String
 })
 
