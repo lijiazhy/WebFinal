@@ -121,7 +121,7 @@ export class HeaderComponent implements OnInit {
         };
       let newURL = `/game?game=` + this.game.searchID;
       console.log(newURL);
-		  this.router.navigate(['/game?game=PUBG']);
+		  this.router.navigateByUrl(newURL);
       this.model.search = "";
         
 		console.log(this.user);

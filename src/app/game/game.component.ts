@@ -17,9 +17,14 @@ export class GameComponent implements OnInit {
   imgageURL: string;
   searchID: string;
   username: string="user";
+  loggeduser: string;
 
   constructor(private activatedRoute: ActivatedRoute, private gameService: GameService) { 
-    this.username = localStorage.userName;
+    if(localStorage.userName == ""){
+      this.loggeduser = "Log in to comment"
+    }else{
+      this.loggeduser = localStorage.userName;
+    }
   }
 
 
