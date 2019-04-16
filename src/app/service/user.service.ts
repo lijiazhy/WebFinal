@@ -18,4 +18,8 @@ export class UserService {
   getUser ( email: String) {
     return this.http.get('http://localhost:3000/user/' + email);
   }
+
+  addProduct( email: String, game: any) {
+    return this.http.post('http://localhost:3000/user/' + email + '/product/add',  game );
+  }
 }

@@ -40,8 +40,8 @@ exports.userCreate = (req, res) => {
 }
 
 exports.gameCreate = (req, res) => {
-    console.log("new Game name: " + req.body.gameName+req.body.gamePrice+req.body.company+req.body.description+req.body.pictuer1+req.body.picture2+req.body.url);
-	if(!req.body.gameName||!req.body.gamePrice||!req.body.company||!req.body.description||!req.body.pictuer1||!req.body.picture2||!req.body.url){
+    console.log("new Game name: " + req.body.gameName);
+	if(!req.body.gameName||!req.body.gamePrice||!req.body.company||!req.body.description||!req.body.pictuer1||!req.body.picture2||!req.body.url||!req.body.searchID){
 	  return res.status(500).send({
           message: "No field can be empty!"
       })
@@ -100,7 +100,7 @@ exports.gameGet = (req, res) => {
 }
 
 exports.productCreate = (req, res) => {
-    if (req.body.productName == undefined || req.body.state == undefined) {
+    if (req.body.productName == undefined) {
             return res.status(400).send({
                 message: "Empty name or price is not accepted!"
             });
@@ -125,9 +125,10 @@ exports.productCreate = (req, res) => {
 
 
 exports.productUpdate = (req, res) => {
-    if (req.body.productName == undefined || req.body.state == undefined) {
+    console.log(req.body.productName);
+    if (req.body.productName == undefined) {
         return res.status(400).send({
-            message: "Empty name or price is not accepted!"
+            message: "Empty name is not accepted!"
         });
     }
 
@@ -140,21 +141,43 @@ exports.productUpdate = (req, res) => {
         }
         var i = 0;
         for (; i < user.products.length; i++) {
-            if (user.products[i]._id == req.params.productid) {
+            if (user.products[i].productName == req.body.productName) {
                 break;
             }
         }
 
         if (i == user.products.length) {
-            return res.status(401).send({
-                message: "The product is not exist"
+            User.updateOne({"userName": req.params.email},{$push:{products:{productName: req.body.productName, state: 0}}})
+            .then( () => {
+                return res.status(200).send({
+                    message: "Buy successfully1!"
+                });
             });
+            return;
         }
-        User.updateOne({"userName": req.params.email,'products._id':req.params.productid}
-        ,{$set:{'products.$.productName':req.body.productName, 'products.$.productPrice':req.body.state}})
-        .then(() => {
-            return res.status(204).send();
-        });
+
+        if (user.products[i].state == -1) {
+            User.updateOne({"userName": req.params.email, 'products.productName': req.body.productName}
+            ,{$set:{'products.$.state':1}})
+            .then( () => {
+                return res.status(200).send({
+                    message: "Buy successfully2!"
+                });
+            });
+            return;
+        }
+
+        if (user.products[i].state == 0) {
+            User.updateOne({"userName": req.params.email, 'products.productName': req.body.productName}
+            ,{$set:{'products.$.state':1}})
+            .then( () => {
+                return res.status(200).send({
+                    message: "Buy successfully3!"
+                });
+            });
+            return;
+        }
+
     });
 
 }
