@@ -15,6 +15,6 @@ export class GameService {
 
   getGame (searchID: string)  {
     return this.http.get ( 'http://localhost:3000/game/' + searchID);
-
   }
+
 }

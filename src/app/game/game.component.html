@@ -19,9 +19,43 @@
       </tr>
     </table>
   </div>
-  <br /><br /><br />
+  <br/><br/><br/>
   
-  <h1>Comments</h1>
+  <div id="header">
+    <h1>Comments</h1>
+  </div><br>
+  <div id="commentarea">
+    <div id="addcomment">
+      <img src="../../assets/images/notblackandwhite.jpeg" width="50px" height="50px" id="profileimg">
+      <h2 style="display:inline;padding:15px;">{{loggeduser}}</h2><br>
+      <textarea rows="10" cols="35" placeholder="Please add your comment here" style="border: 2px ridge #a1afc9;"></textarea><br>
+      <button class="btn btn-secondary">Add Comment</button>
+    </div>
+    <div id="comment">
+      <div id="user">
+          <h2>{{username}}</h2>
+          <span>Owns the game</span>
+      </div>
+      <textarea rows="5" cols="90" id="usercomment">{{comment}}</textarea>
+    </div>
+    <div id="comment">
+      <div id="user">
+        <h2>{{username}}</h2>
+        <span>Owns the game</span>
+      </div>
+      <textarea rows="5" cols="90" id="usercomment">{{comment}}</textarea>
+    </div>
+    <div id="comment">
+        <div id="user">
+          <h2>{{username}}</h2>
+          <span>Owns the game</span>
+        </div>
+        <textarea rows="5" cols="90" id="usercomment">{{comment}}</textarea>
+      </div>
+  </div>
+  
+  
+  <!-- <h1>Comments</h1>
   <div id="comments">
     <div class="cuser">
       <br />
@@ -46,4 +80,4 @@
   </div>
   <br /><br />
 
-</div>
+</div> -->

@@ -9,14 +9,20 @@ import { GameService } from '../service/game.service';
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit {
+  
   price: string;
   gameName: string;
   video: string;
   game: Game;
   imgageURL: string;
   searchID: string;
+  username: string="user";
 
-  constructor(private activatedRoute: ActivatedRoute, private gameService: GameService) { }
+  constructor(private activatedRoute: ActivatedRoute, private gameService: GameService) { 
+    this.username = localStorage.userName;
+  }
+
+
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe( (params: Params) => {
@@ -51,6 +57,6 @@ export class GameComponent implements OnInit {
     
   }
 
-  
+
 
 }

@@ -67,6 +67,7 @@ exports.gameCreate = (req, res) => {
     
 }
 
+
 exports.userGet = (req, res) => {
     console.log(req.params.email);
     User.findOne({"userName": req.params.email})
