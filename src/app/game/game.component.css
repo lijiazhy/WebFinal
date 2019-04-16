@@ -17,6 +17,13 @@ table{
 	padding: 20px;
 	overflow: auto;
 }
+
+textarea {
+	width: 350px;
+	background-color: #222222 ; 
+	color: white;
+	border: none;
+}
 /* #header h2{
 	text-align:left;
 	color:#FFF;
