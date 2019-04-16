@@ -12,6 +12,7 @@
  }
  #login, #photo1 {
     border-radius: 50%;
+    /* border: 3px inset #a1afc9; */
 }
 #photodiv {
 	padding-left:100px;

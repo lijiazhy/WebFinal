@@ -4,13 +4,17 @@
     color : #C0C0C0;
 }
 #profileimg{
-    float: left;
+    /* float: left; */
     border-radius: 20px;
+    border: 4px inset #a1afc9;
+    margin-bottom: 20px;
 }
 #username{
     font-size: 80px;
-    margin-left: 150px;
-    float: left;
+    margin-left: 50px;
+    margin-bottom: 0px;
+    display:inline-block;
+    /* margin-top: 20px;  */
 }
 hr{
     clear: both;

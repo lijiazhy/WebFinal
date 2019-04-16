@@ -41,7 +41,11 @@ exports.userCreate = (req, res) => {
 
 exports.gameCreate = (req, res) => {
     console.log("new Game name: " + req.body.gameName);
-    
+	if(!req.body.gameName||!req.body.gamePrice||!req.body.company||!req.body.description||!req.body.pictuer1||!req.body.picture2||!req.body.url||!req.body.searchID){
+	  return res.status(500).send({
+          message: "No field can be empty!"
+      })
+	}
     Game.find( {"gameName": req.body.gameName})
     .then( games => {
         if (games.length != 0) {
@@ -62,7 +66,7 @@ exports.gameCreate = (req, res) => {
         });
     
         game.save().then(() => {
-            res.send({'message': 'Game create successfully'});
+            res.send({'message':'Game create successfully'});
         });
     });
     

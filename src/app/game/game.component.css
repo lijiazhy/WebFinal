@@ -8,7 +8,11 @@
 	color: aliceblue;
 	margin-left: 20px;
 }
-table{
+textarea{
+	background-color: #222222;
+	color: aliceblue;
+}
+.description{
 	color: aliceblue;
 	border: aliceblue;
 	margin-left: auto;
@@ -18,44 +22,58 @@ table{
 	padding: 20px;
 	overflow: auto;
 }
-#commentarea{
-	margin-left: 100px;
-	margin-right: 120px;
-}
-#comment{
-	background-color: #222222;
-	color: aliceblue;
-	margin-bottom: 10px; 
-}
-#user{
-	float: left;
-}
-#usercomment{
-	clear: both;
-	margin-left: 20px;
-	border: 4px groove #a1afc9;
-}
-textarea{
-	background-color: #222222;
-	color: aliceblue;
+#gamedescription{
 	width: 350px;
 	border: none;
 }
-#addcomment{
-	float: right;
+#commenttable{
+	margin-left: 100px;
+	margin-right: 100px;
 	color: aliceblue;
 }
+/* table,th,td{
+	border: 3px solid white;
+} */
+/* #commentarea{
+	margin-left: 100px;
+	margin-right: 120px;
+} */
+/* #comment{
+	background-color: #222222;
+	color: aliceblue;
+	margin-bottom: 10px; 
+} */
+#user{
+	/* float: left; */
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#usercomment{
+	/* clear: both; */
+	/* margin-left: 10px;
+	margin-right: 10px; */
+	padding: 0 10px 0 10px;
+	border: 4px groove #a1afc9;
+}
+#addcomment{
+	/* float: right;
+	color: aliceblue;  */
+	/* margin-left: auto;
+	margin-right: auto; */
+	text-align: center;
+} 
 #profileimg{
 	border-radius: 50%;
 	border: 4px inset #a1afc9;
 	margin-bottom: 10px;
 	/* display: inline-block; */
 }
-/* h1 {
-	color:#FFF;
-	text-align:left;
-	
-} */
+#addcommenttxt{
+	border: 2px ridge #a1afc9;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
 #comments{
 	color:#FFF;
 	background-color: black;

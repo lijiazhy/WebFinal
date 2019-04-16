@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Game } from '../model/game.model';
 import { GameService } from '../service/game.service';
 import { UserService } from '../service/user.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-game',
@@ -18,11 +19,13 @@ export class GameComponent implements OnInit {
   imgageURL: string;
   searchID: string;
   username: string="user";
+
   loggeduser: string;
 
 
   constructor(private activatedRoute: ActivatedRoute, private gameService: GameService, private userService: UserService) { 
     this.loggeduser = localStorage.userName == ""? "log in to comment" : localStorage.userName;
+
   }
 
 
@@ -57,7 +60,6 @@ export class GameComponent implements OnInit {
       console.log(html);
     })
 
-    
   }
 
   buyGame() {
