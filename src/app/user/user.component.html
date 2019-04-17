@@ -5,6 +5,32 @@
 </div><br>
 
 <div>
+<button class="btn btn-primary" (click)="upt()">Update Password</button>
+</div>
+
+<div *ngIf="update">
+    <div id="pwd" *ngIf="show" style="display: block;height: 250px;">
+        <form (ngSubmit) = "updatepwd()">
+              <div id="errorme"></div>
+              <div class="form-group">
+                <label for="passWord">Please enter your new password:</label>
+                <input class="form-control" type="passWord" name="passWord" id="passWord" (keyup)="checkPwd()" [(ngModel)]="model.passWord"/>
+              </div>
+              <div>
+                <button class="btn btn-primary">Login</button>&nbsp;
+                <button class="btn" (click)="cancel()">Cancel</button>
+            </div>
+        </form>
+      </div>
+      
+      <div id="succ" *ngIf="isSucc" style="display:block;height: 250px;">
+        <h2>Password Update Successfully!</h2>
+        <br>
+        <button class="btn btn-primary" (click)="cls()">OK</button>
+      </div>
+</div>
+
+<div>
     <hr>
 </div>
 
