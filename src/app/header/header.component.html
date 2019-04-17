@@ -43,20 +43,27 @@
         </form>
       </div>
       
-      <div id="logged" *ngIf="islogged" style="display:block;height: 420px;">
-        <h2>Welcome!</h2>
-        <h2>{{userName}}</h2><br>
+      <div id="logged" *ngIf="islogged" style="display:block;height: 380px;">
         <div id="photodiv">
-          <img src="../../assets/images/loginphoto.jpg" width="120px" height="120px" id = "photo1">
+          <img src="../../assets/images/lazypanda3.jpg" width="120px" height="120px" id = "photo1">
         </div><br/>
-        <div id="router">
+        <!-- <h2>Welcome!</h2> -->
+        <h2>{{userName}}</h2>
+        <!-- <div id="router">
           <a [routerLink]="['user']" (click)="showForm()">View Profile</a><br>
           <a [routerLink]="['cart']">View Cart</a><br>
-        </div>
+        </div> -->
         <div *ngIf = "manager">
           <a [routerLink] = "['addGame']" (click) = "showForm()">Add Games</a> 
         </div><br>
-        <button class="btn btn-primary" (click)="logOut()">Log out</button>
+        <!-- <button class="btn btn-primary" (click)="logOut()">Log out</button><br><br> -->
+        <div id="icons">
+          <img src="../../assets/images/document.png" width="30px" height="30px" id="icon" (click)="gotouser()">
+          <img src="../../assets/images/cart2.png" width="40px" height="40px" id="icon" (click)="gotocart()">
+          <div id="icon" style="display:inline-block;height: 40px;width: 40px"><a href="/user#boughtgames" style="margin-left:0;"><img src="../../assets/images/game.png" width="40px" height="40px"></a></div>
+          <div id="icon" style="display:inline-block;height: 30px;width: 30px"><a href="/user#favouritegames" style="margin-left:0;"><img src="../../assets/images/heart2.jpeg" width="30px" height="30px"></a></div>
+          <img src="../../assets/images/logout.png" width="30px" height="30px" id="icon" (click)="logOut()">
+        </div>
         
       </div>
 </div>

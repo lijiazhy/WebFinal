@@ -3,9 +3,10 @@
         width: 400px; 
         height: 500px; 
         padding: 30px 40px; 
-        background-color: #F3F5F6; 
+        background-color: aliceblue; 
         position: fixed; top: 70px;
         right: 30px;
+        opacity: 0.9;
  }
  #logged h2 {
 	 text-align:center;
@@ -20,6 +21,9 @@
 #logged a, #logged button {
 	margin-left:120px;
 }
+#photo1{
+    border: 6px inset #a1afc9;
+}
 a :link{
     color: black;
 }
@@ -29,11 +33,18 @@ a :visited{
 a :hover{
     color: aqua;
 }
-#router{
+#icon{
+    margin: 15px;
+}
+#icons{
+    box-shadow: 10px 10px 5px #888888;
+    background-color: #d3e0f3;
+}
+/* #router{
     margin-left:auto;
     margin-right: auto;
     font-size: 20px;
-}
+} */
 
 
 @media screen and (max-width: 1000px) {
