@@ -22,6 +22,10 @@ export class UserService {
   addProduct( email: String, game: any) {
     return this.http.post('http://localhost:3000/user/' + email + '/product/add',  game );
   }
+  
+  update(email: String, user: User){
+    return this.http.post('http://localhost:3000/user/'+email+'/password', user);
+  }
 
   changeFavorate( email: String, game: any) {
     return this.http.post('http://localhost:3000/user/' + email + '/product/favorate',  game );
