@@ -5,6 +5,6 @@ export class User {
     passWord: string;
     products: [{
         productName: String,
-        productPrice: String
+        state: number
     }]
 }

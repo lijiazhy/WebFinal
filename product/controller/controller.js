@@ -124,7 +124,7 @@ exports.productCreate = (req, res) => {
 }
 
 
-exports.productUpdate = (req, res) => {
+exports.productBuy = (req, res) => {
     console.log(req.body.productName);
     if (req.body.productName == undefined) {
         return res.status(400).send({
@@ -167,12 +167,70 @@ exports.productUpdate = (req, res) => {
             return;
         }
 
+    });
+
+}
+
+exports.productFavorate = (req, res) => {
+    console.log(req.body.productName);
+    if (req.body.productName == undefined) {
+        return res.status(400).send({
+            message: "Empty name is not accepted!"
+        });
+    }
+
+    User.findOne({"userName": req.params.email})
+    .then( user => {
+        if (!user) {
+            return res.status(401).send({
+                message: "The user is not exist!"
+            });
+        }
+        var i = 0;
+        for (; i < user.products.length; i++) {
+            if (user.products[i].productName == req.body.productName) {
+                break;
+            }
+        }
+
+        if (i == user.products.length) {
+            User.updateOne({"userName": req.params.email},{$push:{products:{productName: req.body.productName, state: -1}}})
+            .then( () => {
+                return res.status(200).send({
+                    message: "Add to favorate successfully!"
+                });
+            });
+            return;
+        }
+
         if (user.products[i].state == 0) {
             User.updateOne({"userName": req.params.email, 'products.productName': req.body.productName}
             ,{$set:{'products.$.state':1}})
             .then( () => {
                 return res.status(200).send({
-                    message: "Buy successfully3!"
+                    message: "Add to favorate successfully!"
+                });
+            });
+            return;
+        }
+
+        if (user.products[i].state == 1) {
+            User.updateOne({"userName": req.params.email, 'products.productName': req.body.productName}
+            ,{$set:{'products.$.state':0}})
+            .then( () => {
+                return res.status(200).send({
+                    message: "remove from favorate successfully!"
+                });
+            });
+            return;
+        }
+
+        if (user.products[i].state == -1) {
+            User.updateOne({"userName": req.params.email, 'products.productName': req.body.productName}
+            ,{$pull:{'products':{productName: req.body.productName}}})
+            .then( () => {
+                return res.status(200).send({
+                    message: "remove from favorate successfully!"
                 });
             });
             return;
@@ -181,7 +239,6 @@ exports.productUpdate = (req, res) => {
     });
 
 }
-
 
 exports.productDelete = (req, res) => {
     User.findOne({'userName': req.params.email})
