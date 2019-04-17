@@ -67,17 +67,17 @@ export class HomeComponent implements OnInit {
   }
   showPic24(pic: any){
     const el: HTMLElement = document.getElementById('1');
-    el.innerHTML='<p>"The Elder Scrolls V: Skyrim is an action role-playing game, playable from either a first or third-person perspective. The player may freely roam over the land of Skyrim which is an open world environment consisting of wilderness expanses, dungeons, cities, towns, fortresses, and villages.</p><img src="../../assets/images/theelderscrolls2.jpg" height="200px" width="350px">';
+    el.innerHTML='<p>The Elder Scrolls V: Skyrim is an action role-playing game, playable from either a first or third-person perspective. The player may freely roam over the land of Skyrim which is an open world environment consisting of wilderness expanses, dungeons, cities, towns, fortresses, and villages.</p><img src="../../assets/images/theelderscrolls2.jpg" height="200px" width="350px">';
     el.style.background = "black";
   }
   showPic25(pic: any){
     const el: HTMLElement = document.getElementById('1');
-    el.innerHTML='<p>"The Binding of Isaac: Rebirth is a randomly generated action RPG shooter with heavy Rogue-like elements. Following Isaac on his journey players will find bizarre treasures that change Isaac’s form giving him super human abilities and enabling him to fight off droves of mysterious creatures, discover secrets and fight his way to safety.</p><img src="../../assets/images/bindingsaac2.jpg" height="200px" width="350px">';
+    el.innerHTML='<p>The Binding of Isaac: Rebirth is a randomly generated action RPG shooter with heavy Rogue-like elements. Following Isaac on his journey players will find bizarre treasures that change Isaac’s form giving him super human abilities and enabling him to fight off droves of mysterious creatures, discover secrets and fight his way to safety.</p><img src="../../assets/images/bindingsaac2.jpg" height="200px" width="350px">';
     el.style.background = "black";
   }
   showPic26(pic: any){
     const el: HTMLElement = document.getElementById('1');
-    el.innerHTML='<p>"NBA 2K celebrates 20 years of redefining what sports gaming can be. NBA 2K19 continues to push limits as it brings gaming one step closer to real-life basketball excitement and culture</p><img src="../../assets/images/NBA2K192.jpg" height="200px" width="350px">';
+    el.innerHTML='<p>NBA 2K celebrates 20 years of redefining what sports gaming can be. NBA 2K19 continues to push limits as it brings gaming one step closer to real-life basketball excitement and culture</p><img src="../../assets/images/NBA2K192.jpg" height="200px" width="350px">';
     el.style.background = "black";
   }
   toggleTable(){

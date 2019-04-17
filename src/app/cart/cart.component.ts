@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CartComponent implements OnInit {
   gameName: string= "The Sims 4";
   gamePrice: string="$59.99";
-  totalPrice: number="100"
+  totalPrice: number=100
 
   constructor() { }
 
