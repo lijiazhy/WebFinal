@@ -1,0 +1,31 @@
+<br><br><br>
+  <div class = "table-responsive container-fluid" style="padding-top:25px;">
+    <h1 style="display:inline-block;">Shopping Cart</h1>
+    <img src="../../assets/images/cart1.png" width="35px" height="35px" alt="cart" id="cartimg" style="display:inline-block;"><br><br>
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Game Name</td>
+          <td>Game Price</td>
+          <td></td>
+        </tr>
+      </thead>
+      <tr>
+        <td>{{gameName}}</td>
+        <td>{{gamePrice}}</td>
+        <td><button class="btn btn-secondary">Move to Favourite</button></td>
+      </tr>
+    </table><br><br><br><br><br><br>
+
+    <table class="table" id="total">
+      <tr>
+        <td>Total Price</td>
+        <td>${{totalPrice}}</td>
+      </tr>
+    </table><br>
+    <div class="btn-group" id="buttons">
+      <button class="btn btn-outline-primary">Go to Checkout</button>
+      <button class="btn btn-outline-primary">Continue Shopping</button>
+    </div>
+    
+  </div>

@@ -1,0 +1,25 @@
+h1{
+    color: aliceblue;
+    margin-left: 30px;
+    margin-right: 20px;
+    margin-bottom: 0;
+}
+table{
+    color: aliceblue;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    /* height: 100px; */
+    /* width:500px; */
+    /* border: 2px solid aliceblue; */
+}
+#buttons{
+    margin-left: 1000px;
+}
+#total{
+    text-align: left;
+}
+#cardimg{
+    padding-bottom: 30px;
+}

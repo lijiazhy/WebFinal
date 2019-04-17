@@ -21,12 +21,14 @@ export class HeaderComponent implements OnInit {
   manager: boolean = false;
   errorMessage : string;
   userName : string = "";
+  email: string = "";
   
   constructor(private userService: UserService, private gameService: GameService, private router: Router, private modalService: NgbModal) {
     this.model.userName = "";
     this.model.passWord = "";
 	this.model.search = "";
-    this.userName = localStorage.getItem("userName");
+    this.email = localStorage.getItem("userName");
+    this.userName = this.email.split('@')[0];
     if (this.userName != "") {
       if (this.userName == "manager@pandada.com") this.manager = true;
       this.islogged = true;
