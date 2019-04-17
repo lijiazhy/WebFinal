@@ -1,7 +1,9 @@
 #profile{
-    margin-left: 270px;
+    margin-left: 400px;
     margin-right: 150px;
     color : #C0C0C0;
+    float: left;
+    /* border: 3px groove whitesmoke; */
 }
 #profileimg{
     /* float: left; */
@@ -10,9 +12,9 @@
     margin-bottom: 20px;
 }
 #username{
-    font-size: 80px;
-    margin-left: 50px;
-    margin-bottom: 0px;
+    font-size: 50px;
+    /* margin-left: 50px;
+    margin-bottom: 0px; */
     display:inline-block;
     /* margin-top: 20px;  */
 }
@@ -36,4 +38,8 @@ table{
  }
  .subtitle h1{
     margin-left: 20px;
+ }
+ ul{
+     color: white;
+     font-size: 20px;
  }
