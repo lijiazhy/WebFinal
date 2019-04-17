@@ -43,12 +43,16 @@
         </form>
       </div>
       
-      <div id="logged" *ngIf="islogged" style="display:block;height: 400px;">
+      <div id="logged" *ngIf="islogged" style="display:block;height: 420px;">
         <h2>Welcome!</h2>
+        <h2>{{userName}}</h2><br>
         <div id="photodiv">
           <img src="../../assets/images/loginphoto.jpg" width="120px" height="120px" id = "photo1">
-        </div><br />
-        <a [routerLink]="['user']" (click)="showForm()">View Profile</a><br><br>
+        </div><br/>
+        <div id="router">
+          <a [routerLink]="['user']" (click)="showForm()">View Profile</a><br>
+          <a [routerLink]="['cart']">View Cart</a><br>
+        </div>
         <div *ngIf = "manager">
           <a [routerLink] = "['addGame']" (click) = "showForm()">Add Games</a> 
         </div><br>

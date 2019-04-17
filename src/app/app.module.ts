@@ -15,7 +15,8 @@ import { TermsComponent } from './terms/terms.component';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { CopyrightComponent } from './copyright/copyright.component';
 import { AddGameComponent } from './add-game/add-game.component';
-import { GameComponent } from './game/game.component'; 
+import { GameComponent } from './game/game.component';
+import { CartComponent } from './cart/cart.component'; 
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { GameComponent } from './game/game.component';
     TermsComponent,
     CopyrightComponent,
     AddGameComponent,
-    GameComponent
+    GameComponent,
+    CartComponent
     // SignupComponent
   ],
   imports: [
