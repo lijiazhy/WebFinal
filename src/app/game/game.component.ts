@@ -22,9 +22,12 @@ export class GameComponent implements OnInit {
   username: string="user";
 
   loggeduser: string;
-  _UNFAVORATE: string = "⭐ Add to Favourite";
-  _FAVORATE: string = "⭐ remove favorate";
-  favorate: string = "⭐ Add to Favourite";
+  _UNFAVORATE: string = "⭐Favourate";
+  _FAVORATE: string = "⭐Remove";
+  _UNPERCHASED: string = "Perchase at $";
+  _PERCHASED: string = "Perchased";
+  favorate: string = "";
+  perchase: string = "";
   buyDisable: boolean = false;
 
 
@@ -58,7 +61,6 @@ export class GameComponent implements OnInit {
       this.price = String(this.game.gamePrice);
       this.video = this.game.url;
       this.imgageURL = this.game.picture2;
-      console.log(this.video);
 
       let html = `<embed src="${this.video}"  height="500" width="850"/>`;
       document.getElementById('gameVideo').innerHTML = html;
@@ -71,25 +73,33 @@ export class GameComponent implements OnInit {
       this.userService.getUser(this.loggeduser)
       .subscribe( 
         (data: User) => {
-          console.log(this.game.searchID);
+          if (Number(data['products'].length) == 0) {
+            this.favorate = this._UNFAVORATE;
+            this.buyDisable = false;
+            this.perchase = this._UNPERCHASED + this.price;
+            return;
+          }
           for (let i = 0; i < data['products'].length; i ++) {
             if (data['products'][i].productName == this.game.searchID) {
               // unown favorate
               if (data['products'][i].state == -1) {
                 this.favorate = this._FAVORATE;
                 this.buyDisable = false;
+                this.perchase = this._UNPERCHASED + this.price;
                 break;
               }
               // own favorate
               else if(data['products'][i].state == 1) {
                 this.favorate = this._FAVORATE;
                 this.buyDisable = true;
+                this.perchase = this._PERCHASED;
                 break;
               }
               //own unfavorate
               else if(data['products'][i].state == 0){
                 this.favorate = this._UNFAVORATE;
                 this.buyDisable = true;
+                this.perchase = this._PERCHASED;
                 return;
               }
             }
@@ -120,7 +130,7 @@ export class GameComponent implements OnInit {
         this.buyDisable = true;
       }
     )
-
+    location.reload();
     
   }
 
