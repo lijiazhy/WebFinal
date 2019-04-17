@@ -1,3 +1,6 @@
+.container{
+    width: 90%;
+}
 #profile{
     margin-left: 400px;
     margin-right: 150px;
@@ -13,10 +16,7 @@
 }
 #username{
     font-size: 50px;
-    /* margin-left: 50px;
-    margin-bottom: 0px; */
     display:inline-block;
-    /* margin-top: 20px;  */
 }
 hr{
     clear: both;
@@ -34,12 +34,27 @@ table{
 .subtitle{
     color:white;
     height:80px;
-    
+    margin-left: 20px;   
  }
- .subtitle h1{
-    margin-left: 20px;
+ #newtrend{
+     margin-left: 110px;
  }
  ul{
      color: white;
      font-size: 20px;
  }
+ .cardimg {
+    height: 250px;
+    width: 100%;
+  }
+.row{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    height: 340px;
+}
+#card{
+    padding: 15px;
+    /* display: inline-block; */
+}
