@@ -5,15 +5,20 @@
     <table class="table">
       <thead>
         <tr>
+          <td></td>
           <td>Game Name</td>
+          <td>Game Company</td>
           <td>Game Price</td>
           <td></td>
         </tr>
       </thead>
       <tr>
+        <td *ngIf="!liked"><img src="../../assets/images/heart1.png" width="20px" height="20px" alt="like" (click)="like()"></td>
+        <td *ngIf="liked"><img src="../../assets/images/heart2.jpeg" width="20px" height="20px" alt="like" (click)="like()"></td>
         <td>{{gameName}}</td>
-        <td>{{gamePrice}}</td>
-        <td><button class="btn btn-secondary">Move to Favourite</button></td>
+        <td>{{gameCompany}}</td>
+        <td>${{gamePrice}}</td>
+        <td><button class="btn btn-secondary">Delete</button></td>
       </tr>
     </table><br><br><br><br><br><br>
 
@@ -25,7 +30,7 @@
     </table><br>
     <div class="btn-group" id="buttons">
       <button class="btn btn-outline-primary">Go to Checkout</button>
-      <button class="btn btn-outline-primary">Continue Shopping</button>
+      <button class="btn btn-outline-primary" (click)="gotohome()">Continue Shopping</button>
     </div>
     
   </div>
