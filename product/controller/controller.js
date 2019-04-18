@@ -303,3 +303,19 @@ exports.commentCreate = (req, res) => {
         });
     })
 }
+
+exports.passwordUpdate = (req, res) => {
+	console.log(req.body.passWord+"bbbbb");
+    User.findOne({"userName": req.params.email})
+    .then( user => {
+        User.updateOne({"userName": req.params.email}
+		,{$set:{'passWord':req.body.passWord}})
+        .then( () => {
+            return res.status(200).send({
+                message: "Update successfully!"
+            });
+        });
+        return;
+    });
+
+}

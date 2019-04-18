@@ -40,6 +40,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
 
   }
+  gotouser(){
+    this.router.navigate(['/user']);
+  }
+  gotocart(){
+    this.router.navigate(['/cart']);
+  }
 
   showForm() {
     if(this.show == true){
