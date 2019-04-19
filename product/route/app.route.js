@@ -9,6 +9,7 @@ module.exports = (app) => {
 
     app.delete('/user/:email/product/:productid', controller.productDelete);
     app.get('/user/:email/product', controller.productGet);
+	app.post('/user/:email/password',controller.passwordUpdate);
 
     app.post('/game', controller.gameCreate);
     app.get('/game/:searchID', controller.gameGet);
