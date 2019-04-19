@@ -109,7 +109,7 @@ export class GameComponent implements OnInit {
             if (i == data['products'].length) {
               this.favorate = this._UNFAVORATE;
               this.buyDisable = false;
-              this.perchase = this._UNPERCHASED;
+              this.perchase = this._UNPERCHASED + this.price;
             }
           error => {
             alert(error.error.message);
