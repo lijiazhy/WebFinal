@@ -26,7 +26,7 @@
 }
 #photodiv :hover{
     /* border: 6px outset #a1afc9; */
-    animation: whirl 2s linear 1;
+    animation: whirl 2s linear 10000;
 }
 #icon :hover{
     position: relative;
