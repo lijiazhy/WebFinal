@@ -13,8 +13,9 @@
           </textarea>
           <div class="btn-group">
             <button width = "100px" class="btn btn-outline-primary" [disabled] = "buyDisable" style="display: inline" (click) = "buyGame()">{{perchase}}</button>
-            <button class="btn btn-outline-primary" style="display: inline" [disabled] = "buyDisable">
-              <img src = "../../assets/images/cart2.png" height = "30px" width = "30px"/>  
+            <button class="btn btn-outline-primary" style="display: inline" [disabled] = "buyDisable" data-toggle="tooltip" title="Add to Cart" data-placement:="top">
+              <!-- <img src = "../../assets/images/cart2.png" height = "30px" width = "30px"/>   -->
+              🛒
             </button>
             <button width = "100px" class="btn btn-outline-primary" style="display: inline" (click) = "favoreteAction()">{{favorate}}</button>
             
