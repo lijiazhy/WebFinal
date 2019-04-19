@@ -1,11 +1,10 @@
 #log,#logged {
-    display: none; 
+    /* display: none;  */
     width: 400px; 
     height: 500px; 
     padding: 30px 40px; 
     background-color: aliceblue; 
-    position: fixed; top: 70px;
-    right: 30px;
+    position: fixed; top: 70px; right: 5px;
     opacity: 0.9;
  }
  #logged h2 {
@@ -38,6 +37,15 @@
 #icons{
     box-shadow: 10px 10px 5px #888888;
     background-color: #d3e0f3;
+}
+:host >>> .popover>.popover-header{
+   display: none;
+  }
+:host >>> .popover>.popover-body{
+   padding:0 0 0 0;
+}
+:host >>> .popover>.arrow:after {
+display: none;
 }
 /* #router{
     margin-left:auto;

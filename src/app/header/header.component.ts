@@ -5,11 +5,14 @@ import { Router } from '@angular/router';
 import { User } from '../model/user.model';
 import { Game } from '../model/game.model';
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import {NgbPopoverConfig} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  providers: [NgbPopoverConfig] // add NgbPopoverConfig to the component providers
 })
 export class HeaderComponent implements OnInit {
 
@@ -23,10 +26,11 @@ export class HeaderComponent implements OnInit {
   userName : string = "";
   email: string = "";
   
-  constructor(private userService: UserService, private gameService: GameService, private router: Router, private modalService: NgbModal) {
+  constructor(private userService: UserService, private gameService: GameService, private router: Router, private modalService: NgbModal, config: NgbPopoverConfig) {
+
     this.model.userName = "";
     this.model.passWord = "";
-	this.model.search = "";
+	  this.model.search = "";
     this.email = localStorage.getItem("userName");
     this.userName = this.email.split('@')[0];
     if (this.userName != "") {

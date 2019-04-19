@@ -12,11 +12,11 @@
           <textarea rows = "10"  spellcheck = "false" id="gamedescription">{{description}}
           </textarea>
           <div class="btn-group">
-            <button width = "100px" class="btn btn-outline-primary" [disabled] = "true" style="display: inline; ">{{purchase}}</button>
-            <button class="btn btn-outline-primary" style="display: inline" (click) = "addToCart()">
-              <img src = "../../assets/images/cart2.png" height = "30px" width = "30px"/> {{cartText}} 
+            <button class="btn btn-outline-primary" [disabled] = "true" style="display: inline; width: 110px">{{purchase}}</button>
+            <button  class="btn btn-outline-primary" style="display: inline; width:120px" (click) = "addToCart()">
+              🛒 {{cartText}}
             </button>
-            <button width = "100px" class="btn btn-outline-primary" style="display: inline" (click) = "favoreteAction()">{{favorate}}</button>
+            <button class="btn btn-outline-primary" style="display: inline; width: 120px" (click) = "favoreteAction()">{{favorate}}</button>
             
           </div>
           </td>

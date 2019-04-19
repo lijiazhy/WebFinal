@@ -41,6 +41,7 @@ hr{
 }
 table{
     color : white;
+    
 }
 .subtitle{
     color:white;
@@ -75,8 +76,6 @@ table{
     margin-right: auto;
     overflow: auto;
     height: 340px;
+    
 }
-#card{
-    padding: 0 15px 0 15px;
-    /* display: inline-block; */
-}
+

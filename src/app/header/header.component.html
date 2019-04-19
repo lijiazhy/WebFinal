@@ -23,7 +23,8 @@
 
 
 
-<div *ngIf="show">
+<!-- <div *ngIf="show"> -->
+  <ng-template #popContent>
     <div id="log" *ngIf="!islogged" style="display: block;height: 350px;">
         <form (ngSubmit) = "login(LoginSucc,LoginFail)">
               <div class="form-group">
@@ -57,22 +58,22 @@
           <a [routerLink] = "['addGame']" (click) = "showForm()">Add Games</a> 
         </div><br>
         <div id="icons">
-          <div id="icon" style="display:inline-block;height: 30px;width: 30px"><img src="../../assets/images/document.png" width="30px" height="30px" (click)="gotouser()"></div>
-          <div id="icon" style="display:inline-block;height: 40px;width: 40px"><img src="../../assets/images/cart2.png" width="40px" height="40px" (click)="gotocart()"></div>
-          <div id="icon" style="display:inline-block;height: 40px;width: 40px"><a href="/user#boughtgames" style="margin-left:0;"><img src="../../assets/images/game.png" width="40px" height="40px"></a></div>
-          <div id="icon" style="display:inline-block;height: 30px;width: 30px"><a href="/user#favouritegames" style="margin-left:0;"><img src="../../assets/images/heart2.jpeg" width="30px" height="30px"></a></div>
-          <div id="icon" style="display:inline-block;height: 30px;width: 30px"><img src="../../assets/images/logout.png" width="30px" height="30px" (click)="logOut()"></div>
+          <div id="icon" style="display:inline-block;height: 30px;width: 30px" data-toggle="tooltip" title="View Profile" data-placement:="top"><img src="../../assets/images/document.png" width="30px" height="30px" (click)="gotouser()"></div>
+          <div id="icon" style="display:inline-block;height: 40px;width: 40px" data-toggle="tooltip" title="View Cart" data-placement:="top"><img src="../../assets/images/cart2.png" width="40px" height="40px" (click)="gotocart()"></div>
+          <div id="icon" style="display:inline-block;height: 40px;width: 40px" data-toggle="tooltip" title="View Bought Games" data-placement:="top"><a href="/user#boughtgames" style="margin-left:0;"><img src="../../assets/images/game.png" width="40px" height="40px"></a></div>
+          <div id="icon" style="display:inline-block;height: 30px;width: 30px" data-toggle="tooltip" title="View Favourite Games" data-placement:="top"><a href="/user#favouritegames" style="margin-left:0;"><img src="../../assets/images/heart2.jpeg" width="30px" height="30px"></a></div>
+          <div id="icon" style="display:inline-block;height: 30px;width: 30px" data-toggle="tooltip" title="Log Out" data-placement:="top"><img src="../../assets/images/logout.png" width="30px" height="30px" (click)="logOut()"></div>
         </div>
-        
       </div>
-</div>
+    </ng-template>
+<!-- </div> -->
 
   <form class="form-inline nav-right"  id = "search" (ngSubmit) = "search(SearchFail)">
       <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search" aria-label="Search" [(ngModel)]="model.search"/>
       <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
   </form>
   &nbsp; &nbsp; &nbsp; 
-  <img src="../../assets/images/lazypanda3.jpg" width="40px" height="40px" (click)="showForm()" id = "login">
+  <img src="../../assets/images/lazypanda3.jpg" width="40px" height="40px" id = "login" [ngbPopover]="popContent" popoverTitle="Popover on top">
 </nav>
 
 <ng-template #LoginSucc let-c = "close">
