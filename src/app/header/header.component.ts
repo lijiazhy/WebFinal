@@ -127,7 +127,7 @@ export class HeaderComponent implements OnInit {
           picture2: data['picture2'],
 		      url: data['url']
         };
-      let newURL = `/game?game=` + this.game.searchID;
+      let newURL = `/search?game=` + this.game.searchID;
       console.log(newURL);
 		  this.router.navigateByUrl(newURL);
       this.model.search = "";

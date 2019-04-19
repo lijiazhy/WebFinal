@@ -33,6 +33,7 @@ export class GameComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private gameService: GameService, private userService: UserService) { 
     this.loggeduser = localStorage.userName == ""? "log in to comment" : localStorage.userName;
+    //location.reload();
 
   }
 
@@ -42,7 +43,7 @@ export class GameComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe( (params: Params) => {
       this.searchID = params['game'];
       console.log(params['game']);
-    })
+    });
 
     this.gameService.getGame(this.searchID)
     .subscribe( (data: Game) => {
@@ -79,7 +80,8 @@ export class GameComponent implements OnInit {
             this.perchase = this._UNPERCHASED + this.price;
             return;
           }
-          for (let i = 0; i < data['products'].length; i ++) {
+          var i = 0;
+          for (; i < data['products'].length; i ++) {
             if (data['products'][i].productName == this.game.searchID) {
               // unown favorate
               if (data['products'][i].state == -1) {
@@ -104,6 +106,11 @@ export class GameComponent implements OnInit {
               }
             }
           }
+            if (i == data['products'].length) {
+              this.favorate = this._UNFAVORATE;
+              this.buyDisable = false;
+              this.perchase = this._UNPERCHASED;
+            }
           error => {
             alert(error.error.message);
           }
