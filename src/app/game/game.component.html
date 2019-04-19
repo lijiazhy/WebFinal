@@ -9,24 +9,24 @@
         <td width="850px" id="video"><div id ="gameVideo"></div></td>
         <td width="250px" height="500px" id="paragraph"> 
           <img src="{{imgageURL}}" alt="image" height="200px" width="350px"/>
-          <textarea rows = "10"  spellcheck = "false" id="gamedescription">PlayerUnknown's Battlegrounds (PUBG) is an online multiplayer battle royale game developed and published by PUBG Corporation, a subsidiary of South Korean video game company Bluehole. In the game, up to one hundred players parachute onto an island and scavenge for weapons and equipment to kill others while avoiding getting killed themselves. The available safe area of the game's map decreases in size over time, directing surviving players into tighter areas to force encounters. The last player or team standing wins the round.
+          <textarea rows = "10"  spellcheck = "false" id="gamedescription">{{description}}
           </textarea>
           <div class="btn-group">
-            <button width = "100px" class="btn btn-outline-primary" [disabled] = "buyDisable" style="display: inline" (click) = "buyGame()">{{perchase}}</button>
-            <button class="btn btn-outline-primary" style="display: inline" [disabled] = "buyDisable" data-toggle="tooltip" title="Add to Cart" data-placement:="top">
-              <!-- <img src = "../../assets/images/cart2.png" height = "30px" width = "30px"/>   -->
-              🛒
+            <button class="btn btn-outline-primary" [disabled] = "true" style="display: inline; width: 110px">{{purchase}}</button>
+            <button  class="btn btn-outline-primary" style="display: inline; width:120px" (click) = "addToCart()">
+              🛒 {{cartText}}
             </button>
-            <button width = "100px" class="btn btn-outline-primary" style="display: inline" (click) = "favoreteAction()">{{favorate}}</button>
+            <button class="btn btn-outline-primary" style="display: inline; width: 120px" (click) = "favoreteAction()">{{favorate}}</button>
             
           </div>
           </td>
       </tr>
     </table>
   </div>
+ 
   <br/><br/><br/>
-  
-  <div class = "table-responsive container-fluid" style="padding-top:25px;">
+  <!-- <button (click) = "buytest(BuyItem)">buy test</button>
+  <div class = "table-responsive container-fluid" style="padding-top:25px;"> -->
 
     <div id="header">
       <h1>Comments</h1>
@@ -113,52 +113,4 @@
   </div>
    -->
 
-  <ng-template #PurSucc let-c = "close">
-  <div class = "modal-content">
-    <div class = "modal-body">
-      Purchase Game Successfully!
-    </div>
-    <div class = "modal-footer">
-      <button type = "button" (click) = "c()"> Yes </button>
-    </div>
-  </div>
-  </ng-template>
   
-  <ng-template #PurFail let-c = "close">
-  <div class = "modal-content">
-    <div class = "modal-body">
-      {{errorMessage}}
-    </div>
-    <div class = "modal-footer">
-      <button type = "button" (click) = "c()"> Yes </button>
-    </div>
-  </div>
-  </ng-template>
-  
-  <!-- <h1>Comments</h1>
-  <div id="comments">
-    <div class="cuser">
-      <br />
-      <b>Username</b>
-    </div>
-    <div class="content">
-      <p>
-      Great Game!
-      </p>
-    </div>
-    <hr />
-    <div class="cuser">
-      <br />
-      <b>Username</b>
-    </div>
-    <div class="content">
-      <p>
-      I love it!
-      </p>
-    </div>
-    <hr />
-  </div>
-  <br /><br />
-
-</div> -->
-
