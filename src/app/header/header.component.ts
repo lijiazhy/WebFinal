@@ -108,6 +108,7 @@ export class HeaderComponent implements OnInit {
   }
   
   search(SearchFail){
+    this.model.search = this.model.search.toLowerCase();
     if (this.model.search == "") {
       this.errorMessage = "Please input game name! ";
       console.log("empty search");

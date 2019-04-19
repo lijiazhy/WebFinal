@@ -5,6 +5,9 @@ import { GameService } from '../service/game.service';
 import { UserService } from '../service/user.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from '../model/user.model';
+import { Router } from '@angular/router';
+
+declare let paypal: any;
 
 @Component({
   selector: 'app-game',
@@ -15,6 +18,7 @@ export class GameComponent implements OnInit {
   
   price: string;
   gameName: string;
+  description: string;
   video: string;
   game: Game;
   imgageURL: string;
@@ -24,14 +28,43 @@ export class GameComponent implements OnInit {
   loggeduser: string;
   _UNFAVORITE: string = "⭐Favorite";
   _FAVORITE: string = "⭐Remove";
-  _UNPURCHASED: string = "Purchase at $";
-  _PURCHASED: string = "Purchased";
+  _INCART: string = "In Cart";
+  _NOTINCART: string = "Add to Cart";
   favorate: string = "";
-  perchase: string = "";
-  buyDisable: boolean = false;
+  purchase: string = "";
+  confirmBuy: boolean = false;
+  inCart: boolean = false;
+  cartText: string = "";
+
+  finalAmount: number = 10;
+  addScript : boolean = false;
+  paypalLoad: boolean = true;
+
+  paypalConfig = {
+    env: 'sandbox',
+    client: {
+      sandbox: 'ARjjUJ_73HwOeKxFffXFdsTz7ELSG5VvPrn6XUwUEimc3RgCz7rK-I1lRtH52xMl17kzZP8x1uUUVwkt',
+      production: '<your-production-key-here>'
+    },
+    commit: true,
+    payment: (data, actions) => {
+      return actions.payment.create({
+        payment: {
+          transactions: [
+            { amount: { total: this.finalAmount, currency: 'USD' } }
+          ]
+        }
+      });
+    },
+    onAuthorize: (data, actions) => {
+      return actions.payment.execute().then((payment) => {
+        //Do something when payment is successful.
+      })
+    }
+  };
 
 
-  constructor(private activatedRoute: ActivatedRoute, private gameService: GameService, private userService: UserService) { 
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private gameService: GameService, private userService: UserService) { 
     this.loggeduser = localStorage.userName == ""? "log in to comment" : localStorage.userName;
     //location.reload();
 
@@ -44,6 +77,19 @@ export class GameComponent implements OnInit {
       this.searchID = params['game'];
       console.log(params['game']);
     });
+
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (cart == undefined) {
+      this.inCart = false;
+      this.cartText = this._NOTINCART;
+    }
+    else if (cart.indexOf(this.searchID) > -1 ) {
+      this.inCart = true;
+      this.cartText = this._INCART;
+    }else {
+      this.inCart = false;
+      this.cartText = this._NOTINCART;
+    }
 
     this.gameService.getGame(this.searchID)
     .subscribe( (data: Game) => {
@@ -62,6 +108,8 @@ export class GameComponent implements OnInit {
       this.price = String(this.game.gamePrice);
       this.video = this.game.url;
       this.imgageURL = this.game.picture2;
+      this.description = this.game.description;
+      this.purchase = "$" + this.price;
 
       let html = `<embed src="${this.video}"  height="500" width="850"/>`;
       document.getElementById('gameVideo').innerHTML = html;
@@ -74,42 +122,29 @@ export class GameComponent implements OnInit {
       this.userService.getUser(this.loggeduser)
       .subscribe( 
         (data: User) => {
-          if (Number(data['products'].length) == 0) {
-            this.favorate = this._UNFAVORITE;
-            this.buyDisable = false;
-            this.perchase = this._UNPURCHASED + this.price;
-            return;
-          }
+          
           var i = 0;
           for (; i < data['products'].length; i ++) {
             if (data['products'][i].productName == this.game.searchID) {
               // unown favorite
               if (data['products'][i].state == -1) {
                 this.favorate = this._FAVORITE;
-                this.buyDisable = false;
-                this.perchase = this._UNPURCHASED + this.price;
                 break;
               }
               // own favorite
               else if(data['products'][i].state == 1) {
                 this.favorate = this._FAVORITE;
-                this.buyDisable = true;
-                this.perchase = this._PURCHASED;
                 break;
               }
               //own unfavorite
               else if(data['products'][i].state == 0){
                 this.favorate = this._UNFAVORITE;
-                this.buyDisable = true;
-                this.perchase = this._PURCHASED;
                 return;
               }
             }
           }
-            if (i == data['products'].length) {
+            if (i == data['products'].length || Number(data['products'].length) == 0) {
               this.favorate = this._UNFAVORITE;
-              this.buyDisable = false;
-              this.perchase = this._UNPURCHASED + this.price;
             }
           error => {
             alert(error.error.message);
@@ -119,27 +154,34 @@ export class GameComponent implements OnInit {
       )
     }
 
+    //load paypal
+    // this.addPaypalScript().then(() => {
+    //   paypal.Button.render(this.paypalConfig, `paypal-checkout-btn`);
+    //   this.paypalLoad = false;
+    // })
+
   }
 
-  buyGame() {
+  // buyGame() {
 
-    if(localStorage.userName == "" ) {
-      alert("please log in to buy this game.");
-      return ;
-    }
-    let product = {
-      productName: this.game.searchID
-    };
-    this.userService.addProduct(this.loggeduser, product)
-    .subscribe(
-      data => {
-        alert("successfully");
-        this.buyDisable = true;
-      })
+  //   if(localStorage.userName == "" ) {
+  //     alert("please log in to buy this game.");
+  //     return ;
+  //   }
 
-    location.reload();
+  //   let product = {
+  //     productName: this.game.searchID
+  //   };
+
+  //   this.userService.addProduct(this.loggeduser, product)
+  //   .subscribe(
+  //     data => {
+  //       //alert("successfully");
+  //     })
+
+  //   location.reload();
     
-  }
+  // }
 
   favoreteAction() {
     if (localStorage.userName == "" ) {
@@ -157,5 +199,43 @@ export class GameComponent implements OnInit {
 
     location.reload();
   }
+
+  addPaypalScript() {
+    this.addScript = true;
+    return new Promise((resolve, reject) => {
+      let scripttagElement = document.createElement('script');
+      scripttagElement.src = 'https://www.paypalobjects.com/api/checkout.js';
+      scripttagElement.onload = resolve;
+      document.body.appendChild(scripttagElement);
+    })
+  }
+
+  addToCart() {
+
+    if (!this.inCart) {
+      var cart = JSON.parse(localStorage.getItem("cart"));
+      if (cart == undefined) {
+        let cs = [];
+        cs[0] = this.game.searchID;
+        localStorage.setItem("cart", JSON.stringify(cs));
+      }
+      else {
+        cart[cart.length] = this.game.searchID;
+        if( cart.indexOf(this.game.searchID) < 0 ) {
+          localStorage.removeItem("cart");
+          localStorage.setItem("cart", JSON.stringify(cart));
+        }
+      }
+      console.log(localStorage.cart);
+      location.reload();
+    }
+    else {
+      console.log("go to cart");
+      this.router.navigate(['/cart']);
+    }
+
+  }
+
+
 
 }
