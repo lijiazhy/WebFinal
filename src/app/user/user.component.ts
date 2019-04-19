@@ -18,11 +18,11 @@ export class UserComponent implements OnInit {
 
   constructor(private userService: UserService) {
     this.model.passWord = "";
-	this.isReg = false;
-	this.isSucc = false;
-	this.update=false;
-	this.show=true;
-	this.message="Password format is wrong!";
+    this.isReg = false;
+    this.isSucc = false;
+    this.update=false;
+    this.show=true;
+    this.message="Password format is wrong!";
     this.email =  localStorage.getItem("userName");
     let es = this.email.split('@');
     this.userName =es[0];

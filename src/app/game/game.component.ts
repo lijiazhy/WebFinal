@@ -22,10 +22,10 @@ export class GameComponent implements OnInit {
   username: string="user";
 
   loggeduser: string;
-  _UNFAVORATE: string = "⭐Favourate";
-  _FAVORATE: string = "⭐Remove";
-  _UNPERCHASED: string = "Perchase at $";
-  _PERCHASED: string = "Perchased";
+  _UNFAVORITE: string = "⭐Favorite";
+  _FAVORITE: string = "⭐Remove";
+  _UNPURCHASED: string = "Purchase at $";
+  _PURCHASED: string = "Purchased";
   favorate: string = "";
   perchase: string = "";
   buyDisable: boolean = false;
@@ -68,48 +68,48 @@ export class GameComponent implements OnInit {
       console.log(html);
     })
     if (this.loggeduser == "") {
-      this.favorate = this._UNFAVORATE;
+      this.favorate = this._UNFAVORITE;
     }
     else {
       this.userService.getUser(this.loggeduser)
       .subscribe( 
         (data: User) => {
           if (Number(data['products'].length) == 0) {
-            this.favorate = this._UNFAVORATE;
+            this.favorate = this._UNFAVORITE;
             this.buyDisable = false;
-            this.perchase = this._UNPERCHASED + this.price;
+            this.perchase = this._UNPURCHASED + this.price;
             return;
           }
           var i = 0;
           for (; i < data['products'].length; i ++) {
             if (data['products'][i].productName == this.game.searchID) {
-              // unown favorate
+              // unown favorite
               if (data['products'][i].state == -1) {
-                this.favorate = this._FAVORATE;
+                this.favorate = this._FAVORITE;
                 this.buyDisable = false;
-                this.perchase = this._UNPERCHASED + this.price;
+                this.perchase = this._UNPURCHASED + this.price;
                 break;
               }
-              // own favorate
+              // own favorite
               else if(data['products'][i].state == 1) {
-                this.favorate = this._FAVORATE;
+                this.favorate = this._FAVORITE;
                 this.buyDisable = true;
-                this.perchase = this._PERCHASED;
+                this.perchase = this._PURCHASED;
                 break;
               }
-              //own unfavorate
+              //own unfavorite
               else if(data['products'][i].state == 0){
-                this.favorate = this._UNFAVORATE;
+                this.favorate = this._UNFAVORITE;
                 this.buyDisable = true;
-                this.perchase = this._PERCHASED;
+                this.perchase = this._PURCHASED;
                 return;
               }
             }
           }
             if (i == data['products'].length) {
-              this.favorate = this._UNFAVORATE;
+              this.favorate = this._UNFAVORITE;
               this.buyDisable = false;
-              this.perchase = this._UNPERCHASED + this.price;
+              this.perchase = this._UNPURCHASED + this.price;
             }
           error => {
             alert(error.error.message);
@@ -135,8 +135,8 @@ export class GameComponent implements OnInit {
       data => {
         alert("successfully");
         this.buyDisable = true;
-      }
-    )
+      })
+
     location.reload();
     
   }
@@ -153,12 +153,9 @@ export class GameComponent implements OnInit {
     .subscribe(
       data => {
         alert(data['message']);
-        if (data['message'] == "remove from favorate successfully!") {
-          this.favorate = this._UNFAVORATE;
-        }
-        else this.favorate = this._FAVORATE;
-      }
-    )
+      })
+
+    location.reload();
   }
 
 }
