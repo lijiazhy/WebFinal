@@ -2,11 +2,22 @@
     width: 90%;
 }
 #profile{
-    margin-left: 400px;
+    margin-left: 150px;
     margin-right: 150px;
     color : #C0C0C0;
     float: left;
+    text-align: center;
     /* border: 3px groove whitesmoke; */
+}
+#list{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+#userprofile{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
 }
 #profileimg{
     /* float: left; */
@@ -25,7 +36,7 @@ hr{
     background: -webkit-linear-gradient(left,rgba(255, 255, 255, 0),whitesmoke,rgba(255,255,255,0));
     background: linear-gradient(to right, rgba(255, 255, 255, 0),whitesmoke,rgba(255,255,255,0));
 }
-#boughtgames, #favouritegames{
+#favouritegames{
     width: 90%;
 }
 table{
@@ -40,13 +51,15 @@ table{
      margin-left: 110px;
  }
 #pwd,#succ {
-        display: none; 
-        width: 400px; 
-        height: 500px; 
-        padding: 30px 40px; 
-        background-color: #F3F5F6; 
-        position: fixed; top: 100px;
-        left: 500px;
+    display: none; 
+    width: 400px; 
+    height: 500px; 
+    padding: 30px 40px; 
+    background-color: #F3F5F6; 
+    position: fixed; 
+    top: 70px;
+    left: 1000px;
+    opacity: 0.9;
  }
  ul{
      color: white;
@@ -64,6 +77,6 @@ table{
     height: 340px;
 }
 #card{
-    padding: 15px;
+    padding: 0 15px 0 15px;
     /* display: inline-block; */
 }

@@ -56,13 +56,12 @@
         <div *ngIf = "manager">
           <a [routerLink] = "['addGame']" (click) = "showForm()">Add Games</a> 
         </div><br>
-        <!-- <button class="btn btn-primary" (click)="logOut()">Log out</button><br><br> -->
         <div id="icons">
-          <img src="../../assets/images/document.png" width="30px" height="30px" id="icon" (click)="gotouser()">
-          <img src="../../assets/images/cart2.png" width="40px" height="40px" id="icon" (click)="gotocart()">
+          <div id="icon" style="display:inline-block;height: 30px;width: 30px"><img src="../../assets/images/document.png" width="30px" height="30px" (click)="gotouser()"></div>
+          <div id="icon" style="display:inline-block;height: 40px;width: 40px"><img src="../../assets/images/cart2.png" width="40px" height="40px" (click)="gotocart()"></div>
           <div id="icon" style="display:inline-block;height: 40px;width: 40px"><a href="/user#boughtgames" style="margin-left:0;"><img src="../../assets/images/game.png" width="40px" height="40px"></a></div>
           <div id="icon" style="display:inline-block;height: 30px;width: 30px"><a href="/user#favouritegames" style="margin-left:0;"><img src="../../assets/images/heart2.jpeg" width="30px" height="30px"></a></div>
-          <img src="../../assets/images/logout.png" width="30px" height="30px" id="icon" (click)="logOut()">
+          <div id="icon" style="display:inline-block;height: 30px;width: 30px"><img src="../../assets/images/logout.png" width="30px" height="30px" (click)="logOut()"></div>
         </div>
         
       </div>

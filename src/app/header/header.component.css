@@ -1,12 +1,12 @@
 #log,#logged {
-        display: none; 
-        width: 400px; 
-        height: 500px; 
-        padding: 30px 40px; 
-        background-color: aliceblue; 
-        position: fixed; top: 70px;
-        right: 30px;
-        opacity: 0.9;
+    display: none; 
+    width: 400px; 
+    height: 500px; 
+    padding: 30px 40px; 
+    background-color: aliceblue; 
+    position: fixed; top: 70px;
+    right: 30px;
+    opacity: 0.9;
  }
  #logged h2 {
 	 text-align:center;
@@ -24,14 +24,13 @@
 #photo1{
     border: 6px inset #a1afc9;
 }
-a :link{
-    color: black;
+#photodiv :hover{
+    /* border: 6px outset #a1afc9; */
+    animation: whirl 2s linear 1;
 }
-a :visited{
-    color: black;
-}
-a :hover{
-    color: aqua;
+#icon :hover{
+    position: relative;
+    bottom: 5px;
 }
 #icon{
     margin: 15px;
@@ -46,7 +45,14 @@ a :hover{
     font-size: 20px;
 } */
 
-
+@keyframes whirl {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
 @media screen and (max-width: 1000px) {
     #search{
         display: none;

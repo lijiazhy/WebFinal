@@ -1,21 +1,23 @@
 <br><br><br><br>
 <div id="container">
-<div id="profile">
-  <img src="../../assets/images/lazypanda3.jpg" width="120px" height="120px" id="profileimg"><br>
-  <p id="username">{{userName}}</p> 
-</div><br><br>
-<ul>
-    <li>Has 10 games in stock</li>
-    <li>Has 10 games in wish list</li>
-    <li>Has 10 games  commented</li>
-</ul>
+    <div id="userprofile">
+        <div id="profile">
+        <img src="../../assets/images/lazypanda3.jpg" width="120px" height="120px" id="profileimg"><br>
+        <p id="username">{{userName}}</p> 
+        </div><br><br>
 
-<div>
-<button class="btn btn-primary" (click)="upt()">Update Password</button>
-</div>
+        <div id="list">
+            <ul>
+                <li>Has 10 games in stock</li>
+                <li>Has 10 games in wish list</li>
+                <li>Has 10 games  commented</li>
+            </ul>
+            <button class="btn btn-primary" (click)="upt()">Update Password</button>
+        </div>
+    </div>
 
 <div *ngIf="update">
-    <div id="pwd" *ngIf="show" style="display: block;height: 250px;">
+    <div id="pwd" *ngIf="show" style="display: block;height: 200px;">
         <form (ngSubmit) = "updatepwd()">
               <div id="errorme"></div>
               <div class="form-group">
@@ -44,7 +46,7 @@
 <div class = "subtitle" id="newtrend" >
     <h1>Bought Games</h1>
 </div>
-<div class="row" >
+<div class="row" id="boughtgames">
     
     <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-12">
         <div class="card" style = "background-color:#2c2b2b; color:white">
