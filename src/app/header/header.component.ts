@@ -42,9 +42,21 @@ export class HeaderComponent implements OnInit {
    }
 
   ngOnInit() {
+    if (this.islogged) {
+      this.userService.getUser(localStorage.userName).subscribe(
+        (data:User) => {
+          this.user = {
+            userName: data['userName'],
+            passWord: data['passWord'],
+            products: data['products']
+          }
+        }
+      )
+    }
 
   }
   gotouser(){
+    localStorage.setItem("user", JSON.stringify(this.user));
     this.router.navigate(['/user']);
   }
   gotocart(){
