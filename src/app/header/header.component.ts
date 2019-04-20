@@ -33,10 +33,15 @@ export class HeaderComponent implements OnInit {
     this.model.search = "";
     this.email = localStorage.getItem("userName");
     if (this.email != undefined) {
+      
       this.userName = this.email.split('@')[0];
       if (this.userName != "") {
-        if (this.userName == "manager@pandada.com") this.manager = true;
+        if (this.userName == "manager") {
+          console.log(this.email);
+          this.manager = true;
+        }
         this.islogged = true;
+
       }
       console.log(this.userName);
       console.log(this.islogged);
@@ -100,7 +105,8 @@ export class HeaderComponent implements OnInit {
           this.model.userName = "";
           this.model.passWord = "";
           localStorage.userName = data.userName;
-          
+          this.email = data.userName;
+          this.userName = data.userName.split('@')[0];
         }
         else {
           this.errorMessage = "Wrong password";
