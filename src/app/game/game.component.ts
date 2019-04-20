@@ -6,6 +6,12 @@ import { UserService } from '../service/user.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from '../model/user.model';
 import { Router } from '@angular/router';
+import { Comment } from '../model/comment.model';
+import { CommentService } from '../service/comment.service';
+import { DomEventsPlugin } from '@angular/platform-browser/src/dom/events/dom_events';
+import { htmlAstToRender3Ast } from '@angular/compiler/src/render3/r3_template_transform';
+import { discoverLocalRefs } from '@angular/core/src/render3/context_discovery';
+import { TextAst } from '@angular/compiler';
 
 declare let paypal: any;
 
@@ -38,34 +44,11 @@ export class GameComponent implements OnInit {
   cartText: string = "";
 
   finalAmount: number = 10;
-  addScript : boolean = false;
-  paypalLoad: boolean = true;
 
-  paypalConfig = {
-    env: 'sandbox',
-    client: {
-      sandbox: 'ARjjUJ_73HwOeKxFffXFdsTz7ELSG5VvPrn6XUwUEimc3RgCz7rK-I1lRtH52xMl17kzZP8x1uUUVwkt',
-      production: '<your-production-key-here>'
-    },
-    commit: true,
-    payment: (data, actions) => {
-      return actions.payment.create({
-        payment: {
-          transactions: [
-            { amount: { total: this.finalAmount, currency: 'USD' } }
-          ]
-        }
-      });
-    },
-    onAuthorize: (data, actions) => {
-      return actions.payment.execute().then((payment) => {
-        //Do something when payment is successful.
-      })
-    }
-  };
+  comment: any = {};
+  commentContent:string ="";
 
-
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private gameService: GameService, private userService: UserService) { 
+  constructor(private commentService: CommentService, private router: Router, private activatedRoute: ActivatedRoute, private gameService: GameService, private userService: UserService) { 
     this.loggeduser = localStorage.userName == ""? "log in to comment" : localStorage.userName;
     //location.reload();
 
@@ -78,6 +61,47 @@ export class GameComponent implements OnInit {
       this.searchID = params['game'];
       console.log(params['game']);
     });
+
+    this.commentService.get()
+    .subscribe(
+      (data) => {
+        let comments = [];
+        comments = Array(data);
+        // let fRow = document.getElementById("firstRow");
+        // fRow.innerHTML = "No comment for this game";
+
+        for (let i = 0; i < comments[0].length; i ++) {
+          let table = document.getElementById("commenttable");
+          let td1 = document.createElement("td");
+          td1.setAttribute("style","width:300px;height: 150px");
+          let row = document.createElement("tr");
+          let d = document.createElement("div");
+          d.setAttribute("style","margin-left: 10px;margin-right: 10px;");
+          let h2 = document.createElement("h2");
+          h2.innerHTML = comments[0][i].userName;
+          d.appendChild(h2);
+          td1.appendChild(d);
+
+          let td2 = document.createElement("td");
+          let txtArea = document.createElement("textarea");
+          txtArea.setAttribute("rows","5");
+          txtArea.setAttribute("cols","90");
+          txtArea.setAttribute("style","padding: 0 10px 0 10px;border: 4px groove #a1afc9;background-color: #222222;color: aliceblue;");
+          txtArea.innerHTML = comments[0][i].content;
+          td2.appendChild(txtArea);
+          td2.setAttribute("style","width:300px;height: 150px");
+          row.appendChild(td1);
+          row.appendChild(td2);
+          table.appendChild(row);
+          console.log(Array(comments[0][i]));
+        }
+        
+        
+      },
+      error => {
+        console.log(error.error.message);
+      }
+    )
 
     let cart = JSON.parse(localStorage.getItem("cart"));
     console.log(cart);
@@ -141,7 +165,7 @@ export class GameComponent implements OnInit {
           
           var i = 0;
           for (; i < data['products'].length; i ++) {
-            if (data['products'][i].productName == this.game.searchID) {
+            if (data['products'][i].productName == this.searchID) {
               // unown favorite
               if (data['products'][i].state == -1) {
                 this.favorite = this._FAVORITE;
@@ -170,35 +194,11 @@ export class GameComponent implements OnInit {
       )
     }
     
-    //load paypal
-    // this.addPaypalScript().then(() => {
-    //   paypal.Button.render(this.paypalConfig, `paypal-checkout-btn`);
-    //   this.paypalLoad = false;
-    // })
-    
+  
 
   }
 
-  // buyGame() {
-
-  //   if(localStorage.userName == "" ) {
-  //     alert("please log in to buy this game.");
-  //     return ;
-  //   }
-
-  //   let product = {
-  //     productName: this.game.searchID
-  //   };
-
-  //   this.userService.addProduct(this.loggeduser, product)
-  //   .subscribe(
-  //     data => {
-  //       //alert("successfully");
-  //     })
-
-  //   location.reload();
-    
-  // }
+  
 
   favoreteAction() {
     if (localStorage.userName == "" ) {
@@ -217,15 +217,6 @@ export class GameComponent implements OnInit {
     location.reload();
   }
 
-  addPaypalScript() {
-    this.addScript = true;
-    return new Promise((resolve, reject) => {
-      let scripttagElement = document.createElement('script');
-      scripttagElement.src = 'https://www.paypalobjects.com/api/checkout.js';
-      scripttagElement.onload = resolve;
-      document.body.appendChild(scripttagElement);
-    })
-  }
 
   addToCart() {
 
@@ -251,6 +242,26 @@ export class GameComponent implements OnInit {
       console.log("go to cart");
       this.router.navigate(['/cart']);
     }
+
+  }
+
+  addComment() {
+    console.log(this.commentContent);
+    this.comment = {
+      content: this.commentContent,
+      userName: this.loggeduser,
+      gameName: this.searchID
+    }
+    this.commentService.create(this.comment).subscribe(
+      data => {
+        alert("comment successully");
+        location.reload();
+      },
+      error => {
+        alert(error.error.message);
+      }
+    )
+    this.commentContent = "";
 
   }
 

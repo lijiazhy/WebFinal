@@ -286,7 +286,7 @@ exports.productGet = (req, res) => {
 
 exports.commentCreate = (req, res) => {
     console.log( "user: " + req.body.userName + " add comment to " + req.body.gameName);
-    if (req.body.content == undefined) {
+    if (req.body.content == "") {
         return res.status(400).send({
             message: 'The comment can\'t be empty' 
         });
@@ -298,10 +298,23 @@ exports.commentCreate = (req, res) => {
         gameName: req.body.gameName
     });
     comment.save().then( () => {
-        return res.status(200).end({
+        return res.send({
             message: 'comment successfully'
         });
     })
+}
+
+exports.commentGet = (req, res) => {
+    Comment.find().then(
+        comment => {
+            if (!comment) {
+                return res.status(400).send({
+                    message: "no comment!"
+                })
+            }
+            return res.status(200).send(comment);
+        }
+    )
 }
 
 exports.passwordUpdate = (req, res) => {
