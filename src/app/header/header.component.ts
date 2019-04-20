@@ -30,15 +30,22 @@ export class HeaderComponent implements OnInit {
 
     this.model.userName = "";
     this.model.passWord = "";
-	  this.model.search = "";
+    this.model.search = "";
     this.email = localStorage.getItem("userName");
-    this.userName = this.email.split('@')[0];
-    if (this.userName != "") {
-      if (this.userName == "manager@pandada.com") this.manager = true;
-      this.islogged = true;
+    if (this.email != undefined) {
+      
+      this.userName = this.email.split('@')[0];
+      if (this.userName != "") {
+        if (this.userName == "manager") {
+          console.log(this.email);
+          this.manager = true;
+        }
+        this.islogged = true;
+
+      }
+      console.log(this.userName);
+      console.log(this.islogged);
     }
-    console.log(this.userName);
-    console.log(this.islogged);
    }
 
   ngOnInit() {
@@ -97,7 +104,9 @@ export class HeaderComponent implements OnInit {
           this.show = false;
           this.model.userName = "";
           this.model.passWord = "";
-          
+          localStorage.userName = data.userName;
+          this.email = data.userName;
+          this.userName = data.userName.split('@')[0];
         }
         else {
           this.errorMessage = "Wrong password";
@@ -121,6 +130,7 @@ export class HeaderComponent implements OnInit {
     this.show = false;
     localStorage.userName = "";
     this.manager = false;
+    localStorage.clear();
   }
   
   search(SearchFail){
