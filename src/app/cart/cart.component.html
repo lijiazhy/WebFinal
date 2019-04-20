@@ -2,7 +2,12 @@
   <div class = "table-responsive container-fluid" style="padding-top:25px;">
     <h1 style="display:inline-block;">Shopping Cart</h1>
     <img src="../../assets/images/cart1.png" width="35px" height="35px" alt="cart" id="cartimg" style="display:inline-block;"><br><br>
-    <table class="table" id="carttable">
+    
+    
+    <div class="btn-group" id="buttons">
+      <button class="btn btn-outline-primary">Go to Checkout</button>
+      <button class="btn btn-outline-primary" (click)="gotohome()">Continue Shopping</button>
+    </div><table class="table" id="carttable">
       <thead>
         <tr>
           <td>Game Name</td>
@@ -28,9 +33,8 @@
         <td>${{totalPrice}}</td>
       </tr>
     </table><br>
-    <div class="btn-group" id="buttons">
-      <button class="btn btn-outline-primary">Go to Checkout</button>
-      <button class="btn btn-outline-primary" (click)="gotohome()">Continue Shopping</button>
+    <div style="float: right;margin-right: 120px">
+    <div id="paypal-checkout-btn" ></div>
     </div>
     
   </div>

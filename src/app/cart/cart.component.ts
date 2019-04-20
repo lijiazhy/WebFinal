@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+declare let paypal: any;
 
 @Component({
   selector: 'app-cart',
@@ -7,15 +8,54 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  gameName: string= "The Sims 4";
-  gameCompany: string="EA"
-  gamePrice: number=59.99;
+ 
   totalPrice: number=0;
-  liked: boolean=false;
+
+  addScript: boolean = false;
+  paypalLoad: boolean = true;
+
+  paypalConfig = {
+    env: 'sandbox',
+    client: {
+      sandbox: 'ARjjUJ_73HwOeKxFffXFdsTz7ELSG5VvPrn6XUwUEimc3RgCz7rK-I1lRtH52xMl17kzZP8x1uUUVwkt',
+      production: '<your-production-key-here>'
+    },
+    commit: true,
+    payment: (data, actions) => {
+      return actions.payment.create({
+        payment: {
+          transactions: [
+            { amount: { total: this.totalPrice, currency: 'USD' } }
+          ]
+        }
+      });
+    },
+    onAuthorize: (data, actions) => {
+      return actions.payment.execute().then((payment) => {
+        //Do something when payment is successful.
+        console.log("pay finish");
+        localStorage.removeItem("cart");
+        location.reload();
+      })
+    }
+  };
+
+  addPaypalScript() {
+    this.addScript = true;
+    return new Promise((resolve, reject) => {
+      let scripttagElement = document.createElement('script');    
+      scripttagElement.src = 'https://www.paypalobjects.com/api/checkout.js';
+      scripttagElement.onload = resolve;
+      document.body.appendChild(scripttagElement);
+    })
+  }
+
 
   constructor(private router: Router) { }
 
   ngOnInit() {
+
+    
     
     let table = document.getElementById("carttable");
     
@@ -49,14 +89,14 @@ export class CartComponent implements OnInit {
         table.appendChild(row);
       }
     }
+
+    this.addPaypalScript().then(() => {
+      paypal.Button.render(this.paypalConfig, '#paypal-checkout-btn');
+      this.paypalLoad = false;
+    });
     
   } //ngOninit
-  like() {
-    if(this.liked)
-    this.liked = false;
-    else
-    this.liked = true;
-  }
+ 
   gotohome(){
     this.router.navigate(['']);
   }
