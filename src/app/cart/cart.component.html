@@ -2,7 +2,7 @@
   <div class = "table-responsive container-fluid" style="padding-top:25px;">
     <h1 style="display:inline-block;">Shopping Cart</h1>
     <img src="../../assets/images/cart1.png" width="35px" height="35px" alt="cart" id="cartimg" style="display:inline-block;"><br><br>
-    <table class="table">
+    <table class="table" id="1">
       <thead>
         <tr>
           <td></td>
@@ -18,7 +18,8 @@
         <td>{{gameName}}</td>
         <td>{{gameCompany}}</td>
         <td>${{gamePrice}}</td>
-        <td><button class="btn btn-secondary">Delete</button></td>
+        <!-- <td><button class="btn btn-secondary">Delete</button></td> -->
+        <td><img src="../../assets/images/delete.png" height="20px" width="20px"></td>
       </tr>
     </table><br><br><br><br><br><br>
 
@@ -31,6 +32,7 @@
     <div class="btn-group" id="buttons">
       <button class="btn btn-outline-primary">Go to Checkout</button>
       <button class="btn btn-outline-primary" (click)="gotohome()">Continue Shopping</button>
+      <button class="btn btn-outline-primary" (click)="add()">Add column</button>
     </div>
     
   </div>

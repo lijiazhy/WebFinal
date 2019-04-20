@@ -1,3 +1,7 @@
+textarea{
+	background-color: #222222;
+	color: aliceblue;
+}
 #game {
 	background-color: #222222;
 	margin-left:auto;
@@ -8,28 +12,31 @@
 	color: aliceblue;
 	margin-left: 20px;
 }
-textarea{
-	background-color: #222222;
-	color: aliceblue;
-}
 .description{
 	color: aliceblue;
 	border: aliceblue;
 	margin-left: auto;
 	margin-right: auto;
 }
-#paragraph{
+#gamedescription{
 	padding: 20px;
 	overflow: auto;
 }
-#gamedescription{
+#gamedescription textarea{
 	width: 350px;
 	border: none;
+}
+#gamedescription h3{
+	color:whitesmoke;
 }
 #commenttable{
 	margin-left: 100px;
 	margin-right: 100px;
 	color: aliceblue;
+}
+#commenttable td{
+	width:300px;
+	height: 150px
 }
 #user{
 	margin-left: 10px;
@@ -42,22 +49,31 @@ textarea{
 #addcomment{
 	text-align: center;
 } 
-#profileimg{
+#addcomment img{
 	border-radius: 50%;
 	border: 4px inset #a1afc9;
 	margin-bottom: 10px;
+	width:50px;
+	height:50px;
 }
-#addcommenttxt{
+#addcomment h4{
+	display:inline;
+	padding:10px;
+}
+#addcomment textarea{
 	border: 2px ridge #a1afc9;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: left;
 }
-#comments{
+#addcomment button{
+	width:70%;
+}
+/* #comments{
 	color:#FFF;
 	background-color: black;
 	margin: 20px auto;
-}
+} */
 /* #cartbtn :hover{
 	background-color: #222222;
 } */
