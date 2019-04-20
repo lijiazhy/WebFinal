@@ -10,7 +10,7 @@ export class CartComponent implements OnInit {
   gameName: string= "The Sims 4";
   gameCompany: string="EA"
   gamePrice: number=59.99;
-  totalPrice: number=100;
+  totalPrice: number=0;
   liked: boolean=false;
 
   constructor(private router: Router) { }
@@ -39,6 +39,7 @@ export class CartComponent implements OnInit {
         name.innerHTML=cart[i].searchID;
         company.innerHTML=cart[i].company;
         price.innerHTML="$"+cart[i].price;
+        this.totalPrice += cart[i].price;
         button.innerHTML = '<img src="../../assets/images/delete.png" height="20px" width="20px">';
         button.addEventListener("click",this.delete); 
         row.appendChild(name);
@@ -48,7 +49,8 @@ export class CartComponent implements OnInit {
         table.appendChild(row);
       }
     }
-  }
+    
+  } //ngOninit
   like() {
     if(this.liked)
     this.liked = false;
