@@ -94,12 +94,17 @@ export class GameComponent implements OnInit {
           break;
         }
       }
+      if (flag) {
+        this.inCart = true;
+        this.cartText = this._INCART;
+      }
+      else {
+        this.inCart = false;
+        this.cartText = this._NOTINCART;
+      }
       
     } 
-    if (flag) {
-      this.inCart = true;
-      this.cartText = this._INCART;
-    }
+    
       
 
     this.gameService.getGame(this.searchID)
