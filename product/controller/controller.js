@@ -203,7 +203,7 @@ exports.productFavorate = (req, res) => {
             return;
         }
 
-        if (user.products[i].state == 0) {
+        else if (user.products[i].state == 0) {
             User.updateOne({"userName": req.params.email, 'products.productName': req.body.productName}
             ,{$set:{'products.$.state':1}})
             .then( () => {
@@ -214,7 +214,7 @@ exports.productFavorate = (req, res) => {
             return;
         }
 
-        if (user.products[i].state == 1) {
+        else if (user.products[i].state == 1) {
             User.updateOne({"userName": req.params.email, 'products.productName': req.body.productName}
             ,{$set:{'products.$.state':0}})
             .then( () => {
@@ -225,7 +225,7 @@ exports.productFavorate = (req, res) => {
             return;
         }
 
-        if (user.products[i].state == -1) {
+        else if (user.products[i].state == -1) {
             User.updateOne({"userName": req.params.email, 'products.productName': req.body.productName}
             ,{$pull:{'products':{productName: req.body.productName}}})
             .then( () => {

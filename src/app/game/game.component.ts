@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from '../model/user.model';
 import { Router } from '@angular/router';
 import { CommentService } from '../service/comment.service';
+import { TextAst } from '@angular/compiler';
 
 declare let paypal: any;
 
@@ -82,6 +83,7 @@ export class GameComponent implements OnInit {
             let txtArea = document.createElement("textarea");
             txtArea.setAttribute("rows","5");
             txtArea.setAttribute("cols","90");
+            txtArea.setAttribute("disabled","disabled");
             txtArea.setAttribute("style","padding: 0 10px 0 10px;border: 4px groove #a1afc9;background-color: #222222;color: aliceblue;");
             txtArea.innerHTML = comments[0][i].content;
             td2.appendChild(txtArea);
