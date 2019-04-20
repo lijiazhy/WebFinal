@@ -6,12 +6,7 @@ import { UserService } from '../service/user.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from '../model/user.model';
 import { Router } from '@angular/router';
-import { Comment } from '../model/comment.model';
 import { CommentService } from '../service/comment.service';
-import { DomEventsPlugin } from '@angular/platform-browser/src/dom/events/dom_events';
-import { htmlAstToRender3Ast } from '@angular/compiler/src/render3/r3_template_transform';
-import { discoverLocalRefs } from '@angular/core/src/render3/context_discovery';
-import { TextAst } from '@angular/compiler';
 
 declare let paypal: any;
 
@@ -69,31 +64,33 @@ export class GameComponent implements OnInit {
         comments = Array(data);
         // let fRow = document.getElementById("firstRow");
         // fRow.innerHTML = "No comment for this game";
-
+        //console.log(this.searchID);
         for (let i = 0; i < comments[0].length; i ++) {
-          let table = document.getElementById("commenttable");
-          let td1 = document.createElement("td");
-          td1.setAttribute("style","width:300px;height: 150px");
-          let row = document.createElement("tr");
-          let d = document.createElement("div");
-          d.setAttribute("style","margin-left: 10px;margin-right: 10px;");
-          let h2 = document.createElement("h2");
-          h2.innerHTML = comments[0][i].userName;
-          d.appendChild(h2);
-          td1.appendChild(d);
+            if (comments[0][i].gameName == this.searchID) {
+            let table = document.getElementById("commenttable");
+            let td1 = document.createElement("td");
+            td1.setAttribute("style","width:300px;height: 150px");
+            let row = document.createElement("tr");
+            let d = document.createElement("div");
+            d.setAttribute("style","margin-left: 10px;margin-right: 10px;");
+            let h2 = document.createElement("h2");
+            h2.innerHTML = comments[0][i].userName;
+            d.appendChild(h2);
+            td1.appendChild(d);
 
-          let td2 = document.createElement("td");
-          let txtArea = document.createElement("textarea");
-          txtArea.setAttribute("rows","5");
-          txtArea.setAttribute("cols","90");
-          txtArea.setAttribute("style","padding: 0 10px 0 10px;border: 4px groove #a1afc9;background-color: #222222;color: aliceblue;");
-          txtArea.innerHTML = comments[0][i].content;
-          td2.appendChild(txtArea);
-          td2.setAttribute("style","width:300px;height: 150px");
-          row.appendChild(td1);
-          row.appendChild(td2);
-          table.appendChild(row);
-          console.log(Array(comments[0][i]));
+            let td2 = document.createElement("td");
+            let txtArea = document.createElement("textarea");
+            txtArea.setAttribute("rows","5");
+            txtArea.setAttribute("cols","90");
+            txtArea.setAttribute("style","padding: 0 10px 0 10px;border: 4px groove #a1afc9;background-color: #222222;color: aliceblue;");
+            txtArea.innerHTML = comments[0][i].content;
+            td2.appendChild(txtArea);
+            td2.setAttribute("style","width:300px;height: 150px");
+            row.appendChild(td1);
+            row.appendChild(td2);
+            table.appendChild(row);
+            console.log(Array(comments[0][i]));
+          }
         }
         
         
