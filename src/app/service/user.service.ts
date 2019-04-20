@@ -27,7 +27,7 @@ export class UserService {
     return this.http.post('http://localhost:3000/user/'+email+'/password', user);
   }
 
-  changeFavorate( email: String, game: any) {
+  changeFavorite( email: String, game: any) {
     return this.http.post('http://localhost:3000/user/' + email + '/product/favorate',  game );
   }
 }

@@ -191,7 +191,7 @@ export class GameComponent implements OnInit {
     let product = {
       productName: this.game.searchID
     };
-    this.userService.changeFavorate(this.loggeduser, product)
+    this.userService.changeFavorite(this.loggeduser, product)
     .subscribe(
       data => {
         alert(data['message']);
