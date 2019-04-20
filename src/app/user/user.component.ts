@@ -22,6 +22,9 @@ export class UserComponent implements OnInit {
   email: string;
   user: User;
   hasgame: boolean=false;
+  haslike: boolean=false;
+  numofgame: number=0;
+  numoflike: number=0;
 
   constructor(private userService: UserService, private gameService: GameService) {
     this.model.passWord = "";
@@ -38,7 +41,19 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem("user"));
     console.log(this.user);
-    if(Number(this.user.products.length) != 0)  this.hasgame == true;
+    // if(Number(this.user.products.length) != 0)  this.hasgame == true;
+    for (var i = 0; i < this.user.products.length; i++){
+      let state = this.user.products[i].state;
+      if(state == -1 || state == 1){  //haslike
+        this.haslike = true;
+        this.numoflike += 1;
+      }
+      if(state == 0 || state == 1){  //hasgame
+        this.hasgame = true;
+        this.numofgame += 1;
+      }
+    }
+    
     for (var i = 0; i < this.user.products.length; i++) {
       let state = this.user.products[i].state;
 
@@ -47,7 +62,7 @@ export class UserComponent implements OnInit {
           console.log(data);
           console.log("a" + state);
           if (state == -1) {
-            console.log("uown favorite");
+            console.log("unown favorite");
             let table = document.getElementById("fItem");
             let row = document.createElement("tr");
             let img = document.createElement("td");

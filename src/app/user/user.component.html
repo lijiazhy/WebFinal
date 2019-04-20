@@ -9,10 +9,10 @@
 
         <div id="list">
             <ul>
-                <li>Has 10 games in stock</li>
-                <li>Has 10 games in wish list</li>
-                <li>Has 10 games  commented</li>
-            </ul>
+                <li>Has {{numofgame}} games in stock</li>
+                <li>Has {{numoflike}} games in wish list</li>
+                <!-- <li>Has 10 games  commented</li> -->
+            </ul><br>
             <button class="btn btn-outline-primary" (click)="upt()">Update Password</button>
         </div>
     </div>
@@ -49,7 +49,7 @@
     <div class="row" id="boughtgames">
         <table >
             <tr id = "boughtTable">
-            <td colspan="4" *ngIf="hasgame" style="padding-left:80px;"><i>You haven't bought any games. Once you have bought one it will be shown here.</i></td>
+            <td colspan="4" *ngIf="!hasgame" style="padding-left:80px;"><i>You haven't bought any game. Once you have bought one it will be shown here.</i></td>
             </tr>
         </table>
     </div>
@@ -62,7 +62,7 @@
     </div>
     
     <table class="table" id = "favorate">
-        <thead>
+        <thead *ngIf="haslike">
           <tr>
             <th></th>
             <th>Game Name</th>
@@ -71,7 +71,9 @@
           </tr>
         </thead>
         <tbody id = "fItem">
-           
+           <tr>
+               <td colspan="4" *ngIf="!haslike" style="padding-left:80px;"><i>You haven't added any game to the Wish List. Once you have added one it will be shown here.</i></td>
+           </tr>
         </tbody>
     </table>
 </div>

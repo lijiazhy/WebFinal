@@ -91,8 +91,8 @@ export class CartComponent implements OnInit {
       var row = document.createElement("tr");
       var td = document.createElement("td");
       td.setAttribute("colspan","5");
-      td.setAttribute("style","text-align:left;");
-      td.innerHTML = "<h3>The cart is empty</h3>";
+      td.setAttribute("style","padding-left:80px;");
+      td.innerHTML = "<i>You haven't added any game to the cart. Once you have added one it will be shown here.</i>";
       row.appendChild(td);
       table.appendChild(row);
     }else{

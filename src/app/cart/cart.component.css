@@ -14,11 +14,20 @@ h1{
     /* width:500px; */
     /* border: 2px solid aliceblue; */
 }
-.mat-column-context {
-    flex: 0 0 100px;
-  }
-#buttons{
-    margin-left: 1000px;
+#cart h1{
+    display:inline-block;
+}
+#cart button{
+    /* display: inline-block; */
+    float: right;
+    margin-right: 120px;
+}
+#cartimg{
+    width:35px;
+    height:35px;
+    display:inline-block;
+    position: relative;
+    bottom:10px;
 }
 #total{
     text-align: left;
