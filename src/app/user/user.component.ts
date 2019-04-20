@@ -3,6 +3,7 @@ import { UserService } from '../service/user.service';
 import { User } from '../model/user.model';
 import { GameService } from '../service/game.service';
 import { Game } from '../model/game.model';
+import { Router } from '@angular/router';
 
 //declare let game: Game;
 
@@ -26,7 +27,7 @@ export class UserComponent implements OnInit {
   numofgame: number=0;
   numoflike: number=0;
 
-  constructor(private userService: UserService, private gameService: GameService) {
+  constructor(private router: Router,private userService: UserService, private gameService: GameService) {
     this.model.passWord = "";
     this.isReg = false;
     this.isSucc = false;
@@ -65,6 +66,7 @@ export class UserComponent implements OnInit {
             console.log("unown favorite");
             let table = document.getElementById("fItem");
             let row = document.createElement("tr");
+            
             let img = document.createElement("td");
             let name = document.createElement("td");
             let company = document.createElement("td");
@@ -73,6 +75,18 @@ export class UserComponent implements OnInit {
             let inImg = document.createElement("img");
             inImg.src = String(data.pictuer1);
             inImg.setAttribute("style","width:200px; height:110px");
+            let view = document.createElement("td");
+            let t = document.createElement("button");
+            t.setAttribute("class","btn btn-dark");
+            //t.setAttribute("style")
+            t.innerHTML = "view Details";
+            t.addEventListener("click", () => {
+              let newURL = `/search?game=` + data.searchID;
+              console.log(newURL);
+              this.router.navigateByUrl(newURL);
+            });
+            view.appendChild(t);
+
             img.appendChild(inImg);
             name.innerHTML = data.gameName;
             company.innerHTML = data.company;
@@ -81,6 +95,7 @@ export class UserComponent implements OnInit {
             row.appendChild(name);
             row.appendChild(company);
             row.appendChild(price);
+            row.appendChild(view);
             table.appendChild(row);
 
           }
@@ -94,8 +109,15 @@ export class UserComponent implements OnInit {
             let img = document.createElement("img");
             img.src = String(data.pictuer1);
             img.setAttribute("style","height: 250px;width: 450px;");
-            let name = document.createElement("p");
-            name.setAttribute("style","color:white;text-align:center;font-size:20px;");
+            let name = document.createElement("button");
+            name.setAttribute("style", "background-color:#222222; border:none; font-size:20px; color:white;margin-left:180px");
+            name.addEventListener("click", () => {
+              let newURL = `/search?game=` + data.searchID;
+              console.log(newURL);
+              this.router.navigateByUrl(newURL);
+            });
+            
+            //name.setAttribute("style","color:white;text-align:center;font-size:20px;");
             name.innerHTML = String(data.gameName);
             d.appendChild(img);
             d.appendChild(name);
@@ -116,6 +138,18 @@ export class UserComponent implements OnInit {
             inImg.src = String(data.pictuer1);
             inImg.setAttribute("style","width:200px; height:110px");
             img.appendChild(inImg);
+
+            let view = document.createElement("td");
+            let t = document.createElement("button");
+            t.setAttribute("class","btn btn-dark");
+            //t.setAttribute("style")
+            t.innerHTML = "view Details";
+            t.addEventListener("click", () => {
+              let newURL = `/search?game=` + data.searchID;
+              console.log(newURL);
+              this.router.navigateByUrl(newURL);
+            });
+            view.appendChild(t);
             name.innerHTML = data.gameName;
             company.innerHTML = data.company;
             price.innerHTML = "$" + String(data.gamePrice);
@@ -123,6 +157,7 @@ export class UserComponent implements OnInit {
             row.appendChild(name);
             row.appendChild(company);
             row.appendChild(price);
+            row.appendChild(view);
             table.appendChild(row);
 
             let row1 = document.getElementById("boughtTable");
@@ -133,8 +168,13 @@ export class UserComponent implements OnInit {
             let img1 = document.createElement("img");
             img1.src = String(data.pictuer1);
             img1.setAttribute("style","height: 250px;width: 450px;");
-            let name1 = document.createElement("p");
-            name1.setAttribute("style","color:white;text-align:center;font-size:20px;");
+            let name1 = document.createElement("button");
+            name1.setAttribute("style", "background-color:#222222; border:none; font-size:20px; color:white;margin-left:180px");
+            name1.addEventListener("click", () => {
+              let newURL = `/search?game=` + data.searchID;
+              console.log(newURL);
+              this.router.navigateByUrl(newURL);
+            });
             name1.innerHTML = String(data.gameName);
             d.appendChild(img1);
             d.appendChild(name1);
@@ -148,10 +188,24 @@ export class UserComponent implements OnInit {
     
   }
   test() {
-    console.log(this.user);
+    //console.log(this.user);
+    //this.router.navigateByUrl("newURL");
   }
 
-  
+  gameProfile(searchID:any) {
+    console.log(searchID);
+    //let searchID;
+    return function() {
+      
+      
+      let newURL = `/search?game=` + searchID;
+      console.log(newURL);
+      this.router.navigateByUrl(newURL);
+    }
+    
+		
+  }
+
   checkPwd(){
    
     var passwordRegex = new RegExp("^(?=.*\\d+)(?=.*[a-zA-Z]+)(?=.*\\W+)[A-Za-z0-9\\W]{8,}$");
