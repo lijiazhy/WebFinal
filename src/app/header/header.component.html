@@ -70,9 +70,9 @@
 
   <form class="form-inline nav-right"  id = "search" (ngSubmit) = "search(SearchFail)">
       <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search" aria-label="Search" [(ngModel)]="model.search"/>
-      <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
+      <button class="btn btn-outline-dark my-2 my-sm-0" style="padding:0"><img src="../../assets/images/magnifier.png" height="25px"></button>
   </form>
-  &nbsp; &nbsp; &nbsp; 
+  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; 
   <img src="../../assets/images/lazypanda3.jpg" width="40px" height="40px" id = "login" [ngbPopover]="popContent" popoverTitle="Popover on top">
 </nav>
 

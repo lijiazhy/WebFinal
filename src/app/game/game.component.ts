@@ -26,8 +26,8 @@ export class GameComponent implements OnInit {
   username: string="user";
 
   loggeduser: string;
-  _UNFAVORITE: string = "⭐Favorite";
-  _FAVORITE: string = "⭐Remove";
+  _UNFAVORITE: string = "Add to Wish List";
+  _FAVORITE: string = "In Wish List";
   _INCART: string = "In Cart";
   _NOTINCART: string = "Add to Cart";
   favorite: string = "";

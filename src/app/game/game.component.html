@@ -9,15 +9,13 @@
         <td width="850px" id="video"><div id ="gameVideo"></div></td>
         <td width="250px" height="500px" id="paragraph"> 
           <img src="{{imgageURL}}" alt="image" height="200px" width="350px"/>
-          <textarea rows = "10"  spellcheck = "false" id="gamedescription">{{description}}
+          <textarea rows = "9"  spellcheck = "false" id="gamedescription">{{description}}
           </textarea>
+          <div style="color:whitesmoke;"><h3>{{purchase}}</h3></div>
           <div class="btn-group">
-            <button class="btn btn-outline-primary" [disabled] = "true" style="display: inline; width: 110px">{{purchase}}</button>
-            <button  class="btn btn-outline-primary" style="display: inline; width:120px" (click) = "addToCart()">
-              🛒 {{cartText}}
-            </button>
-            <button class="btn btn-outline-primary" style="display: inline; width: 120px" (click) = "favoreteAction()">{{favorate}}</button>
-            
+            <!-- <button class="btn btn-outline-primary" [disabled] = "true" style="display: inline; width: 100px">{{purchase}}</button> -->
+            <button  class="btn btn-outline-primary" style="display: inline; width:170px" (click) = "addToCart()">🛒 {{cartText}}</button>
+            <button class="btn btn-outline-primary" style="display: inline; width: 170px" (click) = "favoreteAction()">⭐ {{favorite}}</button>
           </div>
           </td>
       </tr>
