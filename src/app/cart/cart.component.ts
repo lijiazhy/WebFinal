@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../service/user.service';
 declare let paypal: any;
 
 @Component({
@@ -33,12 +34,37 @@ export class CartComponent implements OnInit {
     onAuthorize: (data, actions) => {
       return actions.payment.execute().then((payment) => {
         //Do something when payment is successful.
+        this.buyGame();
         console.log("pay finish");
+
         localStorage.removeItem("cart");
         location.reload();
       })
     }
   };
+  buyGame() {
+
+    if(localStorage.userName == "" ) {
+      alert("please log in to buy this game.");
+      return ;
+    }
+
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    for (var i = 0; i < cart.length; i++) {
+      let product = {
+        productName: String(cart[i].searchID)
+      };
+
+      this.userService.addProduct(localStorage.userName, product)
+      .subscribe(
+        data => {
+          alert("successfully");
+        }
+      )
+    }
+    
+    
+  }
 
   addPaypalScript() {
     this.addScript = true;
@@ -51,7 +77,7 @@ export class CartComponent implements OnInit {
   }
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
 
