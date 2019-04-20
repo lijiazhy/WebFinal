@@ -4,7 +4,7 @@ h1{
     margin-right: 20px;
     margin-bottom: 0;
 }
-table{
+#cartTable{
     color: aliceblue;
     width: 90%;
     margin-left: auto;
@@ -14,6 +14,9 @@ table{
     /* width:500px; */
     /* border: 2px solid aliceblue; */
 }
+.mat-column-context {
+    flex: 0 0 100px;
+  }
 #buttons{
     margin-left: 1000px;
 }

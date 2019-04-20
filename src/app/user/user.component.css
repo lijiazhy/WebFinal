@@ -8,15 +8,10 @@ table{
 .container{
     width: 90%;
 }
-#profile{
-    margin-left: 30%;
-    /* margin-right: 150px; */
-    color : #C0C0C0;
-    float: left;
-    text-align: center;
-    /* display: inline-block; */
-    /* border: 3px groove whitesmoke; */
+#usertop {
+	display:inline;
 }
+
 #userprofile{
     width: 80%;
     margin-left: auto;
@@ -37,17 +32,6 @@ table{
 #userprofile p{
     font-size: 50px;
     display:inline-block;
-}
-#list{
-    margin: 20px 150px 0 150px;
-    width: 300px;
-    height: 150px;
-    clear: left;
-    display: inline-block;
-    text-align: left;
-}
-#list button{
-    margin-left: 40px;
 }
 hr{
     clear: both;
@@ -102,4 +86,51 @@ hr{
 }
 #newtrend:target{
     padding-top: 50px;
+}
+@media screen and (max-width: 1280px) {
+    #list{
+        margin-left: 37%;
+        width: 300px;
+        height: 150px;
+        /*clear: left;*/
+		float:left;
+        display: block;
+        text-align: left;
+    }
+	#profile{
+    margin-left: 40%;
+    /* margin-right: 150px; */
+    color : #C0C0C0;
+    float: left;
+    text-align: center;
+	display:inline;
+    /* display: inline-block; */
+    /* border: 3px groove whitesmoke; */
+}
+    #list button{
+    margin-left: 20%;
+}
+}
+@media screen and (min-width: 1280px) {
+    #list{
+    margin: 20px 150px 0 50px;
+    width: 300px;
+    height: 150px;
+    clear: left;
+    display: inline-block;
+    text-align: left;
+}
+    #profile{
+    margin-left: 30%;
+    /* margin-right: 150px; */
+    color : #C0C0C0;
+    float: left;
+    text-align: center;
+	display:inline;
+    /* display: inline-block; */
+    /* border: 3px groove whitesmoke; */
+}
+    #list button{
+    margin-left: 40px;
+}
 }

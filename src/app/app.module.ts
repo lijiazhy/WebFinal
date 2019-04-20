@@ -19,6 +19,7 @@ import { GameComponent } from './game/game.component';
 import { CartComponent } from './cart/cart.component';
 import { SearchComponent } from './search/search.component'; 
 
+
 @NgModule({
   declarations: [
     AppComponent,
