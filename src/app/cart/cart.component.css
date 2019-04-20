@@ -4,7 +4,7 @@ h1{
     margin-right: 20px;
     margin-bottom: 0;
 }
-#cartTable{
+.table{
     color: aliceblue;
     width: 90%;
     margin-left: auto;
@@ -25,6 +25,10 @@ h1{
 }
 #cardimg{
     padding-bottom: 30px;
+}
+#empty{
+    text-align: left;
+    border: none;
 }
 /* table,tr,td{
     border: 2px solid white;

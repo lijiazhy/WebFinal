@@ -227,6 +227,7 @@ export class GameComponent implements OnInit {
     if (!this.inCart) {
       var cart = JSON.parse(localStorage.getItem("cart"));
       if (cart == undefined) {
+        //console.log(123);
         let cs = [];
         cs[0] = {'searchID': this.game.searchID, 'company': this.game.company, 'price' : this.game.gamePrice};
         localStorage.setItem("cart", JSON.stringify(cs));
