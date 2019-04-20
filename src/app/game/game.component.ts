@@ -24,6 +24,7 @@ export class GameComponent implements OnInit {
   imgageURL: string;
   searchID: string;
   username: string="user";
+  company: string;
 
   loggeduser: string;
   _UNFAVORITE: string = "Add to Wish List";
@@ -79,17 +80,27 @@ export class GameComponent implements OnInit {
     });
 
     let cart = JSON.parse(localStorage.getItem("cart"));
+    console.log(cart);
+    let flag: boolean = false;
     if (cart == undefined) {
+      console.log(1);
       this.inCart = false;
       this.cartText = this._NOTINCART;
     }
-    else if (cart.indexOf(this.searchID) > -1 ) {
+    else{
+      for (let i = 0; i < cart.length; i++) {
+        if (cart[i].searchID == this.searchID) {
+          flag = true;
+          break;
+        }
+      }
+      
+    } 
+    if (flag) {
       this.inCart = true;
       this.cartText = this._INCART;
-    }else {
-      this.inCart = false;
-      this.cartText = this._NOTINCART;
     }
+      
 
     this.gameService.getGame(this.searchID)
     .subscribe( (data: Game) => {
@@ -110,10 +121,10 @@ export class GameComponent implements OnInit {
       this.imgageURL = this.game.picture2;
       this.description = this.game.description;
       this.purchase = "$" + this.price;
+      this.company = this.game.company;
 
       let html = `<embed src="${this.video}"  height="500" width="850"/>`;
       document.getElementById('gameVideo').innerHTML = html;
-      console.log(html);
     })
     if (this.loggeduser == "") {
       this.favorite = this._UNFAVORITE;
@@ -139,7 +150,7 @@ export class GameComponent implements OnInit {
               //own unfavorite
               else if(data['products'][i].state == 0){
                 this.favorite = this._UNFAVORITE;
-                return;
+                break;
               }
             }
           }
@@ -153,12 +164,13 @@ export class GameComponent implements OnInit {
         }
       )
     }
-
+    
     //load paypal
     // this.addPaypalScript().then(() => {
     //   paypal.Button.render(this.paypalConfig, `paypal-checkout-btn`);
     //   this.paypalLoad = false;
     // })
+    
 
   }
 
@@ -216,11 +228,11 @@ export class GameComponent implements OnInit {
       var cart = JSON.parse(localStorage.getItem("cart"));
       if (cart == undefined) {
         let cs = [];
-        cs[0] = this.game.searchID;
+        cs[0] = {'searchID': this.game.searchID, 'company': this.game.company, 'price' : this.game.gamePrice};
         localStorage.setItem("cart", JSON.stringify(cs));
       }
       else {
-        cart[cart.length] = this.game.searchID;
+        cart[cart.length] = {'searchID': this.game.searchID, 'company': this.game.company, 'price' : this.game.gamePrice};
         if( cart.indexOf(this.game.searchID) < 0 ) {
           localStorage.removeItem("cart");
           localStorage.setItem("cart", JSON.stringify(cart));
