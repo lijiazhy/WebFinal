@@ -16,6 +16,28 @@ export class CartComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+    
+    let table = document.getElementById("carttable");
+    
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    console.log(cart);
+    for (var i = 0; i < cart.length; i ++) {
+      var row = document.createElement('tr'); //创建行
+      var like = document.createElement("td"); //创建第1列
+      like.innerHTML = '<img src="../../assets/images/heart1.png" width="20px" height="20px" alt="like" (click)="like()">';
+      var name = document.createElement("td");
+      var company = document.createElement("td");
+      var price = document.createElement("td");
+      name.innerHTML=cart[i].searchID;
+      company.innerHTML=cart[i].company;
+      price.innerHTML=cart[i].price;
+      row.appendChild(like);
+      row.appendChild(name);
+      row.appendChild(company);
+      row.appendChild(price);
+      table.appendChild(row);
+    }
+    
   }
   like() {
     if(this.liked)
@@ -26,14 +48,7 @@ export class CartComponent implements OnInit {
   gotohome(){
     this.router.navigate(['']);
   }
-add(){
-  let table = document.getElementById("1");
-  var row = document.createElement('tr'); //创建行
-  var checkCell = document.createElement("td"); //创建第1列
-  checkCell.innerHTML = "2222";
-  row.appendChild(checkCell);
-  table.appendChild(row);
-}
+  
   // buyGame() {
 
   //   if(localStorage.userName == "" ) {
