@@ -26,11 +26,11 @@ export class GameComponent implements OnInit {
   username: string="user";
 
   loggeduser: string;
-  _UNFAVORITE: string = "⭐Favorite";
-  _FAVORITE: string = "⭐Remove";
+  _UNFAVORITE: string = "Add to Wish List";
+  _FAVORITE: string = "In Wish List";
   _INCART: string = "In Cart";
   _NOTINCART: string = "Add to Cart";
-  favorate: string = "";
+  favorite: string = "";
   purchase: string = "";
   confirmBuy: boolean = false;
   inCart: boolean = false;
@@ -116,7 +116,7 @@ export class GameComponent implements OnInit {
       console.log(html);
     })
     if (this.loggeduser == "") {
-      this.favorate = this._UNFAVORITE;
+      this.favorite = this._UNFAVORITE;
     }
     else {
       this.userService.getUser(this.loggeduser)
@@ -128,23 +128,23 @@ export class GameComponent implements OnInit {
             if (data['products'][i].productName == this.game.searchID) {
               // unown favorite
               if (data['products'][i].state == -1) {
-                this.favorate = this._FAVORITE;
+                this.favorite = this._FAVORITE;
                 break;
               }
               // own favorite
               else if(data['products'][i].state == 1) {
-                this.favorate = this._FAVORITE;
+                this.favorite = this._FAVORITE;
                 break;
               }
               //own unfavorite
               else if(data['products'][i].state == 0){
-                this.favorate = this._UNFAVORITE;
+                this.favorite = this._UNFAVORITE;
                 return;
               }
             }
           }
             if (i == data['products'].length || Number(data['products'].length) == 0) {
-              this.favorate = this._UNFAVORITE;
+              this.favorite = this._UNFAVORITE;
             }
           error => {
             alert(error.error.message);
@@ -185,7 +185,7 @@ export class GameComponent implements OnInit {
 
   favoreteAction() {
     if (localStorage.userName == "" ) {
-      alert("please log in to add favorate.");
+      alert("please log in to add favorite.");
       return;
     }
     let product = {
