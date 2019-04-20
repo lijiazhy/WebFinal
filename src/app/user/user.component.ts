@@ -104,7 +104,7 @@ export class UserComponent implements OnInit {
             let row = document.getElementById("boughtTable");
             let td = document.createElement("td");
             let d = document.createElement('div');
-            d.setAttribute("style","height:300px;padding: 0 15px 0 15px;");
+            d.setAttribute("style","height:300px;width:480px;padding: 0 15px 0 15px;");
             d.setAttribute("id","card");
             let img = document.createElement("img");
             img.src = String(data.pictuer1);
@@ -164,7 +164,7 @@ export class UserComponent implements OnInit {
             let row1 = document.getElementById("boughtTable");
             let td = document.createElement("td");
             let d = document.createElement('div');
-            d.setAttribute("style","height:300px;padding: 0 15px 0 15px;");
+            d.setAttribute("style","height:300px;width:480px;padding: 0 15px 0 15px;");
             d.setAttribute("id","card");
             let img1 = document.createElement("img");
             img1.src = String(data.pictuer1);
