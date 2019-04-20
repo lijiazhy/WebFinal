@@ -20,8 +20,10 @@
 #logged a, #logged button {
 	margin-left:120px;
 }
-#photo1{
+#photodiv img{
     border: 6px inset #a1afc9;
+    width:120px;
+    height:120px;
 }
 #photodiv :hover{
     /* border: 6px outset #a1afc9; */
@@ -31,13 +33,15 @@
     position: relative;
     bottom: 5px;
 }
-#icon{
-    margin: 15px;
-}
 #icons{
     box-shadow: 10px 10px 5px #888888;
     background-color: #d3e0f3;
 }
+#icon{
+    margin: 15px;
+    display:inline-block;
+}
+
 :host >>> .popover>.popover-header{
    display: none;
   }
@@ -47,11 +51,7 @@
 :host >>> .popover>.arrow:after {
 display: none;
 }
-/* #router{
-    margin-left:auto;
-    margin-right: auto;
-    font-size: 20px;
-} */
+
 
 @keyframes whirl {
     from {

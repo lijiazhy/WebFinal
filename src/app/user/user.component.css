@@ -1,33 +1,53 @@
+ul{
+    color: white;
+    font-size: 20px;
+}
+table{
+    color : white;  
+}
 .container{
     width: 90%;
 }
 #profile{
-    margin-left: 150px;
-    margin-right: 150px;
+    margin-left: 30%;
+    /* margin-right: 150px; */
     color : #C0C0C0;
     float: left;
     text-align: center;
+    /* display: inline-block; */
     /* border: 3px groove whitesmoke; */
 }
-#list{
-    margin-left: 150px;
-    margin-right: 150px;
-}
 #userprofile{
-    width: 70%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
+    background: url("../../assets/images/background1.png") no-repeat center;
+    background-size: 100%;
+    padding: 20px 0 10px 0;
+    border-radius: 15px;
+    text-align: center;
 }
-#profileimg{
+#userprofile img{
     /* float: left; */
     border-radius: 20px;
     border: 4px inset #a1afc9;
     margin-bottom: 20px;
 }
-#username{
+#userprofile p{
     font-size: 50px;
     display:inline-block;
+}
+#list{
+    margin: 20px 150px 0 150px;
+    width: 300px;
+    height: 150px;
+    clear: left;
+    display: inline-block;
+    text-align: left;
+}
+#list button{
+    margin-left: 40px;
 }
 hr{
     clear: both;
@@ -39,10 +59,7 @@ hr{
 #favouritegames{
     width: 90%;
 }
-table{
-    color : white;
-    
-}
+
 .subtitle{
     color:white;
     height:80px;
@@ -62,14 +79,15 @@ table{
     left: 1000px;
     opacity: 0.9;
  }
- ul{
-     color: white;
-     font-size: 20px;
- }
- .cardimg {
+ #card img {
     height: 250px;
-    width: 100%;
-  }
+    width: 450px;
+}
+#card p{
+    color:white;
+    text-align:center;
+    font-size:20px;
+}
 .row{
     width: 90%;
     margin-left: auto;
@@ -78,4 +96,10 @@ table{
     height: 340px;
     
 }
-
+.row td{
+    height:300px;
+    padding: 0 15px 0 15px;
+}
+#newtrend:target{
+    padding-top: 50px;
+}

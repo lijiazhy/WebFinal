@@ -46,7 +46,7 @@
       
       <div id="logged" *ngIf="islogged" style="display:block;height: 380px;">
         <div id="photodiv">
-          <img src="../../assets/images/lazypanda3.jpg" width="120px" height="120px" id = "photo1">
+          <img src="../../assets/images/lazypanda3.jpg">
         </div><br/>
         <!-- <h2>Welcome!</h2> -->
         <h2>{{userName}}</h2>
@@ -58,11 +58,11 @@
           <a [routerLink] = "['addGame']" (click) = "showForm()">Add Games</a> 
         </div><br>
         <div id="icons">
-          <div id="icon" style="display:inline-block;height: 30px;width: 30px" data-toggle="tooltip" title="View Profile" data-placement:="top"><img src="../../assets/images/document.png" width="30px" height="30px" (click)="gotouser()"></div>
-          <div id="icon" style="display:inline-block;height: 40px;width: 40px" data-toggle="tooltip" title="View Cart" data-placement:="top"><img src="../../assets/images/cart2.png" width="40px" height="40px" (click)="gotocart()"></div>
-          <div id="icon" style="display:inline-block;height: 40px;width: 40px" data-toggle="tooltip" title="View Bought Games" data-placement:="top"><a href="/user#boughtgames" style="margin-left:0;"><img src="../../assets/images/game.png" width="40px" height="40px"></a></div>
-          <div id="icon" style="display:inline-block;height: 30px;width: 30px" data-toggle="tooltip" title="View Favourite Games" data-placement:="top"><a href="/user#favouritegames" style="margin-left:0;"><img src="../../assets/images/heart2.jpeg" width="30px" height="30px"></a></div>
-          <div id="icon" style="display:inline-block;height: 30px;width: 30px" data-toggle="tooltip" title="Log Out" data-placement:="top"><img src="../../assets/images/logout.png" width="30px" height="30px" (click)="logOut()"></div>
+          <div id="icon" style="height: 30px;width: 30px" data-toggle="tooltip" title="View Profile" data-placement:="top"><img src="../../assets/images/document.png" width="30px" height="30px" (click)="gotouser()"></div>
+          <div id="icon" style="height: 40px;width: 40px" data-toggle="tooltip" title="View Cart" data-placement:="top"><img src="../../assets/images/cart2.png" width="40px" height="40px" (click)="gotocart()"></div>
+          <div id="icon" style="height: 40px;width: 40px" data-toggle="tooltip" title="View Bought Games" data-placement:="top"><a href="/user#boughtgame" style="margin-left:0;"><img src="../../assets/images/game.png" width="40px" height="40px"></a></div>
+          <div id="icon" style="height: 30px;width: 30px" data-toggle="tooltip" title="View Favourite Games" data-placement:="top"><a href="/user#favouritegames" style="margin-left:0;"><img src="../../assets/images/heart2.jpeg" width="30px" height="30px"></a></div>
+          <div id="icon" style="height: 30px;width: 30px" data-toggle="tooltip" title="Log Out" data-placement:="top"><img src="../../assets/images/logout.png" width="30px" height="30px" (click)="logOut()"></div>
         </div>
       </div>
     </ng-template>
