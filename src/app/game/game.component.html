@@ -31,52 +31,21 @@
 
     <table id="commenttable">
 
-      <tr>
-        <td>
-          <div id="user">
-            <h2>{{username}}</h2>
-            <span>Owns the game</span>
-          </div>
-        </td>
+      <tr id = "commentRow">
+       <td>
 
-        <td>
-          <textarea rows="5" cols="90" id="usercomment">{{comment}}</textarea>
-        </td>
-
-        <td rowspan="3" style="padding:10px;width:400px;">
+       </td>
+       <td></td>
+        <td style="padding:10px;width:400px;">
           <div id="addcomment">
             <img src="../../assets/images/notblackandwhite.jpeg">
             <h4>{{loggeduser}}</h4><br><br>
-            <textarea rows="12" cols="35" placeholder="Please add your comment here"></textarea><br>
-            <button class="btn btn-secondary">Add Comment</button>
+            <textarea rows="5" cols="35" placeholder="Please add your comment here" [(ngModel)] = "commentContent"></textarea><br>
+            <button class="btn btn-secondary" (click) = "addComment()">Add Comment</button>
           </div>
         </td>
       </tr>
 
-      <tr>
-        <td>
-          <div id="user">
-            <h2>{{username}}</h2>
-            <span>Owns the game</span>
-          </div>
-        </td>
-        <td>
-          <textarea rows="5" cols="90" id="usercomment">{{comment}}</textarea>
-        </td>
-      </tr>
-
-      <tr>
-          <td>
-            <div id="user">
-              <h2>{{username}}</h2>
-              <span>Owns the game</span>
-            </div>
-          </td>
-
-          <td>
-            <textarea rows="5" cols="90" id="usercomment">{{comment}}</textarea>
-          </td>
-        </tr>
     </table>
   </div>
   
