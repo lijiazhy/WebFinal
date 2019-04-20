@@ -26,4 +26,25 @@ export class CartComponent implements OnInit {
   gotohome(){
     this.router.navigate(['']);
   }
+
+  // buyGame() {
+
+  //   if(localStorage.userName == "" ) {
+  //     alert("please log in to buy this game.");
+  //     return ;
+  //   }
+
+  //   let product = {
+  //     productName: this.game.searchID
+  //   };
+
+  //   this.userService.addProduct(this.loggeduser, product)
+  //   .subscribe(
+  //     data => {
+  //       //alert("successfully");
+  //     })
+
+  //   location.reload();
+    
+  // }
 }
