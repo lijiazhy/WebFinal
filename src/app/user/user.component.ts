@@ -110,6 +110,7 @@ export class UserComponent implements OnInit {
             img.src = String(data.pictuer1);
             img.setAttribute("style","height: 250px;width: 450px;");
             let name = document.createElement("button");
+            name.setAttribute("class", "btn btn-dark");
             name.setAttribute("style", "background-color:#222222; border:none; font-size:20px; color:white;margin-left:180px");
             name.addEventListener("click", () => {
               let newURL = `/search?game=` + data.searchID;
@@ -169,6 +170,7 @@ export class UserComponent implements OnInit {
             img1.src = String(data.pictuer1);
             img1.setAttribute("style","height: 250px;width: 450px;");
             let name1 = document.createElement("button");
+            name1.setAttribute("class", "btn btn-dark");
             name1.setAttribute("style", "background-color:#222222; border:none; font-size:20px; color:white;margin-left:180px");
             name1.addEventListener("click", () => {
               let newURL = `/search?game=` + data.searchID;

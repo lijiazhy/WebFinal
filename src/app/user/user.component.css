@@ -139,3 +139,7 @@ hr{
     height: 270px;
 }
 }
+
+button:hover {
+    background-color: white;
+}
