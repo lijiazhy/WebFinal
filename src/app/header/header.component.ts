@@ -99,6 +99,7 @@ export class HeaderComponent implements OnInit {
           this.show = false;
           this.model.userName = "";
           this.model.passWord = "";
+          localStorage.userName = data.userName;
           
         }
         else {
