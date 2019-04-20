@@ -21,6 +21,7 @@ export class UserComponent implements OnInit {
   message : string;
   email: string;
   user: User;
+  hasgame: boolean=false;
 
   constructor(private userService: UserService, private gameService: GameService) {
     this.model.passWord = "";
@@ -37,6 +38,7 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem("user"));
     console.log(this.user);
+    if(Number(this.user.products.length) != 0)  this.hasgame == true;
     for (var i = 0; i < this.user.products.length; i++) {
       let state = this.user.products[i].state;
 
