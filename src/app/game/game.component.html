@@ -1,4 +1,4 @@
-<br /><br /><br />
+<br/><br/><br/>
 <div id="game">
   <div class = "table-responsive container-fluid" style="padding-top:25px;">
     <div class="subtitle" id="header">
@@ -7,11 +7,10 @@
     <table class="description">
       <tr>
         <td width="850px" id="video"><div id ="gameVideo"></div></td>
-        <td width="250px" height="500px" id="paragraph"> 
+        <td width="250px" height="500px" id="gamedescription"> 
           <img src="{{imgageURL}}" alt="image" height="200px" width="350px"/>
-          <textarea rows = "9"  spellcheck = "false" id="gamedescription">{{description}}
-          </textarea>
-          <div style="color:whitesmoke;"><h3>{{purchase}}</h3></div>
+          <textarea rows = "9"  spellcheck = "false">{{description}}</textarea>
+          <div><h3>{{purchase}}</h3></div>
           <div class="btn-group">
             <!-- <button class="btn btn-outline-primary" [disabled] = "true" style="display: inline; width: 100px">{{purchase}}</button> -->
             <button  class="btn btn-outline-primary" style="display: inline; width:170px" (click) = "addToCart()">🛒 {{cartText}}</button>
@@ -31,84 +30,56 @@
     </div><br>
 
     <table id="commenttable">
-      <tr>
 
-        <td style="width:300px;height: 200px">
+      <tr>
+        <td>
           <div id="user">
             <h2>{{username}}</h2>
             <span>Owns the game</span>
           </div>
         </td>
-        <td style="width:300px;height: 200px">
+
+        <td>
           <textarea rows="5" cols="90" id="usercomment">{{comment}}</textarea>
         </td>
 
-        <td rowspan="3" style="padding:10px;width:400px;padding: 10px">
+        <td rowspan="3" style="padding:10px;width:400px;">
           <div id="addcomment">
-            <img src="../../assets/images/notblackandwhite.jpeg" width="50px" height="50px" id="profileimg">
-            <h4 style="display:inline;padding:10px;">{{loggeduser}}</h4><br><br>
-            <textarea rows="12" cols="35" placeholder="Please add your comment here" id="addcommenttxt"></textarea><br>
-            <button class="btn btn-secondary" style="width:70%">Add Comment</button>
+            <img src="../../assets/images/notblackandwhite.jpeg">
+            <h4>{{loggeduser}}</h4><br><br>
+            <textarea rows="12" cols="35" placeholder="Please add your comment here"></textarea><br>
+            <button class="btn btn-secondary">Add Comment</button>
           </div>
         </td>
-
       </tr>
 
       <tr>
-        <td style="width:300px;height: 200px">
+        <td>
           <div id="user">
             <h2>{{username}}</h2>
             <span>Owns the game</span>
           </div>
         </td>
-        <td style="width:300px;height: 200px">
+        <td>
           <textarea rows="5" cols="90" id="usercomment">{{comment}}</textarea>
         </td>
       </tr>
 
       <tr>
-          <td style="width:300px;height: 200px">
+          <td>
             <div id="user">
               <h2>{{username}}</h2>
               <span>Owns the game</span>
             </div>
           </td>
-          <td style="width:300px;height: 200px">
+
+          <td>
             <textarea rows="5" cols="90" id="usercomment">{{comment}}</textarea>
           </td>
         </tr>
     </table>
   </div>
   
-  <!-- <div id="commentarea">
-    <div id="addcomment">
-      <img src="../../assets/images/notblackandwhite.jpeg" width="50px" height="50px" id="profileimg">
-      <h2 style="display:inline;padding:15px;">{{loggeduser}}</h2><br>
-      <textarea rows="12" cols="35" placeholder="Please add your comment here" style="border: 2px ridge #a1afc9;"></textarea><br>
-      <button class="btn btn-secondary">Add Comment</button>
-    </div>
-    <div id="comment">
-      <div id="user">
-          <h2>{{username}}</h2>
-          <span>Owns the game</span>
-      </div>
-      <textarea rows="5" cols="90" id="usercomment">{{comment}}</textarea>
-    </div>
-    <div id="comment">
-      <div id="user">
-        <h2>{{username}}</h2>
-        <span>Owns the game</span>
-      </div>
-      <textarea rows="5" cols="90" id="usercomment">{{comment}}</textarea>
-    </div>
-    <div id="comment">
-        <div id="user">
-          <h2>{{username}}</h2>
-          <span>Owns the game</span>
-        </div>
-        <textarea rows="5" cols="90" id="usercomment">{{comment}}</textarea>
-      </div>
-  </div>
-   -->
+  
 
   

@@ -26,7 +26,14 @@ export class CartComponent implements OnInit {
   gotohome(){
     this.router.navigate(['']);
   }
-
+add(){
+  let table = document.getElementById("1");
+  var row = document.createElement('tr'); //创建行
+  var checkCell = document.createElement("td"); //创建第1列
+  checkCell.innerHTML = "2222";
+  row.appendChild(checkCell);
+  table.appendChild(row);
+}
   // buyGame() {
 
   //   if(localStorage.userName == "" ) {
