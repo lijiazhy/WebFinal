@@ -66,12 +66,15 @@ textarea{
 	width:70%;
 }
 #cbk{
-	background: url("../../assets/images/cbk.png") no-repeat center;
-	background-size: cover;
+	background: url("../../assets/images/game.png") repeat center top;
+	background-size: 15%;
 	text-align: center;
 	/* color: #; */
 	border-radius: 20px;
-	font-size: 50px;
+	/* background-clip: padding-box;
+	background-origin: border-box; */
+	font-size: 30px;
+	/* padding: 20px; */
 }
 /* table, tr,td{
 	border: 2px solid white;
