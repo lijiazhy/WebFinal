@@ -97,4 +97,64 @@ export class HomeComponent implements OnInit {
       this.showTable1 = false;
     }
   }
+  fifa(){
+    let newURL = `/search?game=` + "fifa";
+		this.router.navigateByUrl(newURL);
+  }
+  creed(){
+    let newURL = `/search?game=` + "creed";
+		this.router.navigateByUrl(newURL);
+  }
+  reddead(){
+    let newURL = `/search?game=` + "red";
+		this.router.navigateByUrl(newURL);
+  }
+  sim(){
+    let newURL = `/search?game=` + "sim";
+		this.router.navigateByUrl(newURL);
+  }
+  monster(){
+    let newURL = `/search?game=` + "monster";
+		this.router.navigateByUrl(newURL);
+  }
+  god(){
+    let newURL = `/search?game=` + "god";
+		this.router.navigateByUrl(newURL);
+  }
+  evil(){
+    let newURL = `/search?game=` + "evil";
+		this.router.navigateByUrl(newURL);
+  }
+  devil(){
+    let newURL = `/search?game=` + "devil";
+		this.router.navigateByUrl(newURL);
+  }
+  dota(){
+    let newURL = `/search?game=` + "dota";
+		this.router.navigateByUrl(newURL);
+  }
+  human(){
+    let newURL = `/search?game=` + "human";
+		this.router.navigateByUrl(newURL);
+  }
+  minecraft(){
+    let newURL = `/search?game=` + "minecraft";
+		this.router.navigateByUrl(newURL);
+  }
+  gujian(){
+    let newURL = `/search?game=` + "gujian";
+		this.router.navigateByUrl(newURL);
+  }
+  elder(){
+    let newURL = `/search?game=` + "elder";
+		this.router.navigateByUrl(newURL);
+  }
+  issac(){
+    let newURL = `/search?game=` + "issac";
+		this.router.navigateByUrl(newURL);
+  }
+  nba(){
+    let newURL = `/search?game=` + "nba";
+		this.router.navigateByUrl(newURL);
+  }
 }
