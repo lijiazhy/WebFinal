@@ -82,11 +82,12 @@
 <ng-template #LoginSucc let-c = "close">
     <div class = "modal-content">
       <div class = "modal-body">
-        <h1>Congratulation!</h1>
-        Login Successfully!
+        <h3><i>Congratulations! <img src="../../assets/images/logo1.jpg" height="30px" width="30px"></i></h3>
+        You have Successfully logged in!<br>
+        You are now in <i>Pandada.com</i>!
       </div>
       <div class = "modal-footer">
-        <button type = "button" (click) = "c()"> Yes </button>
+        <button type = "button" class="btn btn-primary btn-xs" (click) = "c()"> OK </button>
       </div>
     </div>
   </ng-template>
@@ -94,11 +95,11 @@
   <ng-template #LoginFail let-c = "close">
       <div class = "modal-content">
         <div class = "modal-body">
-          <h1>Oops!</h1>
+          <h3><i>Oops, Something is Wrong!</i><img src="../../assets/images/logo1.jpg" height="30px" width="30px"></h3>
           {{errorMessage}}
         </div>
         <div class = "modal-footer">
-          <button type = "button" (click) = "c()"> Yes </button>
+          <button type = "button" class="btn btn-primary btn-xs" (click) = "c()"> OK </button>
         </div>
       </div>
     </ng-template>
@@ -106,11 +107,11 @@
   <ng-template #SearchFail let-c = "close">
       <div class = "modal-content">
         <div class = "modal-body">
-          <h1>Oops!</h1>
+          <h3><i>Oops, Something is Wrong!</i><img src="../../assets/images/logo1.jpg" height="30px" width="30px"></h3>
           {{errorMessage}}
         </div>
-        <div class = "modal-footer">
-          <button type = "button" (click) = "c()"> Yes </button>
+        <div class = "modal-footer"> 
+          <button type = "button" class="btn btn-primary btn-xs" (click) = "c()"> OK </button>
         </div>
       </div>
   </ng-template>

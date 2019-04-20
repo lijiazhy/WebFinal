@@ -53,7 +53,19 @@
 :host >>> .popover>.arrow:after {
 display: none;
 }
-
+.modal-content{
+    background-color:whitesmoke;   
+}
+/* ,modal-body{
+    
+} */
+.modal-footer{
+    height: 50px;
+    opacity: 0.8;
+}
+/* .modal-footer button{
+    height: 30px;
+} */
 
 @keyframes whirl {
     from {
