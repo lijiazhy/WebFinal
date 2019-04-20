@@ -38,6 +38,9 @@ textarea{
 	width:300px;
 	height: 150px
 }
+#commentRow i{
+	font-size: 40px;
+}
 #usercomment{
 	padding: 0 10px 0 10px;
 	border: 4px groove #a1afc9;
@@ -64,6 +67,9 @@ textarea{
 }
 #addcomment button{
 	width:70%;
+}
+table, tr,td{
+	border: 2px solid white;
 }
 /* #comments{
 	color:#FFF;
