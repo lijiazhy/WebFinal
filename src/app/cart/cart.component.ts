@@ -10,13 +10,47 @@ export class CartComponent implements OnInit {
   gameName: string= "The Sims 4";
   gameCompany: string="EA"
   gamePrice: number=59.99;
-  totalPrice: number=100;
+  totalPrice: number=0;
   liked: boolean=false;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
-  }
+    
+    let table = document.getElementById("carttable");
+    
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    console.log(cart)
+    if(cart == undefined){
+      var row = document.createElement("tr");
+      var td = document.createElement("td");
+      td.setAttribute("colspan","5");
+      td.setAttribute("style","text-align:left;");
+      td.innerHTML = "<h3>The cart is empty</h3>";
+      row.appendChild(td);
+      table.appendChild(row);
+    }else{
+      for (var i = 0; i < cart.length; i ++) {
+        var row = document.createElement('tr'); //创建行
+        var name = document.createElement("td");
+        var company = document.createElement("td");
+        var price = document.createElement("td");
+        var button = document.createElement("td");
+        name.innerHTML=cart[i].searchID;
+        company.innerHTML=cart[i].company;
+        price.innerHTML="$"+cart[i].price;
+        this.totalPrice += cart[i].price;
+        button.innerHTML = '<img src="../../assets/images/delete.png" height="20px" width="20px">';
+        button.addEventListener("click",this.delete); 
+        row.appendChild(name);
+        row.appendChild(company);
+        row.appendChild(price);
+        row.appendChild(button);
+        table.appendChild(row);
+      }
+    }
+    
+  } //ngOninit
   like() {
     if(this.liked)
     this.liked = false;
@@ -26,7 +60,20 @@ export class CartComponent implements OnInit {
   gotohome(){
     this.router.navigate(['']);
   }
-
+  delete(){
+    var td = (<HTMLElement>event.target).parentElement;
+    var tr = ( <HTMLElement>td ).parentElement;
+    var id = (<HTMLElement>tr).children[0].innerHTML;
+    var tbody=( <HTMLElement>tr ).parentElement;
+    tbody.removeChild(tr);
+    var cart = JSON.parse(localStorage.getItem("cart"));
+    for(var i=0;i<cart.length;i++){
+      if(id == cart[i].searchID)
+      cart.splice(i,1);
+    }
+    localStorage.removeItem("cart");
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
   // buyGame() {
 
   //   if(localStorage.userName == "" ) {

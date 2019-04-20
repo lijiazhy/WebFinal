@@ -26,6 +26,10 @@ h1{
 #cardimg{
     padding-bottom: 30px;
 }
+#empty{
+    text-align: left;
+    border: none;
+}
 /* table,tr,td{
     border: 2px solid white;
 } */
