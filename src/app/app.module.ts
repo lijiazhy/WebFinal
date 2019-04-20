@@ -18,6 +18,7 @@ import { AddGameComponent } from './add-game/add-game.component';
 import { GameComponent } from './game/game.component';
 import { CartComponent } from './cart/cart.component';
 import { SearchComponent } from './search/search.component'; 
+import { MatTableModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SearchComponent } from './search/search.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModalModule
+    NgbModalModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
